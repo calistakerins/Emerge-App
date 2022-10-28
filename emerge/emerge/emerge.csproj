@@ -33,6 +33,7 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
       <EnableCodeSigning>false</EnableCodeSigning>
+      <CreatePackage>false</CreatePackage>
     </PropertyGroup>
     <ItemGroup>
         <!-- App Icon -->
@@ -51,8 +52,10 @@
 
     <ItemGroup>
       <None Remove="MudBlazor" />
+      <None Remove="MudBlazor.ThemeManager" />
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="MudBlazor" Version="6.0.17" />
+      <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.7" />
     </ItemGroup>
 </Project>
