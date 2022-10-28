@@ -1,0 +1,29 @@
+﻿@page "/profile"
+
+<MudMainContent>
+    <MudContainer MaxWidth="MaxWidth.Medium">
+        <MudText Typo="Typo.h1">Jane Doe</MudText>
+        <MudText Typo="Typo.h5">King County</MudText>
+
+        <MudPaper Class="pa-4 mr-16">
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View Followed Departments</MudButton>
+        </MudPaper>
+        <MudPaper Class="pa-4 mr-16">
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">Sign Out</MudButton>
+        </MudPaper>
+    </MudContainer>
+</MudMainContent>
+
+@code {
+    public string Text { get; set; } = "Jane Doe";
+    public string ButtonText { get; set; } = "Click Me";
+    public int ButtonClicked { get; set; }
+
+    void ButtonOnClick()
+    {
+        ButtonClicked += 1;
+        Text = $"Awesome x {ButtonClicked}";
+        ButtonText = "Click Me Again";
+    }
+}
+

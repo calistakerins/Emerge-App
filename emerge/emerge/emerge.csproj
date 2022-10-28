@@ -49,4 +49,24 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Blazorise" />
+      <None Remove="Blazorise.Icons.FontAwesome" />
+      <None Remove="Blazorise.Bootstrap" />
+      <None Remove="MudBlazor" />
+      <None Remove="Radzen.Blazor" />
+      <None Remove="Radzen.Design" />
+      <None Remove="Radzen.Blazor.GridExportOptions" />
+      <None Remove="Radzen.Blazor.GridColumnVisibilityChooser" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Blazorise" Version="1.1.2" />
+      <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.1.2" />
+      <PackageReference Include="Blazorise.Bootstrap" Version="1.1.2" />
+      <PackageReference Include="MudBlazor" Version="6.0.17" />
+      <PackageReference Include="Radzen.Blazor" Version="4.1.15" />
+      <PackageReference Include="Radzen.Design" Version="0.0.2" />
+      <PackageReference Include="Radzen.Blazor.GridExportOptions" Version="3.3.0" />
+      <PackageReference Include="Radzen.Blazor.GridColumnVisibilityChooser" Version="2.2.0" />
+    </ItemGroup>
 </Project>
