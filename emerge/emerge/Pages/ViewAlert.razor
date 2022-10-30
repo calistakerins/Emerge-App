@@ -1,0 +1,36 @@
+﻿@page "/alert"
+@using emerge.Data
+
+<MudContainer Class="mt-16">
+    <MudButton Variant="Variant.Outlined" href="/">Alerts</MudButton>
+    <div>
+        <MudText Typo="Typo.h3" Class="mt-5"><b>@aInfo.Title</b></MudText>
+        <MudText Typo="Typo.h5">PRIORITY: 5</MudText>
+        <MudText Typo="Typo.body1">[Town Admin Name]</MudText>
+        <MudText Typo="Typo.body1">OCTOBER 19, 2022 2:12 PM</MudText>
+        <MudPaper Class="pa-6 ma-4" Elevation="3">
+            <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+        </MudPaper>
+    </div>
+    <div>
+        <MudText Typo="Typo.h4" Class="mt-5"><b>Updates</b></MudText>
+        @foreach (var u in updates)
+        {
+            <MudPaper Class="pa-6 ma-4">
+                <MudText Typo="Typo.subtitle2">@u.DateTime</MudText>
+                <MudText Typo="Typo.subtitle1">@u.Description</MudText>
+            </MudPaper>
+        }
+        </div>
+
+    </MudContainer>
+
+@code {
+    private static readonly string title = "FLASH FLOOD EVACUATION";
+    private static readonly string author = "TOWN ADMIN";
+    private static readonly DateTime dateTime = new DateTime(2019, 05, 09, 09, 15, 00);
+    private static readonly UpdateInfo[] updates = {
+        new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
+        new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
+    AlertInfo aInfo = new AlertInfo(dateTime, title, author, updates);
+}

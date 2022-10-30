@@ -569,3 +569,4 @@
 /Users/harrisonshu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/emerge.pdb
 /Users/harrisonshu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/emerge.genruntimeconfig.cache
 /Users/harrisonshu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/ref/emerge.dll
+/Users/trieu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/MudBlazor.ThemeManager.dll
