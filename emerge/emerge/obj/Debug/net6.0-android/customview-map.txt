@@ -39,6 +39,7 @@ com.google.android.material.appbar.AppBarLayout;/Users/trieu/Projects/Project-3-
 com.google.android.material.appbar.MaterialToolbar;/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/lp/153/jl/res/layout/toolbar.xml
 com.google.android.material.tabs.TabLayout;/Users/harrisonshu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/lp/153/jl/res/layout/tabbar.xml
 com.google.android.material.tabs.TabLayout;/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/lp/153/jl/res/layout/tabbar.xml
+crc640ec207abc449b2ca.ShellFlyoutLayout;/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/lp/152/jl/res/layout/flyoutcontent.xml
 declare-styleable;/Users/harrisonshu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/lp/153/jl/res/values/attrs.xml
 declare-styleable;/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/lp/153/jl/res/values/attrs.xml
 declare-styleable;/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/lp/155/jl/res/values/attr.xml
