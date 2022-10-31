@@ -1,25 +1,23 @@
 ﻿<Properties StartupConfiguration="{88B0AB92-350E-472A-BAC4-51DA874E3357}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.emerge PreferredExecutionTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="emerge/Pages/NewsFeed.razor">
     <Files>
-      <File FileName="emerge/Pages/Index.razor" Line="9" Column="1" />
-      <File FileName="emerge/_Imports.razor" Line="9" Column="17" />
-      <File FileName="emerge/Pages/Counter.razor" Line="1" Column="1" />
-      <File FileName="emerge/MauiProgram.cs" Line="3" Column="26" />
-      <File FileName="emerge/MainPage.xaml" Line="1" Column="1" />
-      <File FileName="emerge/Pages/FetchData.razor" Line="1" Column="1" />
-      <File FileName="emerge/Main.razor" Line="1" Column="1" />
-      <File FileName="emerge/Pages/NewsFeed.razor" Line="102" Column="1" />
-      <File FileName="emerge/wwwroot/index.html" Line="7" Column="22" />
-      <File FileName="emerge/Shared/NavMenu.razor" Line="34" Column="1" />
-      <File FileName="emerge/Shared/MainLayout.razor" Line="2" Column="1" />
+      <File FileName="emerge/Pages/Index.razor" />
+      <File FileName="emerge/_Imports.razor" />
+      <File FileName="emerge/Pages/Counter.razor" />
+      <File FileName="emerge/MauiProgram.cs" />
+      <File FileName="emerge/MainPage.xaml" />
+      <File FileName="emerge/Pages/FetchData.razor" />
+      <File FileName="emerge/Main.razor" />
+      <File FileName="emerge/Pages/NewsFeed.razor" Line="15" Column="33" />
+      <File FileName="emerge/wwwroot/index.html" />
+      <File FileName="emerge/Shared/NavMenu.razor" />
+      <File FileName="emerge/Shared/MainLayout.razor" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -38,4 +36,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.emerge PreferredExecutionTarget="MyAppleMacCatalystID" />
 </Properties>
