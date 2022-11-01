@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		8U3O15MZYhAU3iAK4d7A+RlenWo=
+		R/0K4O1ma0UFB3KvJhgIX/CTDUw=
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Resources/appicon.icns</key>
 		<data>
-		b662XKpGlZAnh83xLx3sOUcfUA0=
+		jGLxugzeWD+TyjHeX/hnh6qV9Fw=
 		</data>
 		<key>Resources/dotnet_bot.png</key>
 		<data>
@@ -111,6 +111,10 @@
 		<key>Resources/wwwroot/favicon.ico</key>
 		<data>
 		J2CNhOKPkmt0ADglIkD3Fe650r0=
+		</data>
+		<key>Resources/wwwroot/images/profile_pic.png</key>
+		<data>
+		FDWifErhp5Sf8e8e1Gxz7LplTmU=
 		</data>
 		<key>Resources/wwwroot/index.html</key>
 		<data>
@@ -1509,14 +1513,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bnQtI0YVA48sb6p7vq+DMo6fWDiy8EwmYEdJEl3jcRM=
+			mMajkV6roS0+AwzCOrzulYDZJ5BENI+wbcjoChq0nbk=
 			</data>
 		</dict>
 		<key>MonoBundle/emerge.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HgAS1FVO3cltxPAy4xjVzp7TCQNXhtPEBc/Fkd0FdPw=
+			aq4/Rpkf90hR3qoBZrgFUYDPOP5sRK2JAHz2+VoZWW8=
 			</data>
 		</dict>
 		<key>MonoBundle/icudt.dat</key>
@@ -1600,7 +1604,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GFHEaeBj8DPJh0x2cV01wP1du894bN+vRAZogxyi55w=
+			iyZqGQWVl4M/fcvQCcTSw8U4lEcYlSG5DPoRTS6uGd8=
 			</data>
 		</dict>
 		<key>Resources/MauiInfo.plist</key>
@@ -1628,7 +1632,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ec7nXoGJoI5Tvia6KZkz7qQzZ7+dKhFRFQ3JU8eaVlY=
+			mrDJ15X2mKhv18677i58w6LnKJZhwaN8bZReGiKRD6g=
 			</data>
 		</dict>
 		<key>Resources/dotnet_bot.png</key>
@@ -1776,6 +1780,13 @@
 			<key>hash2</key>
 			<data>
 			Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=
+			</data>
+		</dict>
+		<key>Resources/wwwroot/images/profile_pic.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4XCSdVoPpgLtLMTJArV5R0sZzhYGbw+2GFQE8QZUloY=
 			</data>
 		</dict>
 		<key>Resources/wwwroot/index.html</key>

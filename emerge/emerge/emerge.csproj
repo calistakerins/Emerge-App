@@ -58,4 +58,14 @@
       <PackageReference Include="MudBlazor" Version="6.0.17" />
       <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.7" />
     </ItemGroup>
+    <ItemGroup>
+      <Content Remove="wwwroot\images\" />
+      <Content Remove="wwwroot\images\profile_pic.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="wwwroot\images\" />
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="wwwroot\images\profile_pic.png" />
+    </ItemGroup>
 </Project>

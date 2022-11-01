@@ -1,0 +1,52 @@
+﻿@page "/profile"
+
+<MudMainContent>
+    <MudContainer MaxWidth="MaxWidth.Medium">
+        @if (loggedIn is not false)
+        {
+            <MudPaper Class="pa-4 d-flex align-content-center flex-wrap">
+                <MudStack Justify="Justify.Center" Spacing="20">
+                    <MudText Class="red-text" Typo="Typo.body1">Browsing Anonymously</MudText>
+                    <MudText Typo="Typo.body2">Sign up to receive more personalized news</MudText>
+                </MudStack>
+            </MudPaper>
+
+            <MudPaper Class="pa-4 mt-8">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" @onclick="Login">Log In</MudButton>
+            </MudPaper>
+        }
+
+        @if (loggedIn is false) { 
+            <MudPaper Class="pa-4 mt-8">
+                <MudStack Row="true">
+                    <MudAvatar Image="images/profile_pic.png" Size="Size.Large" />
+                    <MudStack Justify="Justify.Center" Spacing="20">
+                        <MudText Typo="Typo.body1">@name</MudText>
+                        <MudText Typo="Typo.body2">@county</MudText>
+                    </MudStack>
+                </MudStack>
+            </MudPaper>
+
+            <MudPaper Class="pa-4 mt-8">
+                <MudButton Class="mb-8" Href="following" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View Followed Departments</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" @onclick="SignOut">Sign Out</MudButton>
+            </MudPaper>
+        }
+    </MudContainer>
+</MudMainContent> 
+
+@code {
+    public string name { get; set; } = "Jane Doe";
+    public string county { get; set; } = "King County";
+    public bool loggedIn = true;
+
+    void SignOut()
+    {
+        // TODO: Sign out action
+    }
+
+    void Login()
+    {
+        // TODO: Login action
+    }
+}
