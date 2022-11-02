@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "P2vg4+AqqgTQovj307ry8DIjc4A1FFrSdjt3hQcsVZU=",
+  "Hash": "5j5s/El6+BDVWb94geEnM5j0Z3CIKtlj7XkNktjAUrw=",
   "Source": "emerge",
   "BasePath": "/",
   "Mode": "Root",
@@ -10,17 +10,17 @@
     {
       "Name": "emerge/wwwroot",
       "Source": "emerge",
-      "ContentRoot": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/Users/ellabuysse/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/MudBlazorThemeManager.css",
+      "Identity": "/Users/calistakerins/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/MudBlazorThemeManager.css",
       "SourceId": "MudBlazor.ThemeManager",
       "SourceType": "Package",
-      "ContentRoot": "/Users/ellabuysse/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/",
+      "ContentRoot": "/Users/calistakerins/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/",
       "BasePath": "_content/MudBlazor.ThemeManager",
       "RelativePath": "MudBlazorThemeManager.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/ellabuysse/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/MudBlazorThemeManager.css"
+      "OriginalItemSpec": "/Users/calistakerins/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/MudBlazorThemeManager.css"
     },
     {
-      "Identity": "/Users/ellabuysse/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.css",
+      "Identity": "/Users/calistakerins/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.css",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/ellabuysse/.nuget/packages/mudblazor/6.0.17/staticwebassets/",
+      "ContentRoot": "/Users/calistakerins/.nuget/packages/mudblazor/6.0.17/staticwebassets/",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/ellabuysse/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.css"
+      "OriginalItemSpec": "/Users/calistakerins/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.css"
     },
     {
-      "Identity": "/Users/ellabuysse/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.js",
+      "Identity": "/Users/calistakerins/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.js",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/ellabuysse/.nuget/packages/mudblazor/6.0.17/staticwebassets/",
+      "ContentRoot": "/Users/calistakerins/.nuget/packages/mudblazor/6.0.17/staticwebassets/",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.js",
       "AssetKind": "All",
@@ -65,13 +65,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/ellabuysse/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.js"
+      "OriginalItemSpec": "/Users/calistakerins/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.js"
     },
     {
-      "Identity": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/bundle/emerge.styles.css",
+      "Identity": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/bundle/emerge.styles.css",
       "SourceId": "emerge",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/bundle/",
+      "ContentRoot": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/bundle/",
       "BasePath": "/",
       "RelativePath": "emerge.styles.css",
       "AssetKind": "All",
@@ -82,13 +82,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/bundle/emerge.styles.css"
+      "OriginalItemSpec": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/bundle/emerge.styles.css"
     },
     {
-      "Identity": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/projectbundle/emerge.bundle.scp.css",
+      "Identity": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/projectbundle/emerge.bundle.scp.css",
       "SourceId": "emerge",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/projectbundle/",
+      "ContentRoot": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/projectbundle/",
       "BasePath": "/",
       "RelativePath": "emerge.bundle.scp.css",
       "AssetKind": "All",
@@ -99,13 +99,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/projectbundle/emerge.bundle.scp.css"
+      "OriginalItemSpec": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/projectbundle/emerge.bundle.scp.css"
     },
     {
-      "Identity": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/wwwroot/css/app.css",
+      "Identity": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/css/app.css",
       "SourceId": "emerge",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "RelativePath": "css/app.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot/css/app.css"
     },
     {
-      "Identity": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/wwwroot/favicon.ico",
+      "Identity": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/favicon.ico",
       "SourceId": "emerge",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
-      "Identity": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/wwwroot/index.html",
+      "Identity": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/index.html",
       "SourceId": "emerge",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/ellabuysse/Projects/emerge/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "RelativePath": "index.html",
       "AssetKind": "All",

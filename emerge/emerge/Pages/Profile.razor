@@ -12,7 +12,11 @@
             </MudPaper>
 
             <MudPaper Class="pa-4 mt-8">
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" @onclick="Login">Log In</MudButton>
+                <MudButton Href ="/login"
+                           Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           FullWidth="true"
+                           @onclick="Login">Log In</MudButton>
             </MudPaper>
         }
 
@@ -39,7 +43,7 @@
 @code {
     public string name { get; set; } = "Jane Doe";
     public string county { get; set; } = "King County";
-    public bool loggedIn = true;
+    public bool loggedIn = false;
 
     void SignOut()
     {
