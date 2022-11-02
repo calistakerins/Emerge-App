@@ -3,25 +3,25 @@
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.emerge PreferredExecutionTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="emerge/MauiProgram.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="emerge/Main.razor">
     <Files>
-      <File FileName="emerge/Pages/Index.razor" Line="1" Column="1" />
+      <File FileName="emerge/Pages/Index.razor" />
       <File FileName="emerge/_Imports.razor" Line="9" Column="17" />
-      <File FileName="emerge/wwwroot/index.html" Line="8" Column="49" />
-      <File FileName="emerge/MauiProgram.cs" Line="11" Column="15" />
-      <File FileName="emerge/Main.razor" Line="3" Column="14" />
-      <File FileName="emerge/Shared/MainLayout.razor" Line="1" Column="30" />
-      <File FileName="emerge/wwwroot/css/app.css" />
+      <File FileName="emerge/wwwroot/index.html" />
+      <File FileName="emerge/MauiProgram.cs" Line="20" Column="11" />
+      <File FileName="emerge/Main.razor" Line="1" Column="1" />
+      <File FileName="emerge/Shared/MainLayout.razor" Line="6" Column="7" />
+      <File FileName="emerge/wwwroot/css/app.css" Line="2" Column="1" />
       <File FileName="emerge/Shared/NavMenu.razor" Line="14" Column="19" />
-      <File FileName="emerge/Pages/NewsFeed.razor" Line="4" Column="29" />
+      <File FileName="emerge/Pages/NewsFeed.razor" />
       <File FileName="emerge/Pages/Counter.razor" Line="18" Column="1" />
-      <File FileName="emerge/Pages/ViewAlert.razor" Line="15" Column="10" />
+      <File FileName="emerge/Pages/ViewAlert.razor" Line="5" Column="5" />
       <File FileName="emerge/Data/WeatherForecast.cs" Line="11" Column="37" />
       <File FileName="emerge/Data/WeatherForecastService.cs" Line="1" Column="1" />
-      <File FileName="emerge/Pages/FetchData.razor" Line="26" Column="4" />
+      <File FileName="emerge/Pages/FetchData.razor" />
       <File FileName="emerge/Shared/SurveyPrompt.razor" Line="1" Column="1" />
-      <File FileName="emerge/Data/EmptyClass.cs" Line="9" Column="46" />
-      <File FileName="emerge/Shared/Index.razor" Line="45" Column="7" />
+      <File FileName="emerge/Shared/NavMenu.razor.css" Line="1" Column="1" />
+      <File FileName="emerge/Data/AlertInfo.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -34,7 +34,7 @@
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
               </Node>
-              <Node name="MauiProgram.cs" selected="True" />
+              <Node name="Main.razor" selected="True" />
             </Node>
           </Node>
         </State>
