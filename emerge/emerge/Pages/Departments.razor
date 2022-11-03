@@ -1,0 +1,36 @@
+﻿@page "/depts"
+@using emerge.Data
+
+<MudContainer Class="mt-16">
+    <MudText Typo="Typo.h3" Class="mt-5"><b>Departments</b></MudText>
+    <div>
+        <MudButton Variant="Variant.Outlined" href="/">Followed Departments</MudButton>
+        <MudButton Variant="Variant.Outlined" href="/">All Departments</MudButton>
+    </div>
+    <div>
+        
+        <MudPaper Class="pa-6 ma-4" Elevation="3">
+            <MudText Typo="Typo.h5">Department 1</MudText>
+            <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+        </MudPaper>
+        <MudPaper Class="pa-6 ma-4" Elevation="3">
+            <MudText Typo="Typo.h5">Department 2</MudText>
+            <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+        </MudPaper>
+        <MudPaper Class="pa-6 ma-4" Elevation="3">
+            <MudText Typo="Typo.h5">Department 3</MudText>
+            <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+        </MudPaper>
+    </div>
+
+</MudContainer>
+
+@code {
+    private static readonly string title = "FLASH FLOOD EVACUATION";
+    private static readonly string author = "TOWN ADMIN";
+    private static readonly DateTime dateTime = new DateTime(2019, 05, 09, 09, 15, 00);
+    private static readonly UpdateInfo[] updates = {
+        new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
+        new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
+    AlertInfo aInfo = new AlertInfo(dateTime, title, author, updates);
+}
