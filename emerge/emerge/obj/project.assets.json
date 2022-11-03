@@ -27649,20 +27649,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/calistakerins/.nuget/packages/": {}
+    "/Users/ellabuysse/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/emerge.csproj",
+      "projectUniqueName": "/Users/ellabuysse/Project-3---308/emerge/emerge/emerge.csproj",
       "projectName": "emerge",
-      "projectPath": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/emerge.csproj",
-      "packagesPath": "/Users/calistakerins/.nuget/packages/",
-      "outputPath": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/obj/",
+      "projectPath": "/Users/ellabuysse/Project-3---308/emerge/emerge/emerge.csproj",
+      "packagesPath": "/Users/ellabuysse/.nuget/packages/",
+      "outputPath": "/Users/ellabuysse/Project-3---308/emerge/emerge/obj/",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "configFilePaths": [
-        "/Users/calistakerins/.nuget/NuGet/NuGet.Config"
+        "/Users/ellabuysse/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0-android",
