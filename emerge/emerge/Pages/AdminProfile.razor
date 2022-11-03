@@ -1,0 +1,58 @@
+﻿@page "/adminprofile"
+@using emerge.Data
+
+<MudMainContent>
+    <MudContainer MaxWidth="MaxWidth.Medium">
+
+        <MudText Typo="Typo.h5" Class="red-text"><b>Logged In As Town Admin</b></MudText>
+
+        <MudPaper Class="pa-4 mt-8 mb-8">
+            <MudStack Row="true">
+                <MudAvatar Image="images/profile_pic.png" Size="Size.Large" />
+                <MudStack Justify="Justify.Center" Spacing="20">
+                    <MudText Typo="Typo.body1">@name</MudText>
+                    <MudText Typo="Typo.body2">@county</MudText>
+                </MudStack>
+            </MudStack>
+        </MudPaper>
+
+        <MudPaper Class="pa-4 mt-8 mb-8">
+            <MudButton Href="/login"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       FullWidth="true"
+                       @onclick="Logout">Sign Out</MudButton>
+        </MudPaper>
+
+        <div>
+            <MudText Typo="Typo.h5" Class="mt-5"><b>Alerts Posted</b></MudText>
+            @foreach (var u in updates)
+            {
+                <MudPaper Class="pa-6 ma-4">
+                    <MudText Typo="Typo.subtitle2">@u.DateTime</MudText>
+                    <MudText Typo="Typo.subtitle1">@u.Description</MudText>
+                </MudPaper>
+            }
+        </div>
+
+    </MudContainer>
+</MudMainContent>
+
+@code {
+    public string name { get; set; } = "Jane Doe";
+    public string county { get; set; } = "King County";
+    public bool loggedIn = false;
+    private static readonly UpdateInfo[] updates = {
+        new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
+        new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
+
+    void SignOut()
+    {
+        // TODO: Sign out action
+    }
+
+    void Logout()
+    {
+        // TODO: Login action
+    }
+}
