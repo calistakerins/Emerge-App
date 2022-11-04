@@ -1,22 +1,41 @@
 ﻿<Properties StartupConfiguration="{88B0AB92-350E-472A-BAC4-51DA874E3357}|Default">
   <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="emerge/Pages/Index.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="emerge/Pages/NewsFeed.razor">
     <Files>
-      <File FileName="emerge/Pages/Index.razor" Line="1" Column="1" />
+      <File FileName="emerge/Pages/Index.razor" />
+      <File FileName="emerge/_Imports.razor" />
+      <File FileName="emerge/Pages/Counter.razor" />
+      <File FileName="emerge/MauiProgram.cs" />
+      <File FileName="emerge/Pages/FetchData.razor" />
+      <File FileName="emerge/Main.razor" />
+      <File FileName="emerge/wwwroot/index.html" />
+      <File FileName="emerge/Shared/NavMenu.razor" />
+      <File FileName="emerge/Shared/MainLayout.razor" Line="4" Column="26" />
+      <File FileName="emerge/MainPage.xaml" />
+      <File FileName="emerge/Pages/ViewAlert.razor" />
+      <File FileName="emerge/Pages/NewsFeed.razor" Line="51" Column="31" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="emerge" expanded="True">
             <Node name="emerge" expanded="True">
+              <Node name="Data" expanded="True" />
               <Node name="Pages" expanded="True">
-                <Node name="Index.razor" selected="True" />
+                <Node name="NewsFeed.razor" selected="True" />
+              </Node>
+              <Node name="Resources" expanded="True">
+                <Node name="Images" expanded="True" />
+              </Node>
+              <Node name="Shared" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -24,5 +43,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.emerge FirstBuild="True" PreferredExecutionTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.ItemProperties.emerge PreferredExecutionTarget="MyAppleMacCatalystID" />
 </Properties>

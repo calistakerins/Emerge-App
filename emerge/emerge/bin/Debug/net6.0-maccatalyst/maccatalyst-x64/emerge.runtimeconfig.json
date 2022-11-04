@@ -8,19 +8,19 @@
       },
       {
         "name": "Microsoft.Maui.Core",
-        "version": "6.0.540"
+        "version": "6.0.541"
       },
       {
         "name": "Microsoft.Maui.Controls",
-        "version": "6.0.540"
+        "version": "6.0.541"
       },
       {
         "name": "Microsoft.Maui.Essentials",
-        "version": "6.0.540"
+        "version": "6.0.541"
       },
       {
         "name": "Microsoft.MacCatalyst",
-        "version": "15.4.454"
+        "version": "15.4.465"
       }
     ],
     "configProperties": {

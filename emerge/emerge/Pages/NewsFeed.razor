@@ -1,0 +1,84 @@
+﻿@page "/news"
+@inherits LayoutComponentBase
+
+<MudContainer Class="mt-16">
+    <MudText Typo="Typo.h1" Align="Align.Center" GutterBottom="true">Emergency Alerts</MudText>
+    <MudDivider DividerType="DividerType.Middle" Class="my-20" />
+
+    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten2};")">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h4" Style="font-weight:bold">FLASH FLOOD EVACUATIOn</MudText>
+                <MudText Typo="Typo.h6">Priority: 5</MudText>
+                <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
+                <MudText Typo="Typo.body1">
+                    The National Weather Service has issued a coastal flood alert for
+                    [COUNTY NAME] County until [DATE]. Take precautions on beaches
+                    and stay tuned for updates.
+                </MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudText Typo="Typo.body1" Class="mt-4 ms-4">
+                    1 January, 2022
+                </MudText>
+                <MudText Typo="Typo.body1" Class="ms-4">
+                    [Time]
+                </MudText>
+            </CardHeaderActions>
+        </MudCardHeader>
+
+    </MudCard>
+
+    <MudCard Class="ma-8 pa-4 rounded-xl"  Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten2};")">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h4" Style="font-weight:bold">BUILDING FIRE</MudText>
+                <MudText Typo="Typo.h6">Priority: 5</MudText>
+                <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
+                <MudText Typo="Typo.body1">
+                    The National Weather Service has issued a coastal flood alert for
+                    [COUNTY NAME] County until [DATE]. Take precautions on beaches
+                    and stay tuned for updates.
+                </MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudText Typo="Typo.body1" Class="mt-4 ms-4">
+                    1 January, 2022
+                </MudText>
+                <MudText Typo="Typo.body1" Class= "ms-4">
+                    [Time] 
+                </MudText>
+            </CardHeaderActions>
+        </MudCardHeader>
+       
+    </MudCard>
+
+    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten2};")">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h4" Style="font-weight:bold">ARMED MAN LOOSE</MudText>
+                <MudText Typo="Typo.h6">Priority: 5</MudText>
+                <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
+                <MudText Typo="Typo.body1">
+                    The National Weather Service has issued a coastal flood alert for
+                    [COUNTY NAME] County until [DATE]. Take precautions on beaches
+                    and stay tuned for updates.
+                </MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudText Typo="Typo.body1" Class="mt-4 ms-4">
+                    1 January, 2022
+                </MudText>
+                <MudText Typo="Typo.body1" Class="ms-4">
+                    [Time]
+                </MudText>
+            </CardHeaderActions>
+        </MudCardHeader>
+
+    </MudCard>
+
+</MudContainer>
+@code {
+    private MudTheme Theme = new MudTheme();
+    
+}
