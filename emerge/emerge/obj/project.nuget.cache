@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "WHzIBSlIuYBz8UqXPGpYptRf8mbI+PaHYbUpd60/4vQYNnea2oQa3KIPSMYsOaLARcwPGKSmQIPn+g7VLKPHrA==",
-  "success": true,
-  "projectFilePath": "/Users/ellabuysse/Project-3---308/emerge/emerge/emerge.csproj",
-=======
   "dgSpecHash": "bMpFYo5lVSyCvWetYHX2CXRcC9+6cMlV1VKWxoxUkVa5Dd3c8Ag/wLBQf/oYKaxpdxHzD0krmJwfrKRahfx4Lw==",
   "success": true,
   "projectFilePath": "/Users/trieu/Projects/Project-3---308/emerge/emerge/emerge.csproj",
->>>>>>> post-Alert
   "expectedPackageFiles": [
     "/Users/trieu/.nuget/packages/googlegson/2.9.0.1/googlegson.2.9.0.1.nupkg.sha512",
     "/Users/trieu/.nuget/packages/microsoft.aspnetcore.authorization/6.0.9/microsoft.aspnetcore.authorization.6.0.9.nupkg.sha512",
