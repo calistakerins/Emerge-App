@@ -5,14 +5,18 @@
       <CodesignSigningKey>-</CodesignSigningKey>
       <CodesignEntitlements></CodesignEntitlements>
       <CodesignUseSecureTimestamp></CodesignUseSecureTimestamp>
-      <CodesignAllocate>/Users/ellabuysse/Downloads/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate</CodesignAllocate>
+      <CodesignAllocate>/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate</CodesignAllocate>
       <RequireCodeSigning>false</RequireCodeSigning>
       <CodesignExtraArgs></CodesignExtraArgs>
       <CodesignResourceRules></CodesignResourceRules>
       <CodesignDisableTimestamp>true</CodesignDisableTimestamp>
       <CodesignKeychain></CodesignKeychain>
       <CodesignUseHardenedRuntime></CodesignUseHardenedRuntime>
+<<<<<<< HEAD
       <SourceProjectPath>/Users/ellabuysse/Project-3---308/emerge/emerge</SourceProjectPath>
+=======
+      <SourceProjectPath>/Users/trieu/Projects/Project-3---308/emerge/emerge</SourceProjectPath>
+>>>>>>> post-Alert
     </_CodesignBundle>
   </ItemGroup>
 </Project>

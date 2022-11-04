@@ -1,0 +1,50 @@
+﻿@page "/postalert"
+@using emerge.Data
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+<DataAnnotationsValidator/>
+<MudText Typo="Typo.h3" Class="mt-5"><b>Post Alert</b></MudText>
+        <MudCard>
+            <MudCardContent>
+                <MudTextField Label="Title"
+                              @bind-Value="model.Title" Variant="Variant.Filled" For="@(() => model.Title)" Class="pt-4 pb-4"/>
+                <MudNumericField Label="Priority"
+                                 @bind-Value="model.Priority" Variant="Variant.Filled"  Min="0" Max="5" Class="pt-4 pb-4" />
+                <MudTextField T="string" Label="Description" @bind-Value="model.Description" Variant="Variant.Filled"  Lines="5" For="@(() => model.Description)" Class="pt-4 pb-4"/>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Post Alert</MudButton>
+            </MudCardActions>
+        </MudCard>
+</EditForm>
+@code {
+    private static PostAlertForm model = new PostAlertForm();
+    bool success;
+
+
+    public static UpdateInfo[] UpdateInfo { get; set; }
+
+    public class PostAlertForm
+    {
+        [Required]
+        public string Title { get; set; }
+
+        [Required]
+        public int Priority { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
+    }
+
+
+    AlertInfo newAlert = new AlertInfo(DateTime.Now, model.Title, model.Description, UpdateInfo);
+
+    private void OnValidSubmit(EditContext context)
+    {
+        success = true;
+        StateHasChanged();
+    }
+
+}

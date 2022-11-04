@@ -1,6 +1,7 @@
 {
   "Files": [
     {
+<<<<<<< HEAD
       "Id": "/Users/ellabuysse/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/bundle/emerge.styles.css",
       "PackagePath": "staticwebassets/emerge.styles.css"
     },
@@ -22,6 +23,21 @@
     },
     {
       "Id": "/Users/ellabuysse/Project-3---308/emerge/emerge/wwwroot/index.html",
+=======
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/bundle/emerge.styles.css",
+      "PackagePath": "staticwebassets/emerge.styles.css"
+    },
+    {
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/index.html",
+>>>>>>> post-Alert
       "PackagePath": "staticwebassets/index.html"
     },
     {

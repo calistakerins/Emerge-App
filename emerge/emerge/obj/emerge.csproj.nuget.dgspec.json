@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "/Users/ellabuysse/Project-3---308/emerge/emerge/emerge.csproj": {}
   },
   "projects": {
@@ -12,10 +13,23 @@
         "projectPath": "/Users/ellabuysse/Project-3---308/emerge/emerge/emerge.csproj",
         "packagesPath": "/Users/ellabuysse/.nuget/packages/",
         "outputPath": "/Users/ellabuysse/Project-3---308/emerge/emerge/obj/",
+=======
+    "/Users/trieu/Projects/Project-3---308/emerge/emerge/emerge.csproj": {}
+  },
+  "projects": {
+    "/Users/trieu/Projects/Project-3---308/emerge/emerge/emerge.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/trieu/Projects/Project-3---308/emerge/emerge/emerge.csproj",
+        "projectName": "emerge",
+        "projectPath": "/Users/trieu/Projects/Project-3---308/emerge/emerge/emerge.csproj",
+        "packagesPath": "/Users/trieu/.nuget/packages/",
+        "outputPath": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/",
+>>>>>>> post-Alert
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
-          "/Users/ellabuysse/.nuget/NuGet/NuGet.Config"
+          "/Users/trieu/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0-android",

@@ -6,9 +6,15 @@
 	<dict>
 		<key>output-files</key>
 		<array>
+<<<<<<< HEAD
 			<string>/Users/ellabuysse/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/actool/bundle/Assets.car</string>
 			<string>/Users/ellabuysse/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/actool/bundle/appicon.icns</string>
 			<string>/Users/ellabuysse/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/actool/partial-info.plist</string>
+=======
+			<string>/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/actool/bundle/Assets.car</string>
+			<string>/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/actool/bundle/appicon.icns</string>
+			<string>/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/actool/partial-info.plist</string>
+>>>>>>> post-Alert
 		</array>
 	</dict>
 </dict>
