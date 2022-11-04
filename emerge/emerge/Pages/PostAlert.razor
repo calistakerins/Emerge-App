@@ -4,44 +4,26 @@
 
 <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
 <DataAnnotationsValidator/>
-<MudGrid>
-    <MudItem xs="12" sm="7">
+<MudText Typo="Typo.h3" Class="mt-5"><b>Post Alert</b></MudText>
         <MudCard>
             <MudCardContent>
                 <MudTextField Label="Title"
-                              @bind-Value="model.Title" Variant="Variant.Filled" For="@(() => model.Username)"/>
+                              @bind-Value="model.Title" Variant="Variant.Filled" For="@(() => model.Title)" Class="pt-4 pb-4"/>
                 <MudNumericField Label="Priority"
-                                 @bind-Value="model.Priority" Variant="Variant.Filled"  Min="0" Max="5" />
-                <MudTextField T="string" Label="Description" Variant="Variant.Filled"  Lines="5" For="@(() => model.Description)"/>
+                                 @bind-Value="model.Priority" Variant="Variant.Filled"  Min="0" Max="5" Class="pt-4 pb-4" />
+                <MudTextField T="string" Label="Description" @bind-Value="model.Description" Variant="Variant.Filled"  Lines="5" For="@(() => model.Description)" Class="pt-4 pb-4"/>
             </MudCardContent>
             <MudCardActions>
                 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Post Alert</MudButton>
             </MudCardActions>
         </MudCard>
-    </MudItem>
-    <MudItem xs="12" sm="5">
-        <MudPaper Class="pa-4 mud-height-full">
-            <MudText Typo="Typo.subtitle2">Validation Summary</MudText>
-            @if (success)
-            {
-                <MudText Color="Color.Success">Success</MudText>
-            }
-            else
-            {
-                <MudText Color="@Color.Error">
-                    <ValidationSummary />
-                </MudText>
-            }
-        </MudPaper>
-    </MudItem>
-</MudGrid>
 </EditForm>
 @code {
     private static PostAlertForm model = new PostAlertForm();
     bool success;
 
 
-    public string Title { get; set; }
+    public static UpdateInfo[] UpdateInfo { get; set; }
 
     public class PostAlertForm
     {
@@ -56,7 +38,8 @@
 
     }
 
-    AlertInfo newAlert = new AlertInfo(DateTime.Now, model.Title, model.Description);
+
+    AlertInfo newAlert = new AlertInfo(DateTime.Now, model.Title, model.Description, UpdateInfo);
 
     private void OnValidSubmit(EditContext context)
     {
