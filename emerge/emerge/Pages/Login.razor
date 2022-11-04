@@ -1,0 +1,35 @@
+﻿@page "/login"
+<MudText Typo="Typo.h3" Align="Align.Center">Log In</MudText>
+
+<p>
+    <MudContainer Class="d-flex justify-center align-center"><MudImage Src="images/profile_pic.png" Alt="profile pic" /></MudContainer>
+</p>
+
+
+
+<MudContainer Class="d-flex justify-center align-center">
+    <MudItem xs="12" sm="6" md="4">
+        <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+    </MudItem>
+</MudContainer>
+
+
+<MudContainer Class="d-flex justify-center align-center">
+    <MudItem xs="12" sm="6" md="4">
+        <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+    </MudItem>
+</MudContainer>
+
+<p></p>
+
+<MudText Typo="Typo.subtitle1" Align="Align.Center">Not registered?</MudText>
+
+<MudContainer Class="d-flex justify-center align-center">
+    <MudButton Variant="Variant.Text">Create new account</MudButton>
+</MudContainer>
+
+@code {
+    public string Username { get; set; }
+    public string Password { get; set; }
+}
+
