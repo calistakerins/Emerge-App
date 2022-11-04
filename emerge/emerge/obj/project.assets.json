@@ -27654,19 +27654,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "/Users/ellabuysse/Project-3---308/emerge/emerge/emerge.csproj",
-      "projectName": "emerge",
-      "projectPath": "/Users/ellabuysse/Project-3---308/emerge/emerge/emerge.csproj",
-      "packagesPath": "/Users/ellabuysse/.nuget/packages/",
-      "outputPath": "/Users/ellabuysse/Project-3---308/emerge/emerge/obj/",
-=======
       "projectUniqueName": "/Users/trieu/Projects/Project-3---308/emerge/emerge/emerge.csproj",
       "projectName": "emerge",
       "projectPath": "/Users/trieu/Projects/Project-3---308/emerge/emerge/emerge.csproj",
       "packagesPath": "/Users/trieu/.nuget/packages/",
       "outputPath": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/",
->>>>>>> post-Alert
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "configFilePaths": [

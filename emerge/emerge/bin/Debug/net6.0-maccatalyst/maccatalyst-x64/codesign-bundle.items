@@ -12,11 +12,7 @@
       <CodesignDisableTimestamp>true</CodesignDisableTimestamp>
       <CodesignKeychain></CodesignKeychain>
       <CodesignUseHardenedRuntime></CodesignUseHardenedRuntime>
-<<<<<<< HEAD
-      <SourceProjectPath>/Users/ellabuysse/Project-3---308/emerge/emerge</SourceProjectPath>
-=======
       <SourceProjectPath>/Users/trieu/Projects/Project-3---308/emerge/emerge</SourceProjectPath>
->>>>>>> post-Alert
     </_CodesignBundle>
   </ItemGroup>
 </Project>

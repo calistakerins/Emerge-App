@@ -27,7 +27,6 @@
 /Users/trieu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/Microsoft.JSInterop.dll
 /Users/trieu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/Microsoft.Maui.Graphics.dll
 /Users/trieu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/MudBlazor.dll
-/Users/trieu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/MudBlazor.ThemeManager.dll
 /Users/trieu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/System.IO.Pipelines.dll
 /Users/trieu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/Microsoft.CSharp.dll
 /Users/trieu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/Microsoft.VisualBasic.Core.dll
@@ -284,7 +283,6 @@
 /Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/emerge.pdb
 /Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/emerge.genruntimeconfig.cache
 /Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/ref/emerge.dll
-<<<<<<< HEAD
 /Users/harrisonshu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/emerge.runtimeconfig.json
 /Users/harrisonshu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/emerge.dll
 /Users/harrisonshu/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/emerge.pdb
@@ -1430,5 +1428,3 @@
 /Users/ellabuysse/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/emerge.pdb
 /Users/ellabuysse/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/emerge.genruntimeconfig.cache
 /Users/ellabuysse/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/ref/emerge.dll
-=======
->>>>>>> post-Alert

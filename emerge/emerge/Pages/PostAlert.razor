@@ -20,7 +20,7 @@
 </EditForm>
 @code {
     private static PostAlertForm model = new PostAlertForm();
-    bool success;
+
 
 
     public static UpdateInfo[] UpdateInfo { get; set; }
@@ -43,7 +43,6 @@
 
     private void OnValidSubmit(EditContext context)
     {
-        success = true;
         StateHasChanged();
     }
 
