@@ -1,0 +1,52 @@
+﻿@page "/updatealert"
+@using emerge.Data
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@model" >
+    <DataAnnotationsValidator />
+    <MudText Typo="Typo.h3" Class="mt-5"><b>Update Alert</b></MudText>
+    <MudCard>
+        <MudCardContent>
+            <MudTextField @bind-Value="newAlert.Title" Label="Title" ReadOnly="true" Variant="Variant.Text" />
+
+            <MudNumericField Label="Priority"
+                             @bind-Value="model.Priority" Variant="Variant.Filled" Min="0" Max="5" Class="pt-4 pb-4" />
+            <MudTextField T="string" Label="Description" @bind-Value="model.Description" Variant="Variant.Filled" Lines="5" For="@(() => model.Description)" Class="pt-4 pb-4" />
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Update Alert</MudButton>
+        </MudCardActions>
+    </MudCard>
+</EditForm>
+@code {
+    private static PostAlertForm model = new PostAlertForm();
+    private static readonly string title = "FLASH FLOOD EVACUATION";
+    private static readonly string author = "TOWN ADMIN";
+
+    public static UpdateInfo[] UpdateInfo { get; set; }
+
+    public class PostAlertForm
+    {
+        [Required]
+        public string Title { get; set; }
+
+        [Required]
+        public int Priority { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
+    }
+
+
+    AlertInfo newAlert = new AlertInfo(DateTime.Now, title, model.Description, UpdateInfo);
+
+
+
+    private static readonly DateTime dateTime = new DateTime(2019, 05, 09, 09, 15, 00);
+    private static readonly UpdateInfo[] updates = {
+        new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
+        new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
+    AlertInfo aInfo = new AlertInfo(dateTime, title, author, updates);
+
+}
