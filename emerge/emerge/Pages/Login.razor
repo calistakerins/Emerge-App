@@ -20,12 +20,19 @@
     </MudItem>
 </MudContainer>
 
+<MudContainer Class="d-flex justify-center align-center">
+    <MudButton Href="/profile"
+               Variant="Variant.Text">Log In</MudButton>
+</MudContainer>
+
 <p></p>
+<MudDivider DividerType="DividerType.Middle" Class="my-6" />
 
 <MudText Typo="Typo.subtitle1" Align="Align.Center">Not registered?</MudText>
 
 <MudContainer Class="d-flex justify-center align-center">
-    <MudButton Variant="Variant.Text">Create new account</MudButton>
+    <MudButton Href="/createAccount"
+               Variant="Variant.Text">Create new account</MudButton>
 </MudContainer>
 
 @code {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5j5s/El6+BDVWb94geEnM5j0Z3CIKtlj7XkNktjAUrw=",
+  "Hash": "7DE5adSrNcM5UwPbNlyS6AVjo0AkqEK4Ba00RI4NDoU=",
   "Source": "emerge",
   "BasePath": "/",
   "Mode": "Root",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-android/scopedcss/projectbundle/emerge.bundle.scp.css"
+    },
+    {
+      "Identity": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/.DS_Store",
+      "SourceId": "emerge",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
     },
     {
       "Identity": "/Users/calistakerins/Projects/Project-3---308/emerge/emerge/wwwroot/css/app.css",

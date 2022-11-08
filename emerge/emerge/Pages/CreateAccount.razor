@@ -1,0 +1,37 @@
+﻿@page "/createAccount"
+
+<MudText Typo="Typo.h4" Align="Align.Center">Create New Account</MudText>
+<MudDivider DividerType="DividerType.Middle" Class="my-6" />
+
+
+<MudContainer Class="d-flex justify-center align-center">
+    <MudItem xs="12" sm="6" md="4">
+        <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+        <MudSpacer />
+        <MudTextField @bind-Value="Email" Label="Email" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+        <MudSpacer />
+        <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+        <MudSpacer />
+        <MudTextField @bind-Value="Password" Label="Password" HelperText="Repeat the password." HelperTextOnFocus="true" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+    </MudItem>
+</MudContainer>
+
+<MudContainer Class="d-flex justify-center align-center">
+    <MudRadioGroup @bind-SelectedOption="Administrator">
+        <MudRadio Option="false" Color="Color.Primary" UnCheckedColor="Color.Default">User</MudRadio>
+        <MudRadio Option="true" Color="Color.Primary" UnCheckedColor="Color.Default">Administrator</MudRadio>
+    </MudRadioGroup>
+</MudContainer>
+
+<MudContainer Class="d-flex justify-center align-center">
+    <MudButton Href="/profile"
+               Variant="Variant.Text">Register</MudButton>
+</MudContainer>
+
+@code {
+    public string Username { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public bool Administrator { get; set; } = true;
+}
+
