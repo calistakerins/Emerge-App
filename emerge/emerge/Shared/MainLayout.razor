@@ -1,20 +1,38 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-		<NavBar />
-        <MudThemeProvider />
+
+    @if (admin)
+    {
+        <AdminNavBar />
+    }
+    else
+    {
+        <NavBar />
+
+    }
+    <MudThemeProvider />
 
 
-        <main>
-            <div class="top-row px-4">
-                <a href="/postalert">Post Alert</a>
-                <a href="/adminprofile">Admin Profile</a>
-                <a href="/updatealert">Update Alert</a>
-            </div>
+    <main>
+        <div class="top-row px-4">
+            <a href="/updatealert">Update Alert</a>
+            <a href="/postalert"@onclick="@ChangeView">Change View</a>
+        </div>
 
-            <article class="content px-4">
-                @Body
-            </article>
-        </main>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
 </div>
+
+@code {
+    private Boolean admin = false;
+
+    private void ChangeView()
+    {
+        admin = !admin;
+    }
+}
+
 
