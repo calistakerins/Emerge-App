@@ -1,11 +1,7 @@
 ﻿<Properties StartupConfiguration="{88B0AB92-350E-472A-BAC4-51DA874E3357}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
   <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.emerge PreferredExecutionTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="emerge/Pages/Profile.razor">
     <Files>
       <File FileName="emerge/Pages/Index.razor" />
@@ -19,16 +15,16 @@
       <File FileName="emerge/Pages/NewsFeed.razor" />
       <File FileName="emerge/Pages/Counter.razor" />
       <File FileName="emerge/Pages/ViewAlert.razor" />
-      <File FileName="emerge/Data/WeatherForecast.cs" Line="1" Column="1" />
-      <File FileName="emerge/Data/WeatherForecastService.cs" Line="1" Column="1" />
+      <File FileName="emerge/Data/WeatherForecast.cs" />
+      <File FileName="emerge/Data/WeatherForecastService.cs" />
       <File FileName="emerge/Pages/FetchData.razor" />
       <File FileName="emerge/Shared/SurveyPrompt.razor" />
       <File FileName="emerge/Shared/NavBar.razor" />
-      <File FileName="emerge/Pages/Login.razor" Line="29" Column="61" />
-      <File FileName="emerge/Pages/Profile.razor" Line="54" Column="17" />
+      <File FileName="emerge/Pages/Login.razor" />
+      <File FileName="emerge/Pages/Profile.razor" Line="10" Column="4" />
       <File FileName="emerge/Pages/CreateAccount.razor" Line="4" Column="61" />
       <File FileName="emerge/Data/Profile.cs" Line="26" Column="29" />
-      <File FileName="emerge/Data/AlertInfo.cs" Line="1" Column="1" />
+      <File FileName="emerge/Data/AlertInfo.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -36,9 +32,7 @@
           <Node name="emerge" expanded="True">
             <Node name="emerge" expanded="True">
               <Node name="Data" expanded="True" />
-              <Node name="Pages" expanded="True">
-                <Node name="Profile.razor" selected="True" />
-              </Node>
+              <Node name="Pages" expanded="True" />
               <Node name="Shared" expanded="True" />
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
@@ -51,4 +45,8 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
