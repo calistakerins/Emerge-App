@@ -1,35 +1,14 @@
 ﻿@page "/news"
 @inherits LayoutComponentBase
+@using emerge.Data
 
 <MudContainer Class="mt-16">
-    <MudText Typo="Typo.h1" Align="Align.Center" GutterBottom="true">Emergency Alerts</MudText>
+
     <MudDivider DividerType="DividerType.Middle" Class="my-20" />
 
-    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten2};")">
-        <MudCardHeader>
-            <CardHeaderContent>
-                <MudText Typo="Typo.h4" Style="font-weight:bold">FLASH FLOOD EVACUATIOn</MudText>
-                <MudText Typo="Typo.h6">Priority: 5</MudText>
-                <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
-                <MudText Typo="Typo.body1">
-                    The National Weather Service has issued a coastal flood alert for
-                    [COUNTY NAME] County until [DATE]. Take precautions on beaches
-                    and stay tuned for updates.
-                </MudText>
-            </CardHeaderContent>
-            <CardHeaderActions>
-                <MudText Typo="Typo.body1" Class="mt-4 ms-4">
-                    1 January, 2022
-                </MudText>
-                <MudText Typo="Typo.body1" Class="ms-4">
-                    [Time]
-                </MudText>
-            </CardHeaderActions>
-        </MudCardHeader>
+    <NewsFeedComponent> </NewsFeedComponent>
 
-    </MudCard>
-
-    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten2};")">
+    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
         <MudCardHeader>
             <CardHeaderContent>
                 <MudText Typo="Typo.h4" Style="font-weight:bold">BUILDING FIRE</MudText>
@@ -53,7 +32,7 @@
 
     </MudCard>
 
-    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten2};")">
+    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
         <MudCardHeader>
             <CardHeaderContent>
                 <MudText Typo="Typo.h4" Style="font-weight:bold">ARMED MAN LOOSE</MudText>
@@ -79,6 +58,23 @@
 
 </MudContainer>
 @code {
+
+
     private MudTheme Theme = new MudTheme();
 
+    //list of alerts to display
+
+    private static readonly string title = "FLASH FLOOD EVACUATION";
+    private static readonly string author = "TOWN ADMIN";
+    private static readonly DateTime dateTime = new DateTime(2019, 05, 09, 09, 15, 00);
+    private static readonly UpdateInfo[] updates = {
+        new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
+        new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
+
+    AlertInfo dummyAlert = new AlertInfo(dateTime, title, author, updates);
+    List<AlertInfo> AlertList = new List<AlertInfo>();
+    AlertList.Add(dummyAlert);
+    //List of Alert Infos
+    //loop through list, one component for each iteration, pass in current AlertInfo object
+    //
 }
