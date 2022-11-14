@@ -1,14 +1,38 @@
 ﻿@page "/news"
 @inherits LayoutComponentBase
 @using emerge.Data
+@using emerge.Controller
 
 <MudContainer Class="mt-16">
 
     <MudDivider DividerType="DividerType.Middle" Class="my-20" />
 
-    <NewsFeedComponent> </NewsFeedComponent>
+    @foreach (var alertInfo in feedController.getAlertList())
+    {
+        <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
+                    <MudText Typo="Typo.h6">Priority: 5</MudText>
+                    <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
+                    <MudText Typo="Typo.body1">
+                        @alertInfo.Updates[0].Description
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudText Typo="Typo.body1" Class="mt-4 ms-4">
+                      
+                    </MudText>
+                    <MudText Typo="Typo.body1" Class="ms-4">
+                        [Time]
+                    </MudText>
+                </CardHeaderActions>
+            </MudCardHeader>
 
-    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
+        </MudCard>
+    }
+
+    @*<MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
         <MudCardHeader>
             <CardHeaderContent>
                 <MudText Typo="Typo.h4" Style="font-weight:bold">BUILDING FIRE</MudText>
@@ -54,27 +78,20 @@
             </CardHeaderActions>
         </MudCardHeader>
 
-    </MudCard>
+    </MudCard>*@
 
 </MudContainer>
+
 @code {
 
-
     private MudTheme Theme = new MudTheme();
-
+    private NewsFeedController feedController = new NewsFeedController();
+    
+    
     //list of alerts to display
 
-    private static readonly string title = "FLASH FLOOD EVACUATION";
-    private static readonly string author = "TOWN ADMIN";
-    private static readonly DateTime dateTime = new DateTime(2019, 05, 09, 09, 15, 00);
-    private static readonly UpdateInfo[] updates = {
-        new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
-        new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
 
-    AlertInfo dummyAlert = new AlertInfo(dateTime, title, author, updates);
-    List<AlertInfo> AlertList = new List<AlertInfo>();
-    AlertList.Add(dummyAlert);
     //List of Alert Infos
     //loop through list, one component for each iteration, pass in current AlertInfo object
-    //
+    
 }
