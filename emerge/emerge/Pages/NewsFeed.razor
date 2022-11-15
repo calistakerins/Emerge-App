@@ -3,13 +3,19 @@
 @using emerge.Data
 @using emerge.Controller
 
+@if(feedView)
+{
+        //Newsfeed
+
 <MudContainer Class="mt-16">
 
     <MudDivider DividerType="DividerType.Middle" Class="my-20" />
 
     @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
     {
-        <MudCard Class="ma-8 pa-4 rounded-xl" Outlined="true" Style="@($"color:{Colors.Shades.Black}; height: 30%; width: 80%")">
+        <MudCard Class="ma-8 pa-4 rounded-xl" Outlined="true" Style="@($"color:{Colors.Shades.Black}; height: 30%; width: 80%")"
+                 @onclick="() => OnClick(alertInfo)">
+            
             <MudCardHeader>
                 <CardHeaderContent>
                     <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
@@ -33,8 +39,8 @@
 
         @foreach (var update in alertInfo.Updates) //loop through updates
         {
-                
-            <MudCard Class="ma-2 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 15%; width: 70%")">
+
+            <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 15%; width: 70%")">
                 <MudCardHeader>
                     <CardHeaderContent>
 
@@ -56,17 +62,53 @@
     }
 </MudContainer>
 
+    } else {
+        //View Alert
+<MudContainer Class="mt-16">
+
+    <MudButton Variant="Variant.Outlined" @onclick="returnToFeed">Alerts</MudButton>
+    <div>
+        <MudText Typo="Typo.h3" Class="mt-5"><b>@currentAlert.Title</b></MudText>
+        <MudText Typo="Typo.h5">PRIORITY: 5</MudText>
+        <MudText Typo="Typo.body1">@currentAlert.Author</MudText>
+        <MudText Typo="Typo.body1">@currentAlert.DateTime.ToString("HH:mm")</MudText>
+        <MudPaper Class="pa-6 ma-4" Elevation="3">
+            <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+        </MudPaper>
+    </div>
+    <div>
+        <MudText Typo="Typo.h4" Class="mt-5"><b>Updates</b></MudText>
+        @*@foreach (var u in alertInfo.Updates)
+            {
+                <MudPaper Class="pa-6 ma-4">
+                    <MudText Typo="Typo.subtitle2">@u.DateTime</MudText>
+                    <MudText Typo="Typo.subtitle1">@u.Description</MudText>
+                </MudPaper>
+            }*@
+    </div>
+
+</MudContainer>
+}
+
 
 @code {
-
+    public static AlertInfo currentAlert;
     private MudTheme Theme = new MudTheme();
     private NewsFeedController feedController = new NewsFeedController();
-    
-    
-    //list of alerts to display
+    private bool feedView = true;
+
+    private void OnClick(AlertInfo alertInfo)
+    {
+        feedView = false;
+        currentAlert = alertInfo;
+        StateHasChanged();
+    }
+
+    private void returnToFeed()
+    {
+        feedView = true;
+        StateHasChanged();
+    }
 
 
-    //List of Alert Infos
-    //loop through list, one component for each iteration, pass in current AlertInfo object
-    
 }
