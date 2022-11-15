@@ -7,80 +7,55 @@
 
     <MudDivider DividerType="DividerType.Middle" Class="my-20" />
 
-    @foreach (var alertInfo in feedController.getAlertList())
+    @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
     {
-        <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
+        <MudCard Class="ma-8 pa-4 rounded-xl" Outlined="true" Style="@($"color:{Colors.Shades.Black}; height: 30%; width: 80%")">
             <MudCardHeader>
                 <CardHeaderContent>
                     <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
                     <MudText Typo="Typo.h6">Priority: 5</MudText>
-                    <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
+                    <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
                     <MudText Typo="Typo.body1">
-                        @alertInfo.Updates[0].Description
+                        description...
                     </MudText>
                 </CardHeaderContent>
                 <CardHeaderActions>
-                    <MudText Typo="Typo.body1" Class="mt-4 ms-4">
-                      
+                    <MudText Typo="Typo.subtitle2" Class="ms-4">
+                        @alertInfo.DateTime.ToString("MM/dd/yyyy")
                     </MudText>
-                    <MudText Typo="Typo.body1" Class="ms-4">
-                        [Time]
+                    <MudText Typo="Typo.subtitle2" Class="ms-4">
+                        @alertInfo.DateTime.ToString("HH:mm")
                     </MudText>
                 </CardHeaderActions>
             </MudCardHeader>
 
         </MudCard>
+
+        @foreach (var update in alertInfo.Updates) //loop through updates
+        {
+                
+            <MudCard Class="ma-2 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 15%; width: 70%")">
+                <MudCardHeader>
+                    <CardHeaderContent>
+
+                        <MudText Typo="Typo.h6">UPDATE</MudText>
+                        <MudText Typo="Typo.subtitle1">@update.Description</MudText>
+
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudText Typo="Typo.subtitle2" Class="ms-4">
+                            @update.DateTime.ToString("MM/dd/yyyy")
+                        </MudText>
+                        <MudText Typo="Typo.subtitle2" Class="ms-4">
+                            @update.DateTime.ToString("HH:mm")
+                        </MudText>
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudCard>
+        }
     }
-
-    @*<MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
-        <MudCardHeader>
-            <CardHeaderContent>
-                <MudText Typo="Typo.h4" Style="font-weight:bold">BUILDING FIRE</MudText>
-                <MudText Typo="Typo.h6">Priority: 5</MudText>
-                <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
-                <MudText Typo="Typo.body1">
-                    The National Weather Service has issued a coastal flood alert for
-                    [COUNTY NAME] County until [DATE]. Take precautions on beaches
-                    and stay tuned for updates.
-                </MudText>
-            </CardHeaderContent>
-            <CardHeaderActions>
-                <MudText Typo="Typo.body1" Class="mt-4 ms-4">
-                    1 January, 2022
-                </MudText>
-                <MudText Typo="Typo.body1" Class="ms-4">
-                    [Time]
-                </MudText>
-            </CardHeaderActions>
-        </MudCardHeader>
-
-    </MudCard>
-
-    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
-        <MudCardHeader>
-            <CardHeaderContent>
-                <MudText Typo="Typo.h4" Style="font-weight:bold">ARMED MAN LOOSE</MudText>
-                <MudText Typo="Typo.h6">Priority: 5</MudText>
-                <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
-                <MudText Typo="Typo.body1">
-                    The National Weather Service has issued a coastal flood alert for
-                    [COUNTY NAME] County until [DATE]. Take precautions on beaches
-                    and stay tuned for updates.
-                </MudText>
-            </CardHeaderContent>
-            <CardHeaderActions>
-                <MudText Typo="Typo.body1" Class="mt-4 ms-4">
-                    1 January, 2022
-                </MudText>
-                <MudText Typo="Typo.body1" Class="ms-4">
-                    [Time]
-                </MudText>
-            </CardHeaderActions>
-        </MudCardHeader>
-
-    </MudCard>*@
-
 </MudContainer>
+
 
 @code {
 
