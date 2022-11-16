@@ -27,10 +27,10 @@
                     </CardHeaderContent>
                     <CardHeaderActions>
                         <MudText Typo="Typo.subtitle2" Class="ms-4">
-                            @alertInfo.DateTime.ToString("MM/dd/yyyy")
+                            @alertInfo.Time.ToString("MM/dd/yyyy")
                         </MudText>
                         <MudText Typo="Typo.subtitle2" Class="ms-4">
-                            @alertInfo.DateTime.ToString("HH:mm")
+                            @alertInfo.Time.ToString("HH:mm")
                         </MudText>
                     </CardHeaderActions>
                 </MudCardHeader>
@@ -73,7 +73,7 @@ else
             <MudText Typo="Typo.h3" Class="mt-5"><b>@currentAlert.Title</b></MudText>
             <MudText Typo="Typo.h5">PRIORITY: 5</MudText>
             <MudText Typo="Typo.body1">@currentAlert.Author</MudText>
-            <MudText Typo="Typo.body1">@currentAlert.DateTime.ToString("MM/dd/yyyy HH:mm")</MudText>
+            <MudText Typo="Typo.body1">@currentAlert.Time.ToString("MM/dd/yyyy HH:mm")</MudText>
             <MudPaper Class="pa-6 ma-4" Elevation="3">
                 <MudText Typo="Typo.subtitle1">ncidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
             </MudPaper>
@@ -84,10 +84,10 @@ else
             {
                 <MudPaper Class="pa-6 ma-4">
                     <MudText Typo="Typo.subtitle2" Class="ms-4">
-                        @currentAlert.DateTime.ToString("MM/dd/yyyy")
+                        @currentAlert.Time.ToString("MM/dd/yyyy")
                     </MudText>
                     <MudText Typo="Typo.subtitle2" Class="ms-4">
-                        @currentAlert.DateTime.ToString("HH:mm")
+                        @currentAlert.Time.ToString("HH:mm")
                     </MudText>
                     <MudText Typo="Typo.subtitle1">@u.Description</MudText>
                 </MudPaper>

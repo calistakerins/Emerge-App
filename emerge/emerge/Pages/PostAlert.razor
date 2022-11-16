@@ -21,6 +21,7 @@
 <MudText Typo="Typo.h3" Class="mt-5"><b>@success</b></MudText>
 @code {
 
+    public DateTime AlertTime = new System.DateTime(2019, 05, 09, 09, 37, 07);
     [Required]
     public string AlertTitle { get; set; }
     public string AlertAuthor = "Dummy";
@@ -40,7 +41,7 @@
 
         HttpResponseMessage response = null;
 
-        var payload = new AlertInfo(AlertTitle, AlertAuthor, AlertDescription, AlertPriority, updateInfo);
+        var payload = new AlertInfo(AlertTime, AlertTitle, AlertAuthor, AlertDescription, AlertPriority, updateInfo);
 
         var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 

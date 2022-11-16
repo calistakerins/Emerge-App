@@ -7,15 +7,16 @@ namespace emerge.Data
 {
     public class AlertInfo
     {
-
+        private DateTime time;
         private String title;
         private String author;
         private String description;
         private UpdateInfo[] updates;
         private int priority;
 
-        public AlertInfo(string title, string author, string description, int priority, UpdateInfo[] updates)
+        public AlertInfo(DateTime time, string title, string author, string description, int priority, UpdateInfo[] updates)
         {
+            this.Time = time;
             this.Title = title;
             this.Author = author;
             this.Description = description;
@@ -24,7 +25,9 @@ namespace emerge.Data
         }
         public string ID { get; set; } = Guid.NewGuid().ToString("n");
 
-        
+
+        [JsonProperty(PropertyName = "time")]
+        public DateTime Time { get => time; set => time = value; }
         [JsonProperty(PropertyName = "title")]
         public string Title { get => title; set => title = value; }
         [JsonProperty(PropertyName = "author")]
