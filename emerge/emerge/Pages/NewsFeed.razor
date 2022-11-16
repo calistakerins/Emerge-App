@@ -71,20 +71,25 @@
         <MudText Typo="Typo.h3" Class="mt-5"><b>@currentAlert.Title</b></MudText>
         <MudText Typo="Typo.h5">PRIORITY: 5</MudText>
         <MudText Typo="Typo.body1">@currentAlert.Author</MudText>
-        <MudText Typo="Typo.body1">@currentAlert.DateTime.ToString("HH:mm")</MudText>
+        <MudText Typo="Typo.body1">@currentAlert.DateTime.ToString("MM/dd/yyyy HH:mm")</MudText>
         <MudPaper Class="pa-6 ma-4" Elevation="3">
-            <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+            <MudText Typo="Typo.subtitle1">ncidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
         </MudPaper>
     </div>
     <div>
         <MudText Typo="Typo.h4" Class="mt-5"><b>Updates</b></MudText>
-        @*@foreach (var u in alertInfo.Updates)
+        @foreach (var u in currentAlert.Updates)
             {
                 <MudPaper Class="pa-6 ma-4">
-                    <MudText Typo="Typo.subtitle2">@u.DateTime</MudText>
+                    <MudText Typo="Typo.subtitle2" Class="ms-4">
+                        @currentAlert.DateTime.ToString("MM/dd/yyyy")
+                    </MudText>
+                    <MudText Typo="Typo.subtitle2" Class="ms-4">
+                        @currentAlert.DateTime.ToString("HH:mm")
+                    </MudText>
                     <MudText Typo="Typo.subtitle1">@u.Description</MudText>
                 </MudPaper>
-            }*@
+            }
     </div>
 
 </MudContainer>
