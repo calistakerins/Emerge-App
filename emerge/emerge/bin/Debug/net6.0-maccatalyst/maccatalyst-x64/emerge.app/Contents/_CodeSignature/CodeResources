@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		R/0K4O1ma0UFB3KvJhgIX/CTDUw=
+		7Kf7BsUw1e2VvQTjGp+cF+Mlz+Y=
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Resources/appicon.icns</key>
 		<data>
-		jGLxugzeWD+TyjHeX/hnh6qV9Fw=
+		b662XKpGlZAnh83xLx3sOUcfUA0=
 		</data>
 		<key>Resources/dotnet_bot.png</key>
 		<data>
@@ -59,50 +59,6 @@
 		<key>Resources/wwwroot/css/app.css</key>
 		<data>
 		hbjLNnLMtjjWFMg5SWxpVOh5kBw=
-		</data>
-		<key>Resources/wwwroot/css/bootstrap/bootstrap.min.css</key>
-		<data>
-		vpNrrtLXcrIb1N/wzGSmiCnxu7I=
-		</data>
-		<key>Resources/wwwroot/css/bootstrap/bootstrap.min.css.map</key>
-		<data>
-		AaKDUEXA7IOMkQYH+kZaoUuaK+8=
-		</data>
-		<key>Resources/wwwroot/css/open-iconic/FONT-LICENSE</key>
-		<data>
-		2w0gW2gFb2CrHvxNdZCF+1Upu2A=
-		</data>
-		<key>Resources/wwwroot/css/open-iconic/ICON-LICENSE</key>
-		<data>
-		AXsSOClgd0Lcn6zCOYCpoNkH8Xs=
-		</data>
-		<key>Resources/wwwroot/css/open-iconic/README.md</key>
-		<data>
-		6hG4uVeXvMIbg6sdJwCEVMzjop4=
-		</data>
-		<key>Resources/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css</key>
-		<data>
-		yLNgF377iLRfO+ISF0FibwrVVbQ=
-		</data>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.eot</key>
-		<data>
-		WgJsRQSh4pxCrAUR1k8lfDwNNL8=
-		</data>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.otf</key>
-		<data>
-		+zh0JeGGxMYnNzk82bb8p9NbiZw=
-		</data>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.svg</key>
-		<data>
-		hYXeR+9WKrnJPImCjS+dadwUCrc=
-		</data>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf</key>
-		<data>
-		9LQnZ4Wjo67RhRChVFfg8+eB7KU=
-		</data>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.woff</key>
-		<data>
-		lTaAjYMNiii0yijG8vqLG9KTelU=
 		</data>
 		<key>Resources/wwwroot/emerge.bundle.scp.css</key>
 		<data>
@@ -391,6 +347,13 @@
 			<key>hash2</key>
 			<data>
 			+FvFHZbmVNsB6IbE9olGFQKwge4jOCbz2x4bWKI2/9M=
+			</data>
+		</dict>
+		<key>MonoBundle/Newtonsoft.Json.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cs8pHUurDt0IqbB8YXPh560au3q3J/1wRL9jBddRVmE=
 			</data>
 		</dict>
 		<key>MonoBundle/System.AppContext.dll</key>
@@ -1517,14 +1480,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uAlWP+VCtjChtfEtrS+lHtvk7DU5nUgm8S9qyWtyIN0=
+			npO0lvohkcsSJmisyDFGh0Iipr6bNvYUjQAlb9u7ZIM=
 			</data>
 		</dict>
 		<key>MonoBundle/emerge.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ukrnKbOFeq5UgZRrFbCFZEgEycqf2NjFLBwhu43lnRc=
+			6lR8Bhf+m+jNpuVpWCpxJ+YhJnk55tRBc4nYPgXHBVo=
 			</data>
 		</dict>
 		<key>MonoBundle/icudt.dat</key>
@@ -1608,7 +1571,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iyZqGQWVl4M/fcvQCcTSw8U4lEcYlSG5DPoRTS6uGd8=
+			u9nltOOdhFKt9ZODZcxpVSU+f8xoz1Gujd8bM8e4/DI=
 			</data>
 		</dict>
 		<key>Resources/MauiInfo.plist</key>
@@ -1636,7 +1599,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mrDJ15X2mKhv18677i58w6LnKJZhwaN8bZReGiKRD6g=
+			ec7nXoGJoI5Tvia6KZkz7qQzZ7+dKhFRFQ3JU8eaVlY=
 			</data>
 		</dict>
 		<key>Resources/dotnet_bot.png</key>
@@ -1686,83 +1649,6 @@
 			<key>hash2</key>
 			<data>
 			72T/MjS89u0DCzqUk0A5vkLr4AMMa1jDNnvO0hkz0Ko=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/bootstrap/bootstrap.min.css</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			39I0HoYqzK/986SYAo8kurO0+66GzYYlkgtcWvgFT6c=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/bootstrap/bootstrap.min.css.map</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			lPl+YkZ5F/Gqi+xd4+Juk6O2lf8947F0B9TDTF+fxSM=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/open-iconic/FONT-LICENSE</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			BgJpRZSGsv2PCDyutlOHSV9vngLEp53cXBqPpTJlCvE=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/open-iconic/ICON-LICENSE</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			lmR0kygUnUAknae38gH2rAsdPtwBPv4tfDUB8r3vMes=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/open-iconic/README.md</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			jvSDLAg6bb6yvKmZJAITpc2sDOfbi5aQHin4AczazvA=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			VKmQXW8mRZ7hoad6E/sXRxRWnDwfp6ihgfNDt3M7q9Q=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.eot</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			OK3poGPgzKI2NzNgP07XMbJa3Dz6USoUh/chSkSvQpc=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.otf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			sDUtuZAEzWZyv/U1xl/9D3ehyU69JE+FvAcu5HQ+/a0=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.svg</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			u+GkRX/3vmziPc6M/O+lTRu+QNOFBJg8DNTfcSFPI/k=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			VYBf5RXguNvqlPOP7ZdB35nfgExX5017TIjTbQnalFc=
-			</data>
-		</dict>
-		<key>Resources/wwwroot/css/open-iconic/font/fonts/open-iconic.woff</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			cZPqVlRJfSNW0KaQ4+UPOXZ/v/QzXlejRDwUNdZIofI=
 			</data>
 		</dict>
 		<key>Resources/wwwroot/emerge.bundle.scp.css</key>
