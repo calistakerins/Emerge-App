@@ -53,9 +53,11 @@
     <ItemGroup>
       <None Remove="MudBlazor" />
       <None Remove="MudBlazor.ThemeManager" />
+      <None Remove="Newtonsoft.Json" />
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="MudBlazor" Version="6.0.17" />
       <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.7" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 </Project>
