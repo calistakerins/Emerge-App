@@ -6,6 +6,12 @@
 </p>
 
 
+<MudContainer Class="d-flex justify-center align-center">
+    <MudRadioGroup @bind-SelectedOption="ViewType">
+        <MudRadio Option=0 Color="Color.Primary" UnCheckedColor="Color.Default">User</MudRadio>
+        <MudRadio Option=1 Color="Color.Primary" UnCheckedColor="Color.Default">Administrator</MudRadio>
+    </MudRadioGroup>
+</MudContainer>
 
 <MudContainer Class="d-flex justify-center align-center">
     <MudItem xs="12" sm="6" md="4">
@@ -20,16 +26,31 @@
     </MudItem>
 </MudContainer>
 
+<MudContainer Class="d-flex justify-center align-center">
+    <MudButton Href="/profile"
+               Variant="Variant.Text">Log In</MudButton>
+</MudContainer>
+
 <p></p>
+<MudDivider DividerType="DividerType.Middle" Class="my-6" />
 
 <MudText Typo="Typo.subtitle1" Align="Align.Center">Not registered?</MudText>
 
 <MudContainer Class="d-flex justify-center align-center">
-    <MudButton Variant="Variant.Text">Create new account</MudButton>
+    <MudButton Href="/createAccount"
+               Variant="Variant.Text">Create new account</MudButton>
+</MudContainer>
+
+<MudText Typo="Typo.subtitle1" Align="Align.Center">or</MudText>
+
+<MudContainer Class="d-flex justify-center align-center">
+    <MudButton Href="/alert"
+               Variant="Variant.Text">Browse Anonymously</MudButton>
 </MudContainer>
 
 @code {
     public string Username { get; set; }
     public string Password { get; set; }
+    public int ViewType { get; set; }
 }
 
