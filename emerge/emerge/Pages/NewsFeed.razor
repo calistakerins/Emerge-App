@@ -7,93 +7,87 @@
 {
     //Newsfeed
 
-    <MudContainer Class="mt-16">
+    <MudContainer Class="mt-16" >
 
+        <MudText Typo="Typo.h4" Class="pa-4" Color="Color.Primary" Align="Align.Center">Active Alerts</MudText>
         <MudDivider DividerType="DividerType.Middle" Class="my-20" />
 
         @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
         {
-            <MudCard Class="ma-8 pa-4 rounded-xl" Outlined="true" Style="@($"color:{Colors.Shades.Black}; height: 30%; width: 80%")"
+            <MudCard Class="ma-8 pt-4 mb-0 rounded-xl" Outlined="true"
                      @onclick="() => OnClick(alertInfo)">
-
-                <MudCardHeader>
-                    <CardHeaderContent>
-                        <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
-                        <MudText Typo="Typo.h6">Priority: 5</MudText>
-                        <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
-                        <MudText Typo="Typo.body1">
-                            description...
-                        </MudText>
-                    </CardHeaderContent>
-                    <CardHeaderActions>
-                        <MudText Typo="Typo.subtitle2" Class="ms-4">
-                            @alertInfo.Time.ToString("MM/dd/yyyy")
-                        </MudText>
-                        <MudText Typo="Typo.subtitle2" Class="ms-4">
-                            @alertInfo.Time.ToString("HH:mm")
-                        </MudText>
-                    </CardHeaderActions>
-                </MudCardHeader>
-
-            </MudCard>
-
-            @foreach (var update in alertInfo.Updates) //loop through updates
-            {
-
-                <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 15%; width: 70%")">
+                <MudContainer Class="pa-4">
                     <MudCardHeader>
                         <CardHeaderContent>
-
-                            <MudText Typo="Typo.h6">UPDATE</MudText>
-                            <MudText Typo="Typo.subtitle1">@update.Description</MudText>
-
+                            <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
+                            <MudText Typo="Typo.h6">Priority: 5</MudText>
+                            <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
+                            <MudText Typo="Typo.body1">
+                                description...
+                            </MudText>
                         </CardHeaderContent>
                         <CardHeaderActions>
                             <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                @update.DateTime.ToString("MM/dd/yyyy")
+                                @alertInfo.Time.ToString("MM/dd/yyyy")
                             </MudText>
                             <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                @update.DateTime.ToString("HH:mm")
+                                @alertInfo.Time.ToString("HH:mm")
                             </MudText>
                         </CardHeaderActions>
                     </MudCardHeader>
-                </MudCard>
-            }
+                </MudContainer>
+
+                <MudContainer Class=" pa-4 rounded-b-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten3}; height: 15%; width: 100%")">
+                    @foreach (var update in alertInfo.Updates) //loop through updates
+                    {
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">UPDATE</MudText>
+                                <MudText Typo="Typo.subtitle1">@update.Description</MudText>
+                            </CardHeaderContent>
+                            <CardHeaderActions>
+                                <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                    @update.DateTime.ToString("MM/dd/yyyy")
+                                </MudText>
+                                <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                    @update.DateTime.ToString("HH:mm")
+                                </MudText>
+                            </CardHeaderActions>
+                        </MudCardHeader>
+                    }
+                </MudContainer>
+            </MudCard>
         }
     </MudContainer>
-
 }
 else
 {
     //View Alert
-    <MudContainer Class="mt-16">
-
-        <MudButton Variant="Variant.Outlined" @onclick="returnToFeed">Alerts</MudButton>
-        <div>
-            <MudText Typo="Typo.h3" Class="mt-5"><b>@currentAlert.Title</b></MudText>
-            <MudText Typo="Typo.h5">PRIORITY: 5</MudText>
-            <MudText Typo="Typo.body1">@currentAlert.Author</MudText>
-            <MudText Typo="Typo.body1">@currentAlert.Time.ToString("MM/dd/yyyy HH:mm")</MudText>
-            <MudPaper Class="pa-6 ma-4" Elevation="3">
+    <MudContainer Class="mt-16" >
+        <MudButton Variant="Variant.Outlined" @onclick="returnToFeed">Back</MudButton>
+        <MudCard Class="ma-8 rounded-xl" Outlined="true">
+            <MudCardMedia Image=@currentAlert.ImageUrl Height="300" />
+            <MudContainer Class="pa-4 ml-4 mr-4">
+                <MudText Typo="Typo.h3" Class="mt-5"><b>@currentAlert.Title</b></MudText>
+                <MudText Typo="Typo.h5">PRIORITY: 5</MudText>
+                <MudText Typo="Typo.body1">@currentAlert.Author</MudText>
+                <MudText Typo="Typo.body1">@currentAlert.Time.ToString("MM/dd/yyyy HH:mm")</MudText>
                 <MudText Typo="Typo.subtitle1">ncidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
-            </MudPaper>
-        </div>
-        <div>
-            <MudText Typo="Typo.h4" Class="mt-5"><b>Updates</b></MudText>
+            </MudContainer>
+        </MudCard>
+            <MudText Class="ma-8" Typo="Typo.h4"><b>Updates</b></MudText>
             @foreach (var u in currentAlert.Updates)
             {
-                <MudPaper Class="pa-6 ma-4">
-                    <MudText Typo="Typo.subtitle2" Class="ms-4">
+                <MudPaper Class="pa-6 ma-8  rounded-xl">
+                    <MudText Typo="Typo.subtitle2">
                         @currentAlert.Time.ToString("MM/dd/yyyy")
                     </MudText>
-                    <MudText Typo="Typo.subtitle2" Class="ms-4">
+                    <MudText Typo="Typo.subtitle2">
                         @currentAlert.Time.ToString("HH:mm")
                     </MudText>
                     <MudText Typo="Typo.subtitle1">@u.Description</MudText>
                 </MudPaper>
             }
-        </div>
-
     </MudContainer>
 }
 

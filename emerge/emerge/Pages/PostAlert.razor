@@ -9,16 +9,18 @@
 <MudCard>
     <MudCardContent>
         <MudTextField Label="Title"
-                      @bind-Value="AlertTitle" Variant="Variant.Filled"  Class="pt-4 pb-4" />
+                      @bind-Value="AlertTitle" Variant="Variant.Filled" Class="pt-4 pb-4" />
         <MudNumericField Label="Priority"
                          @bind-Value="AlertPriority" Variant="Variant.Filled" Min="0" Max="5" Class="pt-4 pb-4" />
-        <MudTextField T="string" Label="AlertDescription" @bind-Value="AlertDescription" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
+        <MudTextField T="string" Label="Alert Image URL" @bind-Value="AlertImageUrl" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
+        <MudTextField T="string" Label="Alert Description" @bind-Value="AlertDescription" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
     </MudCardContent>
     <MudCardActions>
         <MudButton @onclick="@AddNewsAlert" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Post Alert</MudButton>
     </MudCardActions>
 </MudCard>
 <MudText Typo="Typo.h3" Class="mt-5"><b>@success</b></MudText>
+
 @code {
 
     public DateTime AlertTime = new System.DateTime(2019, 05, 09, 09, 37, 07);
@@ -29,6 +31,7 @@
     public int AlertPriority { get; set; }
     [Required]
     public string AlertDescription { get; set; }
+    public string AlertImageUrl { get; set; }
 
     public UpdateInfo[] updateInfo = new UpdateInfo[0];
     public bool success = false;
@@ -41,7 +44,7 @@
 
         HttpResponseMessage response = null;
 
-        var payload = new AlertInfo(AlertTime, AlertTitle, AlertAuthor, AlertDescription, AlertPriority, updateInfo);
+        var payload = new AlertInfo(AlertTime, AlertTitle, AlertAuthor, AlertDescription, AlertPriority, updateInfo, AlertImageUrl);
 
         var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 
