@@ -21,19 +21,19 @@ namespace emerge.Controller
             AlertInfo dummyAlert1 = new AlertInfo(new System.DateTime(2019, 05, 09, 09, 15, 00),
                                                                  "FLASH FLOOD EVACUATION", "harrison",
                                                                  "Department of Energy", 5,
-                                                                   updates);
+                                                                   updates, "https://th.bing.com/th/id/R.543239a7b5829806a4df4b85d929e090?rik=CcAmGH8I0TMVXw&pid=ImgRaw&r=0");
             AlertInfo dummyAlert2 = new AlertInfo(new System.DateTime(2009, 05, 09, 10, 12, 02),
                                                                  "BUILDING FIRE", "megan",
                                                                  "Department of Forestry and Fire", 4,
-                                                                   updates);
+                                                                   updates, "https://www.dailynews.com/wp-content/uploads/2020/07/LDN-L-SOLEDAD-FIRE-RMC-07.jpg?w=810");
             AlertInfo dummyAlert3 = new AlertInfo(new System.DateTime(2019, 05, 09, 012, 02, 00),
                                                                              "ARMED MAN LOOSE", "ella",
                                                                              "Department of Police", 3,
-                                                                               updates);
+                                                                               updates, "https://th.bing.com/th/id/R.5be2e3e4d97cd5fefd81ee070b5bfd54?rik=BohjSTqB2DslYg&riu=http%3a%2f%2fcdn1.bostonmagazine.com%2fwp-content%2fuploads%2f2016%2f09%2fpolice-lights-1.jpg&ehk=TI%2fwUezR3XQhinPY4zJeDWtWYk9GqrC80Qu%2bscqGD%2fk%3d&risl=&pid=ImgRaw&r=0");
             AlertInfo dummyAlert4 = new AlertInfo(new System.DateTime(2019, 05, 09, 013, 15, 04),
                                                                              "ELECTION UPDATE", "calista",
                                                                              "Town Council", 2,
-                                                                               updates);
+                                                                               updates, "https://th.bing.com/th/id/OIP.z6fjBW0cSvSBZ3Nu9QITDwHaEF?pid=ImgDet&rs=1");
 
             this.alertList.Add(dummyAlert1);
             this.alertList.Add(dummyAlert2);

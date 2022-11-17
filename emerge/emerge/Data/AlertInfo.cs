@@ -13,8 +13,9 @@ namespace emerge.Data
         private String description;
         private UpdateInfo[] updates;
         private int priority;
+        private String imageUrl;
 
-        public AlertInfo(DateTime time, string title, string author, string description, int priority, UpdateInfo[] updates)
+        public AlertInfo(DateTime time, string title, string author, string description, int priority, UpdateInfo[] updates, string imageUrl)
         {
             this.Time = time;
             this.Title = title;
@@ -22,6 +23,7 @@ namespace emerge.Data
             this.Description = description;
             this.Updates = updates;
             this.Priority = priority;
+            this.imageUrl = imageUrl;
         }
         public string ID { get; set; } = Guid.NewGuid().ToString("n");
 
@@ -38,6 +40,8 @@ namespace emerge.Data
         public int Priority { get => priority; set => priority = value; }
         [JsonProperty(PropertyName = "updates")]
         public UpdateInfo[] Updates { get => updates; set => updates = value; }
+        [JsonProperty(PropertyName = "imageUrl")]
+        public string ImageUrl { get => imageUrl; set => imageUrl = value; }
     }
 }
 
