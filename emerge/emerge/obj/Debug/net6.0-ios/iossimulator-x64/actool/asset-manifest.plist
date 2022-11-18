@@ -6,10 +6,10 @@
 	<dict>
 		<key>output-files</key>
 		<array>
-			<string>/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-ios/iossimulator-x64/actool/bundle/Assets.car</string>
-			<string>/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-ios/iossimulator-x64/actool/bundle/appicon60x60@2x.png</string>
-			<string>/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-ios/iossimulator-x64/actool/bundle/appicon76x76@2x~ipad.png</string>
-			<string>/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-ios/iossimulator-x64/actool/partial-info.plist</string>
+			<string>/Users/ellabuysse/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-ios/iossimulator-x64/actool/bundle/Assets.car</string>
+			<string>/Users/ellabuysse/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-ios/iossimulator-x64/actool/bundle/appicon60x60@2x.png</string>
+			<string>/Users/ellabuysse/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-ios/iossimulator-x64/actool/bundle/appicon76x76@2x~ipad.png</string>
+			<string>/Users/ellabuysse/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-ios/iossimulator-x64/actool/partial-info.plist</string>
 		</array>
 	</dict>
 </dict>

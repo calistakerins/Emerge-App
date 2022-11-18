@@ -36,6 +36,7 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Maui.Graphics.dll",
 		"MudBlazor.dll",
 		"MudBlazor.ThemeManager.dll",
+		"Newtonsoft.Json.dll",
 		"System.IO.Pipelines.dll",
 		"Xamarin.Android.Glide.dll",
 		"Xamarin.Android.Glide.Annotations.dll",

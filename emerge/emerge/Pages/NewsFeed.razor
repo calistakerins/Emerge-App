@@ -1,80 +1,115 @@
 ﻿@page "/news"
 @inherits LayoutComponentBase
 @using emerge.Data
+@using emerge.Controller
 
-<MudContainer Class="mt-16">
+@if (feedView)
+{
+    //Newsfeed
 
-    <MudDivider DividerType="DividerType.Middle" Class="my-20" />
+    <MudContainer Class="mt-16" >
 
-    <NewsFeedComponent> </NewsFeedComponent>
+        <MudText Typo="Typo.h4" Class="pa-4" Color="Color.Primary" Align="Align.Center">Active Alerts</MudText>
+        <MudDivider DividerType="DividerType.Middle" Class="my-20" />
 
-    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
-        <MudCardHeader>
-            <CardHeaderContent>
-                <MudText Typo="Typo.h4" Style="font-weight:bold">BUILDING FIRE</MudText>
-                <MudText Typo="Typo.h6">Priority: 5</MudText>
-                <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
-                <MudText Typo="Typo.body1">
-                    The National Weather Service has issued a coastal flood alert for
-                    [COUNTY NAME] County until [DATE]. Take precautions on beaches
-                    and stay tuned for updates.
-                </MudText>
-            </CardHeaderContent>
-            <CardHeaderActions>
-                <MudText Typo="Typo.body1" Class="mt-4 ms-4">
-                    1 January, 2022
-                </MudText>
-                <MudText Typo="Typo.body1" Class="ms-4">
-                    [Time]
-                </MudText>
-            </CardHeaderActions>
-        </MudCardHeader>
+        @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
+        {
+            <MudCard Class="ma-8 pt-4 mb-0 rounded-xl" Outlined="true"
+                     @onclick="() => OnClick(alertInfo)">
+                <MudContainer Class="pa-4">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
+                            <MudText Typo="Typo.h6">Priority: 5</MudText>
+                            <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
+                            <MudText Typo="Typo.body1">
+                                description...
+                            </MudText>
+                        </CardHeaderContent>
+                        <CardHeaderActions>
+                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                @alertInfo.Time.ToString("MM/dd/yyyy")
+                            </MudText>
+                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                @alertInfo.Time.ToString("HH:mm")
+                            </MudText>
+                        </CardHeaderActions>
+                    </MudCardHeader>
+                </MudContainer>
 
-    </MudCard>
+                <MudContainer Class=" pa-4 rounded-b-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten3}; height: 15%; width: 100%")">
+                    @foreach (var update in alertInfo.Updates) //loop through updates
+                    {
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h6">UPDATE</MudText>
+                                <MudText Typo="Typo.subtitle1">@update.Description</MudText>
+                            </CardHeaderContent>
+                            <CardHeaderActions>
+                                <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                    @update.DateTime.ToString("MM/dd/yyyy")
+                                </MudText>
+                                <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                    @update.DateTime.ToString("HH:mm")
+                                </MudText>
+                            </CardHeaderActions>
+                        </MudCardHeader>
+                    }
+                </MudContainer>
+            </MudCard>
+        }
+    </MudContainer>
+}
+else
+{
+    //View Alert
+    <MudContainer Class="mt-16" >
+        <MudButton Variant="Variant.Outlined" @onclick="returnToFeed">Back</MudButton>
+        <MudCard Class="ma-8 rounded-xl" Outlined="true">
+            <MudCardMedia Image=@currentAlert.ImageUrl Height="300" />
+            <MudContainer Class="pa-4 ml-4 mr-4">
+                <MudText Typo="Typo.h3" Class="mt-5"><b>@currentAlert.Title</b></MudText>
+                <MudText Typo="Typo.h5">PRIORITY: 5</MudText>
+                <MudText Typo="Typo.body1">@currentAlert.Author</MudText>
+                <MudText Typo="Typo.body1">@currentAlert.Time.ToString("MM/dd/yyyy HH:mm")</MudText>
+                <MudText Typo="Typo.subtitle1">ncidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+            </MudContainer>
+        </MudCard>
+            <MudText Class="ma-8" Typo="Typo.h4"><b>Updates</b></MudText>
+            @foreach (var u in currentAlert.Updates)
+            {
+                <MudPaper Class="pa-6 ma-8  rounded-xl">
+                    <MudText Typo="Typo.subtitle2">
+                        @currentAlert.Time.ToString("MM/dd/yyyy")
+                    </MudText>
+                    <MudText Typo="Typo.subtitle2">
+                        @currentAlert.Time.ToString("HH:mm")
+                    </MudText>
+                    <MudText Typo="Typo.subtitle1">@u.Description</MudText>
+                </MudPaper>
+            }
+    </MudContainer>
+}
 
-    <MudCard Class="ma-8 pa-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; height: 30%")">
-        <MudCardHeader>
-            <CardHeaderContent>
-                <MudText Typo="Typo.h4" Style="font-weight:bold">ARMED MAN LOOSE</MudText>
-                <MudText Typo="Typo.h6">Priority: 5</MudText>
-                <MudText Typo="Typo.h6" Class="mt-4">Affected Area(s): [County Name]</MudText>
-                <MudText Typo="Typo.body1">
-                    The National Weather Service has issued a coastal flood alert for
-                    [COUNTY NAME] County until [DATE]. Take precautions on beaches
-                    and stay tuned for updates.
-                </MudText>
-            </CardHeaderContent>
-            <CardHeaderActions>
-                <MudText Typo="Typo.body1" Class="mt-4 ms-4">
-                    1 January, 2022
-                </MudText>
-                <MudText Typo="Typo.body1" Class="ms-4">
-                    [Time]
-                </MudText>
-            </CardHeaderActions>
-        </MudCardHeader>
 
-    </MudCard>
-
-</MudContainer>
 @code {
-
-
+    public static AlertInfo currentAlert;
     private MudTheme Theme = new MudTheme();
+    private NewsFeedController feedController = new NewsFeedController();
+    private bool feedView = true;
 
-    //list of alerts to display
+    private void OnClick(AlertInfo alertInfo)
+    {
+        feedView = false;
+        currentAlert = alertInfo;
+        StateHasChanged();
+    }
 
-    private static readonly string title = "FLASH FLOOD EVACUATION";
-    private static readonly string author = "TOWN ADMIN";
-    private static readonly DateTime dateTime = new DateTime(2019, 05, 09, 09, 15, 00);
-    private static readonly UpdateInfo[] updates = {
-        new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
-        new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
+    private void returnToFeed()
+    {
+        feedView = true;
+        StateHasChanged();
+    }
 
-    AlertInfo dummyAlert = new AlertInfo(dateTime, title, author, updates);
-    List<AlertInfo> AlertList = new List<AlertInfo>();
-    AlertList.Add(dummyAlert);
-    //List of Alert Infos
-    //loop through list, one component for each iteration, pass in current AlertInfo object
-    //
+
 }

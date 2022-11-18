@@ -26,6 +26,7 @@
 /Users/ellabuysse/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/publish/../emerge.app/Contents/MonoBundle/Microsoft.Maui.Graphics.dll
 /Users/ellabuysse/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/publish/../emerge.app/Contents/MonoBundle/MudBlazor.dll
 /Users/ellabuysse/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/publish/../emerge.app/Contents/MonoBundle/MudBlazor.ThemeManager.dll
+/Users/ellabuysse/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/publish/../emerge.app/Contents/MonoBundle/Newtonsoft.Json.dll
 /Users/ellabuysse/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/publish/../emerge.app/Contents/MonoBundle/System.IO.Pipelines.dll
 /Users/ellabuysse/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/publish/../emerge.app/Contents/MonoBundle/emerge.dll
 /Users/ellabuysse/Projects/Project-3---308/emerge/emerge/bin/Debug/net6.0-maccatalyst/maccatalyst-x64/publish/../emerge.app/Contents/MonoBundle/Microsoft.CSharp.dll

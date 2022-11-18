@@ -1,7 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-
     @if (admin)
     {
         <AdminNavBar />
@@ -17,7 +16,7 @@
     <main>
         <div class="top-row px-4">
             <a href="/updatealert">Update Alert</a>
-            <a href="/postalert"@onclick="@ChangeView">Change View</a>
+            <a href="/postalert" @onclick="@ChangeView">Change View</a>
         </div>
 
         <article class="content px-4">
