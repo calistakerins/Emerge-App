@@ -1,51 +1,47 @@
 ﻿<Properties StartupConfiguration="{07A8190E-D4E5-485B-A340-E2E75087D5A0}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.emerge PreferredExecutionTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.1.0.1" />
-  <MonoDevelop.Ide.ItemProperties.emerge__azure PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="emerge_azure/local.settings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="emerge_azure/AlertFuncs.cs">
     <Files>
       <File FileName="emerge/Pages/Index.razor" />
       <File FileName="emerge/_Imports.razor" />
       <File FileName="emerge/wwwroot/index.html" />
       <File FileName="emerge/MauiProgram.cs" />
       <File FileName="emerge/Main.razor" />
-      <File FileName="emerge/Shared/MainLayout.razor" />
+      <File FileName="emerge/Shared/MainLayout.razor" Line="4" Column="1" />
       <File FileName="emerge/wwwroot/css/app.css" />
-      <File FileName="emerge/Pages/NewsFeed.razor" Line="89" Column="36" />
-      <File FileName="emerge/Pages/ViewAlert.razor" />
+      <File FileName="emerge/Pages/NewsFeed.razor" Line="11" Column="59" />
       <File FileName="emerge/Shared/SurveyPrompt.razor" />
-      <File FileName="emerge/Data/AlertInfo.cs" Line="1" Column="1" />
-      <File FileName="emerge/Pages/Profile.razor" />
-      <File FileName="emerge/Pages/PostAlert.razor" />
-      <File FileName="emerge/Shared/NavBar.razor" />
+      <File FileName="emerge/Data/AlertInfo.cs" Line="23" Column="36" />
+      <File FileName="emerge/Pages/Profile.razor" Line="1" Column="1" />
+      <File FileName="emerge/Pages/PostAlert.razor" Line="24" Column="79" />
+      <File FileName="emerge/Shared/NavBar.razor" Line="5" Column="116" />
       <File FileName="emerge/Pages/AdminProfile.razor" />
-      <File FileName="emerge/Pages/Departments.razor" />
+      <File FileName="emerge/Pages/Departments.razor" Line="35" Column="7" />
       <File FileName="../../../../../usr/local/share/dotnet/sdk/7.0.100-rc.2.22477.23/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" />
       <File FileName="../../../../../usr/local/share/dotnet/sdk/7.0.100-rc.2.22477.23/Sdks/Microsoft.NET.Sdk.Razor/targets/Microsoft.NET.Sdk.Razor.StaticWebAssets.targets" />
       <File FileName="emerge/Shared/NavMenu.razor" />
-      <File FileName="emerge/Pages/Login.razor" />
+      <File FileName="emerge/Pages/Login.razor" Line="1" Column="1" />
       <File FileName="emerge/App.xaml.cs" />
       <File FileName="emerge/Platforms/Windows/App.xaml.cs" />
       <File FileName="emerge/MainPage.xaml.cs" />
-      <File FileName="emerge/Shared/AdminNavBar.razor" />
+      <File FileName="emerge/Shared/AdminNavBar.razor" Line="5" Column="106" />
       <File FileName="emerge/Platforms/Windows/app.manifest" />
       <File FileName="emerge/Platforms/Windows/App.xaml" />
       <File FileName="../../../../../usr/local/share/dotnet/packs/Microsoft.Maui.Resizetizer.Sdk/7.0.0-rc.1.6683/targets/Microsoft.Maui.Resizetizer.targets" />
       <File FileName="emerge/MainPage.xaml" />
       <File FileName="emerge/App.xaml" />
-      <File FileName="emerge/Controller/NewsFeedController.cs" />
+      <File FileName="emerge/Controller/NewsFeedController.cs" Line="14" Column="69" />
       <File FileName="emerge/Data/UpdateInfo.cs" Line="1" Column="1" />
-      <File FileName="emerge_azure/Models/NewsAlert.cs" Line="6" Column="27" />
-      <File FileName="emerge_azure/Models/UpdateInfo.cs" Line="9" Column="26" />
+      <File FileName="emerge_azure/Models/NewsAlert.cs" Line="25" Column="37" />
       <File FileName="emerge_azure/Models/NewsAlertFeed.cs" Line="5" Column="31" />
-      <File FileName="emerge_azure/AlertFuncs.cs" Line="42" Column="82" />
-      <File FileName="emerge_azure/.gitignore" Line="1" Column="1" />
-      <File FileName="emerge_azure/local.settings.json" Line="10" Column="4" />
+      <File FileName="emerge_azure/AlertFuncs.cs" Line="83" Column="32" />
+      <File FileName="emerge_azure/.gitignore" />
+      <File FileName="emerge_azure/local.settings.json" Line="6" Column="67" />
+      <File FileName="emerge/Pages/UpdateAlert.razor" Line="15" Column="26" />
+      <File FileName="emerge/Pages/NewsFeedComponent.razor" Line="30" Column="36" />
+      <File FileName="emerge_azure/Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="emerge_azure/host.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -55,10 +51,10 @@
               <Node name="Controller" expanded="True" />
               <Node name="Data" expanded="True" />
               <Node name="Pages" expanded="True" />
+              <Node name="Shared" expanded="True" />
             </Node>
             <Node name="emerge_azure" expanded="True" selected="True">
               <Node name="Models" expanded="True" />
-              <Node name="Properties" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -66,5 +62,11 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.1.0.1" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.ItemProperties.emerge__azure PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

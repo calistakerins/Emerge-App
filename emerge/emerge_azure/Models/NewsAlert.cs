@@ -1,21 +1,35 @@
 ﻿using System;
 using Newtonsoft.Json;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 namespace emerge_azure.Models
 {
+
+    public class UpdateInfo
+    {
+        //[BsonElement("updateDateTime")]
+        //public DateTime dateTime { get; set; }
+        [BsonElement("updateDesc")]
+        public String description { get; set; }
+
+    }
+
     public class NewsAlert
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; } = Guid.NewGuid().ToString("n");
-        [JsonProperty(PropertyName = "title")]
+        [BsonId]
+        public ObjectId Id { get; set; }
+        [BsonElement("Title")]
         public string Title { get; set; }
-        [JsonProperty(PropertyName = "author")]
+        [BsonElement("Author")]
         public string Author { get; set; }
-        [JsonProperty(PropertyName = "description")]
+        [BsonElement("Description")]
         public string Description { get; set; }
-        [JsonProperty(PropertyName = "priority")]
+        [BsonElement("Priority")]
         public int Priority { get; set; }
-        [JsonProperty(PropertyName = "updates")]
-        public UpdateInfo[] Person { get; set; }
+        [BsonElement("Updates")]
+        public List<UpdateInfo> Updates { get; set; }
     }
 }

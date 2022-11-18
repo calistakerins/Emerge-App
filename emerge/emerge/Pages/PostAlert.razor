@@ -22,14 +22,10 @@
 @code {
 
     public DateTime AlertTime = new System.DateTime(2019, 05, 09, 09, 37, 07);
-    [Required]
     public string AlertTitle { get; set; }
     public string AlertAuthor = "Dummy";
-    [Required]
     public int AlertPriority { get; set; }
-    [Required]
     public string AlertDescription { get; set; }
-
     public UpdateInfo[] updateInfo = new UpdateInfo[0];
     public bool success = false;
 
@@ -37,7 +33,7 @@
     private async Task AddNewsAlert()
     {
 
-        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-app.azurewebsites.net/api/newsalert?") };
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/newsalert?") };
 
         HttpResponseMessage response = null;
 
