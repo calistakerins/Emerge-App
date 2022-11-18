@@ -1,37 +1,72 @@
 ﻿@page "/adminprofile"
 @using emerge.Data
+@using emerge.Controller
 
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
+        <MudText Typo="Typo.h2" Color="Color.Primary">Hi, Jane</MudText>
+        <MudText Typo="Typo.h5" Class="pt-2">Department of Agriculture</MudText>
+        <MudText Typo="Typo.h5" Class="red-text pt-2"><b>Logged In As Town Admin</b></MudText>
 
-        <MudText Typo="Typo.h5" Class="red-text"><b>Logged In As Town Admin</b></MudText>
-
-        <MudPaper Class="pa-4 mt-8 mb-8">
-            <MudStack Row="true">
-                <MudAvatar Image="images/profile_pic.png" Size="Size.Large" />
-                <MudStack Justify="Justify.Center" Spacing="20">
-                    <MudText Typo="Typo.body1">@name</MudText>
-                    <MudText Typo="Typo.body2">@county</MudText>
-                </MudStack>
-            </MudStack>
-        </MudPaper>
-
-        <MudPaper Class="pa-4 mt-8 mb-8">
+        <MudContainer Class="pa-4 mt-8 mb-8">
             <MudButton Href="/login"
                        Variant="Variant.Filled"
                        Color="Color.Primary"
                        FullWidth="true"
                        @onclick="Logout">Sign Out</MudButton>
-        </MudPaper>
-
+        </MudContainer>
+        <MudDivider></MudDivider>
         <div>
-            <MudText Typo="Typo.h5" Class="mt-5"><b>Alerts Posted</b></MudText>
-            @foreach (var u in updates)
+            <MudText Typo="Typo.h5" Class="mt-8"><b>Alert History</b></MudText>
+
+            @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
             {
-                <MudPaper Class="pa-6 ma-4">
-                    <MudText Typo="Typo.subtitle2">@u.DateTime</MudText>
-                    <MudText Typo="Typo.subtitle1">@u.Description</MudText>
-                </MudPaper>
+                <MudCard Class="ma-8 pt-4 mb-0 rounded-xl" Outlined="true"
+                         @onclick="() => OnClick(alertInfo)">
+                    <MudContainer Class="pa-4">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
+                                <MudText Typo="Typo.h6">Priority: 5</MudText>
+                                <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
+                                <MudText Typo="Typo.body1">
+                                    description...
+                                </MudText>
+                            </CardHeaderContent>
+                            <CardHeaderActions>
+                                <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                    @alertInfo.Time.ToString("MM/dd/yyyy")
+                                </MudText>
+                                <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                    @alertInfo.Time.ToString("HH:mm")
+                                </MudText>
+                            </CardHeaderActions>
+                        </MudCardHeader>
+                    </MudContainer>
+
+                    <MudContainer Class=" pa-4 rounded-b-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten3}; height: 15%; width: 100%")">
+                        @foreach (var update in alertInfo.Updates) //loop through updates
+                        {
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h6">UPDATE</MudText>
+                                    <MudText Typo="Typo.subtitle1">@update.Description</MudText>
+                                </CardHeaderContent>
+                                <CardHeaderActions>
+                                    <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                        @update.DateTime.ToString("MM/dd/yyyy")
+                                    </MudText>
+                                    <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                        @update.DateTime.ToString("HH:mm")
+                                    </MudText>
+                                </CardHeaderActions>
+                            </MudCardHeader>
+                        }
+                        <MudCardActions>
+                            <MudButton Href="/postupdate" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Post Update</MudButton>
+                        </MudCardActions>
+                    </MudContainer>
+                </MudCard>
             }
         </div>
 
@@ -42,9 +77,24 @@
     public string name { get; set; } = "Jane Doe";
     public string county { get; set; } = "King County";
     public bool loggedIn = false;
+
+    private MudTheme Theme = new MudTheme();
+    private NewsFeedController feedController = new NewsFeedController();
+
     private static readonly UpdateInfo[] updates = {
         new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
         new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
+
+    private void OnClick(AlertInfo alertInfo)
+    {
+        StateHasChanged();
+    }
+
+    private void returnToFeed()
+    {
+        StateHasChanged();
+    }
+
 
     void SignOut()
     {
