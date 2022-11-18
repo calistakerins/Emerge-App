@@ -11,7 +11,7 @@
 
                 <MudText Typo="Typo.h3" Class="pa-4" Color="Color.Primary">Active Alerts</MudText>
 
-                @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
+                @foreach (var alertInfo in feedController.getFirstNAlerts(@displayAlertNum)) //loop through alert list
                 {
                     <MudCard Class="mt-8 pt-4 rounded-xl" Outlined="true"
                              @onclick="() => OnClick(alertInfo)">
@@ -93,23 +93,25 @@
 
 
             @code {
-        public static AlertInfo currentAlert;
-            private MudTheme Theme = new MudTheme();
-            private NewsFeedController feedController = new NewsFeedController();
-            private bool feedView = true;
+                private int displayAlertNum = 3;   //number of alerts to display
 
-            private void OnClick(AlertInfo alertInfo)
-            {
-                feedView = false;
-                currentAlert = alertInfo;
-                StateHasChanged();
-            }
+                public static AlertInfo currentAlert;
+                private MudTheme Theme = new MudTheme();
+                private NewsFeedController feedController = new NewsFeedController();
+                private bool feedView = true;
 
-            private void returnToFeed()
-            {
-                feedView = true;
-                StateHasChanged();
-            }
+                private void OnClick(AlertInfo alertInfo)
+                {
+                    feedView = false;
+                    currentAlert = alertInfo;
+                    StateHasChanged();
+                }
+
+                private void returnToFeed()
+                {
+                    feedView = true;
+                    StateHasChanged();
+                }
 
 
             }
