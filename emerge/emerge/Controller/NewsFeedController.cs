@@ -8,7 +8,7 @@ namespace emerge.Controller
     public class NewsFeedController
 	{
 		private List<AlertInfo> alertList;
-
+        
         //dummy data
         private static readonly UpdateInfo[] updates = {
         new UpdateInfo(new System.DateTime(2019, 05, 09, 09, 37, 07), " leo, ut laoreet leo blandit feugiat."),
@@ -44,6 +44,42 @@ namespace emerge.Controller
         public List<AlertInfo> getAlertList()
         {
             return alertList;
+        }
+
+        //sorts list of alerts according to alert's date/time
+        private void sortAlertList() {
+            alertList.Sort((x, y) => System.DateTime.Compare(x.Time, y.Time));
+            
+        }
+
+        public List<AlertInfo> getFirstNAlerts(int n)
+        {
+            this.sortAlertList();
+            List<AlertInfo> nList = new List<AlertInfo>();
+            if (alertList.Count <= n)
+            {
+                return alertList;
+            } else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    nList.Add(alertList[i]);
+                }
+                return nList;
+            }
+          
+        }
+
+        public List<AlertInfo> getRemainingAlerts(int n)
+        {
+            this.sortAlertList();
+            List<AlertInfo> remainingList = new List<AlertInfo>();
+            int count = alertList.Count;
+            for(int i = n; i < count; i++)
+            {
+                remainingList.Add(alertList[i]);
+            }
+            return remainingList;
         }
 
 
