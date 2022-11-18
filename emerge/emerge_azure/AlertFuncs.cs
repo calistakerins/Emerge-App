@@ -25,18 +25,16 @@ public static class AlertFuncs
         return new OkObjectResult(NewsAlertFeed.newsalerts);
     }
 
+
     [FunctionName("add_newsalert")]
     public static async Task<IActionResult> AddNewsAlert(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "newsalert")] HttpRequest req,
             ILogger log)
     {
+
         var client = new MongoClient(System.Environment.GetEnvironmentVariable("MongoDBAtlasConnectionString"));
         var database = client.GetDatabase("alerts");
         var collection = database.GetCollection<NewsAlert>("alertInfo");
-        ////We could also just drop the collection
-        //await collection.DeleteManyAsync(new BsonDocument { });
-        //await collection.Indexes.DropAllAsync();
-        //njnjnjnj
 
         log.LogInformation("Called add_newsalert with POST request");
 
@@ -45,6 +43,7 @@ public static class AlertFuncs
         var newsalert = JsonConvert.DeserializeObject<NewsAlert>(requestBody);
 
         await collection.InsertOneAsync(newsalert);
+
 
         return new OkObjectResult(newsalert);
     }

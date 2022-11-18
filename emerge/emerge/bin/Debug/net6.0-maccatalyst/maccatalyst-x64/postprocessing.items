@@ -9,7 +9,7 @@
       <dSYMInfoPlistRelativePath>emerge.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
       <SymbolFile>obj/Debug/net6.0-maccatalyst/maccatalyst-x64/mtouch-symbols.list</SymbolFile>
       <DSymName>emerge.app.dSYM</DSymName>
-      <SourceProjectPath>/Users/trieu/Projects/Project-3---308/emerge/emerge</SourceProjectPath>
+      <SourceProjectPath>/Users/ellabuysse/Projects/Project-3---308/emerge/emerge</SourceProjectPath>
     </_PostProcessingItem>
   </ItemGroup>
 </Project>

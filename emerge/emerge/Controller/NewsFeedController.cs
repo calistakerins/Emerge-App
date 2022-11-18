@@ -46,7 +46,52 @@ namespace emerge.Controller
             return alertList;
         }
 
+<<<<<<< HEAD
 
 	}
+=======
+        //sorts list of alerts according to alert's date/time
+        private void sortAlertList()
+        {
+            alertList.Sort((x, y) => System.DateTime.Compare(x.Time, y.Time));
+
+        }
+
+        public List<AlertInfo> getFirstNAlerts(int n)
+        {
+            this.sortAlertList();
+            List<AlertInfo> nList = new List<AlertInfo>();
+            if (alertList.Count <= n)
+            {
+                return alertList;
+            }
+            else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    nList.Add(alertList[i]);
+                }
+                return nList;
+            }
+
+        }
+
+        public List<AlertInfo> getRemainingAlerts(int n)
+        {
+            this.sortAlertList();
+            List<AlertInfo> remainingList = new List<AlertInfo>();
+            int count = alertList.Count;
+            for (int i = n; i < count; i++)
+            {
+                remainingList.Add(alertList[i]);
+            }
+            return remainingList;
+        }
+
+
+    }
+
+
+>>>>>>> 834b2d746afba5340ae71d376736392f81776089
 }
 

@@ -14,7 +14,7 @@
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
-		A/74dbGgxu/fUONI00Bycn7+qco=
+		taOyNoSo2BIrzowD7xOd7/IHKc8=
 		</data>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Resources/wwwroot/_content/MudBlazor.ThemeManager/MudBlazorThemeManager.css</key>
 		<data>
-		PRXyd/q26WuWoCOjC/eqrIbifP4=
+		pF3fh8GasWcPDzUF4BKYjbvYLGs=
 		</data>
 		<key>Resources/wwwroot/_content/MudBlazor/MudBlazor.min.css</key>
 		<data>
@@ -1480,14 +1480,22 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< HEAD
 			cHU9WB5nJSSoI9UUCsVGkrFxzM7admXdJ6fFe4JZ3xA=
+=======
+			0598yFiL77L9gWrQC3/cqWVHUt4uu9K3FXYQV6InE58=
+>>>>>>> 834b2d746afba5340ae71d376736392f81776089
 			</data>
 		</dict>
 		<key>MonoBundle/emerge.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< HEAD
 			OArlKeHRxj/e3Fz73Nm+5EJqm5+S19ANAH3MzlNNaYs=
+=======
+			UYUD+rPzlSG5G2kD2r0as2xzxgsdvxoiPZF2ocOrIyM=
+>>>>>>> 834b2d746afba5340ae71d376736392f81776089
 			</data>
 		</dict>
 		<key>MonoBundle/icudt.dat</key>
@@ -1578,7 +1586,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UEORARmYMQB21vcObyk2tL7rhjGOSCGHQz3UGRUssW0=
+			4sJYIrDjcyKdZrWnkcITBpUlk2wBstJbyN8sH83H/SA=
 			</data>
 		</dict>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
@@ -1627,7 +1635,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hRoYtyCAXmhGOVamZkUrYeETqCSL4MhLtRFKSAU8Rg0=
+			grDnJwt+GLE8XMKoifN5vGzOEbyxz6JftZdKJRt4FCg=
 			</data>
 		</dict>
 		<key>Resources/wwwroot/_content/MudBlazor/MudBlazor.min.css</key>

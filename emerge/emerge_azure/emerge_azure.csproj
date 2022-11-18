@@ -5,11 +5,17 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
+<<<<<<< HEAD
     <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
     <None Remove="MongoDB.Driver" />
+=======
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Models\" />
+>>>>>>> 834b2d746afba5340ae71d376736392f81776089
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
