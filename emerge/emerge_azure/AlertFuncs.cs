@@ -13,7 +13,7 @@ using System;
 using MongoDB.Bson;
 using System.Diagnostics;
 using UserDatabase.Models;
-
+using System.Collections.Generic;
 
 public static class AlertFuncs
 {
@@ -24,17 +24,25 @@ public static class AlertFuncs
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "newsalert")] HttpRequest req,
         ILogger log)
     {
+        List<NewsAlert> alertList = new List<NewsAlert>();
         log.LogInformation("Called get_newsalert with GET request");
         MongoClient dbClient = new MongoClient(connectionString);
         var database = dbClient.GetDatabase("alerts");
         var collection = database.GetCollection<BsonDocument>("alertInfo");
         var documents = collection.AsQueryable();
-        foreach (BsonDocument alert in documents)
+        foreach (BsonDocument alertDoc in documents)
         {
-            Console.Write(alert["Title"].AsString);
+            var alert = new NewsAlert();
+            alert.Time = alertDoc["Time"].AsDateTime;
+            alert.Title = alertDoc["Title"].AsString;
+            //alert.Author = alertDoc["Author"].AsString;
+            alert.Description = alertDoc["Description"].AsString;
+            //alert.Priority = (int) alertDoc["Priority"].AsInt64;
+            //deserialize update
+            alertList.Add(alert);
         }
 
-        return new OkObjectResult(NewsAlertFeed.newsalerts);
+        return new OkObjectResult(alertList);
     }
 
     //[FunctionName("get_newsalert_byID")]
