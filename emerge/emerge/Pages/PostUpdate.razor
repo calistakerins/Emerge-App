@@ -48,20 +48,20 @@
 
         HttpResponseMessage response = null;
 
-        var payload = new AlertInfo(AlertTime, AlertTitle, AlertAuthor, AlertDescription, AlertPriority, updateInfo, AlertImageUrl);
+        //var payload = new AlertInfo(AlertTime, AlertTitle, AlertAuthor, AlertDescription, AlertPriority, updateInfo, AlertImageUrl);
 
-        var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
+        //var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 
-        response = await client.PostAsync(client.BaseAddress, payloadString);
+        //response = await client.PostAsync(client.BaseAddress, payloadString);
 
-        if (response.IsSuccessStatusCode)
-        {
-            success = true;
-        }
-        else
-        {
-            success = false;
-        }
+        //if (response.IsSuccessStatusCode)
+        //{
+        //    success = true;
+        //}
+        //else
+        //{
+        //    success = false;
+        //}
     }
 
 }
