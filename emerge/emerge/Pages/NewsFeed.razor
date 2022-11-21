@@ -95,12 +95,12 @@
             @code {
                 private int displayAlertNum = 3;   //number of alerts to display
 
-                public static AlertInfo currentAlert;
+                public static NewsAlert currentAlert;
                 private MudTheme Theme = new MudTheme();
                 private NewsFeedController feedController = new NewsFeedController();
                 private bool feedView = true;
 
-                private void OnClick(AlertInfo alertInfo)
+                private void OnClick(NewsAlert alertInfo)
                 {
                     feedView = false;
                     currentAlert = alertInfo;
