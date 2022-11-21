@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using emerge_azure.Models;
 using Newtonsoft.Json;
 using System.IO;
+using MongoDB.Driver;
+using System.Diagnostics;
+using UserDatabase.Models;
 
 public static class AlertFuncs
 {
@@ -46,10 +49,29 @@ public static class AlertFuncs
 
         string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
-        var newsalert = JsonConvert.DeserializeObject<NewsAlert>(requestBody);
+        var newsAlert = JsonConvert.DeserializeObject<NewsAlert>(requestBody);
 
-        NewsAlertFeed.newsalerts.Add(newsalert);
+        NewsAlertFeed.newsalerts.Add(newsAlert);
 
-        return new OkObjectResult(newsalert);
+        //add user to MongoDB
+        string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
+        string databaseName = "alerts";
+        string collectionName = "alertInfo";
+
+        // Establish connection to MongoDB.
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase(databaseName);
+        var collection = db.GetCollection<NewsAlert>(collectionName);
+
+        // Insert UserModel object into MongoDB.
+        await collection.InsertOneAsync(newsAlert);
+
+
+        // Locate document with Username field equal to "emerge"
+        //var results = await collection.FindAsync(document => document.Username == "emerge");
+        //Debug.WriteLine(results);
+
+        return new OkObjectResult(newsAlert);
+
     }
 }

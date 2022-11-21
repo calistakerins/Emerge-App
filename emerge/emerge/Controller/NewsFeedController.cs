@@ -10,17 +10,17 @@ namespace emerge.Controller
     
     public class NewsFeedController
 	{
-		private List<AlertInfo> alertList;
+		private List<NewsAlert> alertList;
 
         //dummy data
-        private static readonly UpdateInfo[] updates = {
-        new UpdateInfo(new System.DateTime(2019, 05, 09, 09, 37, 07), " leo, ut laoreet leo blandit feugiat."),
-        new UpdateInfo(new System.DateTime(2019, 05, 09, 10, 56, 41), "laoreet turpis leo, ut laoreet leo blandit feugiat.")};
+        //private static readonly UpdateInfo[] updates = {
+        //new UpdateInfo(new System.DateTime(2019, 05, 09, 09, 37, 07), " leo, ut laoreet leo blandit feugiat."),
+        //new UpdateInfo(new System.DateTime(2019, 05, 09, 10, 56, 41), "laoreet turpis leo, ut laoreet leo blandit feugiat.")};
 
         //populates alertList
         public NewsFeedController()
 		{
-            alertList = new List<AlertInfo>();
+            alertList = new List<NewsAlert>();
             //AlertInfo dummyAlert1 = new AlertInfo(new System.DateTime(2019, 05, 09, 09, 15, 00),
             //                                                     "FLASH FLOOD EVACUATION", "harrison",
             //                                                     "Department of Energy", 5,
@@ -68,7 +68,7 @@ namespace emerge.Controller
             }
         }
 
-        public List<AlertInfo> getAlertList()
+        public List<NewsAlert> getAlertList()
         {
             return alertList;
         }
@@ -80,10 +80,10 @@ namespace emerge.Controller
 
         }
 
-        public List<AlertInfo> getFirstNAlerts(int n)
+        public List<NewsAlert> getFirstNAlerts(int n)
         {
             this.sortAlertList();
-            List<AlertInfo> nList = new List<AlertInfo>();
+            List<NewsAlert> nList = new List<NewsAlert>();
             if (alertList.Count <= n)
             {
                 return alertList;
@@ -99,10 +99,10 @@ namespace emerge.Controller
 
         }
 
-        public List<AlertInfo> getRemainingAlerts(int n)
+        public List<NewsAlert> getRemainingAlerts(int n)
         {
             this.sortAlertList();
-            List<AlertInfo> remainingList = new List<AlertInfo>();
+            List<NewsAlert> remainingList = new List<NewsAlert>();
             int count = alertList.Count;
             for (int i = n; i < count; i++)
             {

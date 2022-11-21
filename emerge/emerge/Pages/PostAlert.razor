@@ -4,7 +4,6 @@
 @using System.Text
 @using System.Net.Mime
 
-@*<DataAnnotationsValidator />*@
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
 
@@ -12,59 +11,77 @@
 
         <MudCard>
             <MudCardContent>
-                <MudTextField Label="Title"
-                              @bind-Value="AlertTitle" Variant="Variant.Filled" Class="pt-4 pb-4" />
-                <MudNumericField Label="Priority"
-                                 @bind-Value="AlertPriority" Variant="Variant.Filled" Min="0" Max="5" Class="pt-4 pb-4" />
-                <MudTextField T="string" Label="Alert Image URL" @bind-Value="AlertImageUrl" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
-                <MudTextField T="string" Label="Alert Description" @bind-Value="AlertDescription" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
+                <MudTextField Label="Title" @bind-Value="Title" Variant="Variant.Filled" Class="pt-4 pb-4" />
+                <MudNumericField Label="Priority"@bind-Value="Priority" Variant="Variant.Filled" Min="0" Max="5" Class="pt-4 pb-4" />
+                <MudTextField T="string" Label="Alert Image URL" @bind-Value="ImageUrl" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
+                <MudTextField T="string" Label="Alert Description" @bind-Value="Description" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
             </MudCardContent>
-            <MudCardActions>
-                <MudButton @onclick="@AddNewsAlert" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto mb-4">Post Alert</MudButton>
-            </MudCardActions>
+
+                <MudButton Href="/profile"
+                           Disabled="@_processing"
+                           OnClick="AddNewsAlert"
+                           Variant="Variant.Text">
+                    @if (_processing)
+                    {
+                        <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                        <MudText Class="ms-2">Processing</MudText>
+                    }
+                    else
+                    {
+                        <MudText>Post Alert</MudText>
+                    }
+                </MudButton>
+
         </MudCard>
-        <MudText Typo="Typo.h3" Class="mt-5"><b>@success</b></MudText>
+        <MudText Typo="Typo.h3" Class="mt-5"><b></b></MudText>
 
         </MudContainer>
     </MudMainContent>
 
-        @code {
+    @code {
+        //[JsonProperty(PropertyName = "title")]
+        //public string Title { get; set; }
+        //[JsonProperty(PropertyName = "author")]
+        //public string Author { get; set; }
+        //[JsonProperty(PropertyName = "description")]
+        //public string Description { get; set; }
+        //[JsonProperty(PropertyName = "priority")]
+        //public int Priority { get; set; }
+        //[JsonProperty(PropertyName = "updates")]
 
-            public DateTime AlertTime = new System.DateTime(2019, 05, 09, 09, 37, 07);
-            [Required]
-            public string AlertTitle { get; set; }
-            public string AlertAuthor = "Dummy";
-            [Required]
-            public int AlertPriority { get; set; }
-            [Required]
-            public string AlertDescription { get; set; }
-            public string AlertImageUrl { get; set; }
+        public DateTime Time { get; set; } = DateTime.Now;
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public string Description { get; set; }
+        public int Priority { get; set; }
+        public string ImageUrl { get; set; }
+        public UpdateInfo[] Updates { get; set; }
+        private bool _processing = false;
 
-            public UpdateInfo[] updateInfo = new UpdateInfo[0];
-            public bool success = false;
+        private async Task AddNewsAlert()
+        {
+            _processing = true;
 
+            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/newsalert?") };
 
-            private async Task AddNewsAlert()
+            HttpResponseMessage response = null;
+
+            var payload = new NewsAlert()
             {
+                Time = Time,
+                Title = Title,
+                Author = Author,
+                Description = Description,
+                Priority = Priority,
+                ImageUrl = ImageUrl,
+                Updates = Updates
+            };
 
-                HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-app.azurewebsites.net/api/newsalert?") };
+            var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 
-                HttpResponseMessage response = null;
+            response = await client.PostAsync(client.BaseAddress, payloadString);
 
-                var payload = new AlertInfo(AlertTime, AlertTitle, AlertAuthor, AlertDescription, AlertPriority, updateInfo, AlertImageUrl);
-
-                var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
-
-                response = await client.PostAsync(client.BaseAddress, payloadString);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    success = true;
-                }
-                else
-                {
-                    success = false;
-                }
-            }
+            _processing = false;
+        }
 
         }
