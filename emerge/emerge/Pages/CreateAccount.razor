@@ -4,8 +4,12 @@
 @using System.Text.Json
 @using emerge.Data
 
-<MudText Typo="Typo.h4" Align="Align.Center">Create New Account</MudText>
+<MudText Typo="Typo.h3" Align="Align.Center">Create New Account</MudText>
 <MudDivider DividerType="DividerType.Middle" Class="my-6" />
+
+<p>
+    <MudContainer Class="d-flex justify-center align-center"><MudImage Src="images/profile_pic.png" Alt="profile pic" /></MudContainer>
+</p>
 
 <MudContainer Class="d-flex justify-center align-center">
     <MudRadioGroup @bind-SelectedOption="Administrator">
@@ -14,68 +18,83 @@
     </MudRadioGroup>
 </MudContainer>
 
-<MudContainer Class="d-flex justify-center align-center">
+<MudContainer Class="d-flex justify-center align-center rounded-xl">
     <MudItem xs="12" sm="6" md="4">
-        <MudTextField @bind-Value="Name" Label="Name" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-        <MudSpacer />
-        <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-        <MudSpacer />
-        <MudTextField @bind-Value="Email" Label="Email" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-        <MudSpacer />
-        <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-        <MudSpacer />
-        <MudTextField @bind-Value="Password" Label="Password" HelperText="Repeat the password." HelperTextOnFocus="true" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+        <MudStack Spacing=1>
+            <MudTextField @bind-Value="Name" FullWidth="true" Label="Name" Variant="Variant.Outlined" Required="true"></MudTextField>
+            <MudSpacer />
+            <MudTextField @bind-Value="Username" FullWidth="true" Label="Username" Variant="Variant.Outlined" Required="true"></MudTextField>
+            <MudSpacer />
+            <MudTextField @bind-Value="Email" FullWidth="true" Label="Email" Variant="Variant.Outlined" Required="true"></MudTextField>
+            <MudSpacer />
+            <MudTextField @bind-Value="Password" FullWidth="true" Label="Password" Variant="Variant.Outlined" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
+            <MudSpacer />
+        </MudStack>
     </MudItem>
 </MudContainer>
 
-
-<MudContainer Class="d-flex justify-center align-center">
+<MudContainer Class="d-flex justify-center align-center pt-2">
     <MudButton Href="/profile"
                Disabled="@_processing"
                OnClick="AddProfile"
-               Variant="Variant.Text">
-        @if (_processing)
-        {
-            <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
-            <MudText Class="ms-2">Processing</MudText>
-        }
-        else
-        {
-            <MudText>Register</MudText>
-        }
-    </MudButton>
+               Variant="Variant.Text">Register</MudButton>
 </MudContainer>
 
-@code {
-    public string Name { get; set; }
-    public string Username { get; set; }
-    public string Email { get; set; }
-    public string Password { get; set; }
-    public bool Administrator { get; set; } = true;
-    private bool _processing = false;
 
-    private async Task AddProfile()
-    {
-        _processing = true;
 
-        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/profile") };
+    @code {
+        public string Name { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public bool Administrator { get; set; } = true;
+        private bool _processing = false;
 
-        HttpResponseMessage response = null;
-
-        var payload = new UserProfile()
+        private async Task AddProfile()
         {
-            Name = Name,
-            Username = Username,
-            Password = Password,
-            Email = Email,
-            Admin = Administrator
-        };
+            _processing = true;
 
-        var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
+            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/profile") };
 
-        response = await client.PostAsync(client.BaseAddress, payloadString);
+            HttpResponseMessage response = null;
 
-        _processing = false;
+            var payload = new UserProfile()
+            {
+                Name = Name,
+                Username = Username,
+                Password = Password,
+                Email = Email,
+                Admin = Administrator
+            };
+
+            if (payload.Username != null && payload.Password != null && payload.Name != null && payload.Email != null)
+            {
+                var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
+
+                response = await client.PostAsync(client.BaseAddress, payloadString);
+            }
+
+            _processing = false;
+        }
+
+        bool isShow;
+        InputType PasswordInput = InputType.Password;
+        string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+
+        void ButtonTestclick()
+        {
+            @if (isShow)
+            {
+                isShow = false;
+                PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+                PasswordInput = InputType.Password;
+            }
+            else
+            {
+                isShow = true;
+                PasswordInputIcon = Icons.Material.Filled.Visibility;
+                PasswordInput = InputType.Text;
+            }
+        }
     }
-}
 

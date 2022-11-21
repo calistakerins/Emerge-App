@@ -1,5 +1,5 @@
 ﻿@page "/login"
-<MudText Typo="Typo.h3" Align="Align.Center">Log In</MudText>
+<MudText Typo="Typo.h2" Align="Align.Center">Log In</MudText>
 
 <p>
     <MudContainer Class="d-flex justify-center align-center"><MudImage Src="images/profile_pic.png" Alt="profile pic" /></MudContainer>
@@ -13,30 +13,24 @@
     </MudRadioGroup>
 </MudContainer>
 
-<MudContainer Class="d-flex justify-center align-center">
+<MudContainer Class="d-flex justify-center align-center rounded-xl">
     <MudItem xs="12" sm="6" md="4">
-        <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+        <MudStack Spacing=2>
+            <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Elevation="1" Required="true"></MudTextField>
+            <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Elevation="1" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
+            <MudButton Href="/profile"
+                       Variant="Variant.Text">Log In</MudButton>
+        </MudStack>
     </MudItem>
 </MudContainer>
 
-
-<MudContainer Class="d-flex justify-center align-center">
-    <MudItem xs="12" sm="6" md="4">
-        <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-    </MudItem>
-</MudContainer>
-
-<MudContainer Class="d-flex justify-center align-center">
-    <MudButton Href="/profile"
-               Variant="Variant.Text">Log In</MudButton>
-</MudContainer>
 
 <p></p>
 <MudDivider DividerType="DividerType.Middle" Class="my-6" />
 
 <MudText Typo="Typo.subtitle1" Align="Align.Center">Not registered?</MudText>
 
-<MudContainer Class="d-flex justify-center align-center">
+<MudContainer Class="d-flex justify-center align-center pt-1">
     <MudButton Href="/createAccount"
                Variant="Variant.Text">Create new account</MudButton>
 </MudContainer>
@@ -52,5 +46,25 @@
     public string Username { get; set; }
     public string Password { get; set; }
     public int ViewType { get; set; }
+
+    bool isShow;
+    InputType PasswordInput = InputType.Password;
+    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+
+    void ButtonTestclick()
+    {
+        @if (isShow)
+        {
+            isShow = false;
+            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+            PasswordInput = InputType.Password;
+        }
+        else
+        {
+            isShow = true;
+            PasswordInputIcon = Icons.Material.Filled.Visibility;
+            PasswordInput = InputType.Text;
+        }
+    }
 }
 
