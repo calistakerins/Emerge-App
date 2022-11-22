@@ -48,7 +48,7 @@ namespace emerge.Controller
 
         private async void populateFeed()
         {
-            string url = "http://localhost:7071/api/";
+            string url = "https://emerge-app.azurewebsites.net/api/newsalert?";
             using var client = new HttpClient();
             client.BaseAddress = new Uri(url);
             // Add an Accept header for JSON format.
