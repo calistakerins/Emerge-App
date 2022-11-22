@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using emerge.Data;
+using Newtonsoft.Json;
 using static MudBlazor.FilterOperator;
 namespace emerge.Controller
 {
@@ -43,7 +44,6 @@ namespace emerge.Controller
             //this.alertList.Add(dummyAlert3);
             //this.alertList.Add(dummyAlert4);
             populateFeed();
-
         }
 
         private async void populateFeed()
@@ -59,6 +59,7 @@ namespace emerge.Controller
             if (response.IsSuccessStatusCode)
             {
                 var responseAsString = await response.Content.ReadAsStringAsync();
+                alertList = JsonConvert.DeserializeObject<List<NewsAlert>>(responseAsString);
                 Console.Write("responesAsString"); //unserialized json string
             }
             else
