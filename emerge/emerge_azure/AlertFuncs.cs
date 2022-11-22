@@ -33,11 +33,27 @@ public static class AlertFuncs
         foreach (BsonDocument alertDoc in documents)
         {
             var alert = new NewsAlert();
-            alert.Time = alertDoc["Time"].AsDateTime;
-            alert.Title = alertDoc["Title"].AsString;
-            //alert.Author = alertDoc["Author"].AsString;
-            alert.Description = alertDoc["Description"].AsString;
-            //alert.Priority = (int) alertDoc["Priority"].AsInt64;
+            if (!alertDoc["Time"].IsBsonNull)
+            {
+                alert.Time = alertDoc["Time"].AsDateTime;
+            }
+            if (!alertDoc["Title"].IsBsonNull)
+            {
+                alert.Title = alertDoc["Title"].AsString;
+            }
+            if (!alertDoc["Author"].IsBsonNull)
+            {
+                alert.Author = alertDoc["Author"].AsString;
+            }
+            if (!alertDoc["Time"].IsBsonNull)
+            {
+                alert.Description = alertDoc["Description"].AsString;
+            }
+            if (!alertDoc["Priority"].IsBsonNull)
+            {
+                alert.Priority = (int) alertDoc["Priority"].AsInt32;
+            }
+            
             //deserialize update
             alertList.Add(alert);
         }
