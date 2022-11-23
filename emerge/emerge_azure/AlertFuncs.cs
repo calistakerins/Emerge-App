@@ -53,6 +53,20 @@ public static class AlertFuncs
             {
                 alert.Priority = (int) alertDoc["Priority"].AsInt32;
             }
+            //access updates
+            if (!alertDoc["Updates"].IsBsonNull)
+            {
+                List<UpdateInfo> updateList = new List<UpdateInfo>();
+                var updates = alertDoc["Updates"].AsBsonArray;
+                foreach(BsonDocument update in updates)
+                {
+                    UpdateInfo updateObj = new UpdateInfo(update["DateTime"].AsDateTime,
+                                                        update["Description"].AsString);
+                    updateList.Add(updateObj);
+                }
+                alert.Updates = updateList.ToArray();
+                
+            }
             
             //deserialize update
             alertList.Add(alert);

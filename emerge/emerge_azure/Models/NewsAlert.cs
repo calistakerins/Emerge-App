@@ -16,6 +16,6 @@ namespace emerge_azure.Models
         [JsonProperty(PropertyName = "priority")]
         public int Priority { get; set; }
         [JsonProperty(PropertyName = "updates")]
-        public UpdateInfo[] Person { get; set; }
+        public UpdateInfo[] Updates { get; set; }
     }
 }
