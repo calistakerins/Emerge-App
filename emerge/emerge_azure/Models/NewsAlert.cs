@@ -15,6 +15,8 @@ namespace emerge_azure.Models
         public string Description { get; set; }
         [JsonProperty(PropertyName = "priority")]
         public int Priority { get; set; }
+        [JsonProperty(PropertyName = "image")]
+        public string ImageUrl { get; set; }
         [JsonProperty(PropertyName = "updates")]
         public UpdateInfo[] Person { get; set; }
     }
