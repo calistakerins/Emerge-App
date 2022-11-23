@@ -64,9 +64,10 @@ public static class AlertFuncs
                 {
                     UpdateInfo updateObj = new UpdateInfo(update["DateTime"].AsDateTime,
                                                         update["Description"].AsString);
+
                     updateList.Add(updateObj);
                 }
-                alert.Person = updateList.ToArray();
+                alert.Updates = updateList;
 
             }
             alertList.Add(alert);
