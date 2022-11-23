@@ -11,49 +11,90 @@
 
                 <MudText Typo="Typo.h3" Class="pa-4" Color="Color.Primary">Active Alerts</MudText>
 
-                @foreach (var alertInfo in feedController.getFirstNAlerts(@displayAlertNum)) //loop through alert list
+                @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
                 {
                     <MudCard Class="mt-8 pt-4 rounded-xl" Outlined="true"
                              @onclick="() => OnClick(alertInfo)">
                         <MudContainer Class="pa-4">
                             <MudCardHeader>
                                 <CardHeaderContent>
-                                    <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
-                                    <MudText Typo="Typo.h6">Priority: 5</MudText>
-                                    <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
-                                    <MudText Typo="Typo.body1">
-                                        description...
-                                    </MudText>
+                                    @if (alertInfo.Title != null)
+                                    {
+                                        <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
+                                    }
+                                    else
+                                    {
+                                        <MudText Typo="Typo.h4" Style="font-weight:bold">No Title</MudText>
+                                    }
+
+                                    @if (alertInfo.Priority != null)
+                                    {
+                                        <MudText Typo="Typo.h6">Priority: @alertInfo.Priority</MudText>
+                                    }
+                                    else
+                                    {
+                                        <MudText Typo="Typo.h6">Priority: 1</MudText>//defaults to 1
+                                    }
+
+                                    @if (alertInfo.Author != null)
+                                    {
+                                        <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
+                                    }
+                                    else
+                                    {
+                                        <MudText Typo="Typo.h6">No Author</MudText>
+                                    }
+
+                                    @if (alertInfo.Description != null)
+                                    {
+                                        <MudText Typo="Typo.body1">
+                                            @alertInfo.Description
+                                        </MudText>
+                                    }
+                                    else
+                                    {
+                                        <MudText Typo="Typo.body1">No Description</MudText>
+                                    }
+
+                                    
                                 </CardHeaderContent>
                                 <CardHeaderActions>
-                                    <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                        @alertInfo.Time.ToString("MM/dd/yyyy")
-                                    </MudText>
-                                    <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                        @alertInfo.Time.ToString("HH:mm")
-                                    </MudText>
+                                    @if (alertInfo.Time != null)
+                                    {
+                                        <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                            @alertInfo.Time.ToString("MM/dd/yyyy")
+                                        </MudText>
+                                        <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                            @alertInfo.Time.ToString("HH:mm")
+                                        </MudText>
+                                    }
+
                                 </CardHeaderActions>
                             </MudCardHeader>
                         </MudContainer>
 
                         <MudContainer Class=" pa-4 rounded-b-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten3}; height: 15%; width: 100%")">
-                            @foreach (var update in alertInfo.Updates) //loop through updates
+                            @if (alertInfo.Updates != null)
                             {
-                                <MudCardHeader>
-                                    <CardHeaderContent>
-                                        <MudText Typo="Typo.h6">UPDATE</MudText>
-                                        <MudText Typo="Typo.subtitle1">@update.Description</MudText>
-                                    </CardHeaderContent>
-                                    <CardHeaderActions>
-                                        <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                            @update.DateTime.ToString("MM/dd/yyyy")
-                                        </MudText>
-                                        <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                            @update.DateTime.ToString("HH:mm")
-                                        </MudText>
-                                    </CardHeaderActions>
-                                </MudCardHeader>
+                                @foreach (var update in alertInfo.Updates) //loop through updates
+                                {
+                                    <MudCardHeader>
+                                        <CardHeaderContent>
+                                            <MudText Typo="Typo.h6">UPDATE</MudText>
+                                            <MudText Typo="Typo.subtitle1">@update.Description</MudText>
+                                        </CardHeaderContent>
+                                        <CardHeaderActions>
+                                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                                @update.DateTime.ToString("MM/dd/yyyy")
+                                            </MudText>
+                                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                                @update.DateTime.ToString("HH:mm")
+                                            </MudText>
+                                        </CardHeaderActions>
+                                    </MudCardHeader>
+                                }
                             }
+
                         </MudContainer>
                     </MudCard>
                 }
