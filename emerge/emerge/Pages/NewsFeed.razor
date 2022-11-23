@@ -104,37 +104,57 @@
             else
             {
             //View Alert
-            <MudContainer Class="mt-8">
-                <MudButton Variant="Variant.Outlined" @onclick="returnToFeed">Back</MudButton>
-                <MudCard Class="ma-8 rounded-xl" Outlined="true">
-                    <MudCardMedia Image=@currentAlert.ImageUrl Height="300" />
-                    <MudContainer Class="pa-4 ml-4 mr-4">
-                        <MudText Typo="Typo.h3" Class="mt-5"><b>@currentAlert.Title</b></MudText>
-                        <MudText Typo="Typo.h5">PRIORITY: 5</MudText>
-                        <MudText Typo="Typo.body1">@currentAlert.Author</MudText>
-                        <MudText Typo="Typo.body1">@currentAlert.Time.ToString("MM/dd/yyyy HH:mm")</MudText>
-                        <MudText Typo="Typo.subtitle1">ncidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
-                    </MudContainer>
-                </MudCard>
-                <MudText Class="ma-8" Typo="Typo.h4"><b>Updates</b></MudText>
-                @foreach (var u in currentAlert.Updates)
-                {
-                    <MudPaper Class="pa-6 ma-8  rounded-xl">
-                        <MudText Typo="Typo.subtitle2">
-                            @currentAlert.Time.ToString("MM/dd/yyyy")
-                        </MudText>
-                        <MudText Typo="Typo.subtitle2">
-                            @currentAlert.Time.ToString("HH:mm")
-                        </MudText>
-                        <MudText Typo="Typo.subtitle1">@u.Description</MudText>
-                    </MudPaper>
-                }
-            </MudContainer>
+<MudContainer Class="mt-8">
+    <MudButton Variant="Variant.Outlined" @onclick="returnToFeed">Back</MudButton>
+    <MudCard Class="ma-8 rounded-xl" Outlined="true">
+        @*<MudCardMedia Image=@currentAlert.ImageUrl Height="300" />*@
+        <MudCardMedia Image="https://cdn.hswstatic.com/gif/flash-flood-update.jpg" Height="300" />
+        <MudContainer Class="pa-4 ml-4 mr-4">
+            @if (currentAlert.Title != null)
+            {
+                <MudText Typo="Typo.h3" Style="font-weight:bold">@currentAlert.Title</MudText>
+            }
+            @if (currentAlert.Priority != null)
+            {
+                <MudText Typo="Typo.h5" Style="font-weight:bold">@currentAlert.Priority</MudText>
+            }
+            @if (currentAlert.Author != null)
+            {
+                <MudText Typo="Typo.body1" Style="font-weight:bold">@currentAlert.Author</MudText>
+            }
+            @if (currentAlert.Time != null)
+            {
+                <MudText Typo="Typo.body1">@currentAlert.Time.ToString("MM/dd/yyyy HH:mm")</MudText>
+            }
+            @if (currentAlert.Description != null)
+            {
+                <MudText Typo="Typo.body1">@currentAlert.Description</MudText>
+            }
+
+        </MudContainer>
+    </MudCard>
+    <MudText Class="ma-8" Typo="Typo.h4"><b>Updates</b></MudText>
+    @if (currentAlert.Updates != null)
+    {
+        @foreach (var u in currentAlert.Updates)
+        {
+            <MudPaper Class="pa-6 ma-8  rounded-xl">
+                <MudText Typo="Typo.subtitle2">
+                    @currentAlert.Time.ToString("MM/dd/yyyy")
+                </MudText>
+                <MudText Typo="Typo.subtitle2">
+                    @currentAlert.Time.ToString("HH:mm")
+                </MudText>
+                <MudText Typo="Typo.subtitle1">@u.Description</MudText>
+            </MudPaper>
+        }
+    }
+
+</MudContainer>
             }
 
 
             @code {
-                private int displayAlertNum = 3;   //number of alerts to display
 
                 public static NewsAlert currentAlert;
                 private MudTheme Theme = new MudTheme();
