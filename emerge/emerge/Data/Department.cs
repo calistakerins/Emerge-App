@@ -9,10 +9,10 @@ namespace emerge.Data
         private String title;
         private String administrator;
         private String description;
-        private List<AlertInfo> alertList;
+        private List<NewsAlert> alertList;
         private String imageUrl;
 
-        public Department(string title, string administrator, string description, List<AlertInfo> alertList, string imageUrl)
+        public Department(string title, string administrator, string description, List<NewsAlert> alertList, string imageUrl)
         {
             this.Title = title;
             this.Administrator = administrator;
@@ -29,7 +29,7 @@ namespace emerge.Data
         [JsonProperty(PropertyName = "description")]
         public string Description { get => description; set => description = value; }
         [JsonProperty(PropertyName = "alertList")]
-        public List<AlertInfo> AlertList { get => alertList; set => alertList = value; }
+        public List<NewsAlert> AlertList { get => alertList; set => alertList = value; }
         [JsonProperty(PropertyName = "imageUrl")]
         public string ImageUrl { get => imageUrl; set => imageUrl = value; }
     }

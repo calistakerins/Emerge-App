@@ -237,7 +237,6 @@
 /Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets.build.json
 /Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets.development.json
 /Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/Shared/MainLayout.razor.rz.scp.css
-/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/Shared/NavMenu.razor.rz.scp.css
 /Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/bundle/emerge.styles.css
 /Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/projectbundle/emerge.bundle.scp.css
 /Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/staticwebassets.publish.json

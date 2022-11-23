@@ -12,7 +12,8 @@
         <MudCard>
             <MudCardContent>
                 <MudTextField Label="Title" @bind-Value="Title" Variant="Variant.Filled" Class="pt-4 pb-4" />
-                <MudNumericField Label="Priority"@bind-Value="Priority" Variant="Variant.Filled" Min="0" Max="5" Class="pt-4 pb-4" />
+                <MudNumericField Label="Priority" @bind-Value="Priority" Variant="Variant.Filled" Min="0" Max="5" Class="pt-4 pb-4" />
+                <MudTextField T="string" Label="Affected" @bind-Value="Affected" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
                 <MudTextField T="string" Label="Alert Image URL" @bind-Value="ImageUrl" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
                 <MudTextField T="string" Label="Alert Description" @bind-Value="Description" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
             </MudCardContent>
@@ -39,23 +40,15 @@
     </MudMainContent>
 
     @code {
-        //[JsonProperty(PropertyName = "title")]
-        //public string Title { get; set; }
-        //[JsonProperty(PropertyName = "author")]
-        //public string Author { get; set; }
-        //[JsonProperty(PropertyName = "description")]
-        //public string Description { get; set; }
-        //[JsonProperty(PropertyName = "priority")]
-        //public int Priority { get; set; }
-        //[JsonProperty(PropertyName = "updates")]
 
         public DateTime Time { get; set; } = DateTime.Now;
         public string Title { get; set; }
+        public string Affected { get; set; }
         public string Author { get; set; }
         public string Description { get; set; }
         public int Priority { get; set; }
         public string ImageUrl { get; set; }
-        public UpdateInfo[] Updates { get; set; }
+        public List<UpdateInfo> Updates { get; set; } = new List<UpdateInfo>();
         private bool _processing = false;
 
         private async Task AddNewsAlert()
@@ -70,6 +63,7 @@
             {
                 Time = Time,
                 Title = Title,
+                Affected = Affected,
                 Author = Author,
                 Description = Description,
                 Priority = Priority,

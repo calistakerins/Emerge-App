@@ -1,12 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace emerge_azure.Models
 {
     public class NewsAlert
     {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; } = Guid.NewGuid().ToString("n");
         [JsonProperty(PropertyName = "time")]
         public DateTime Time { get; set; }
+        [JsonProperty(PropertyName = "affected")]
+        public string Affected { get; set; }
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
         [JsonProperty(PropertyName = "author")]
@@ -15,9 +20,9 @@ namespace emerge_azure.Models
         public string Description { get; set; }
         [JsonProperty(PropertyName = "priority")]
         public int Priority { get; set; }
-        [JsonProperty(PropertyName = "image")]
+        [JsonProperty(PropertyName = "imageurl")]
         public string ImageUrl { get; set; }
         [JsonProperty(PropertyName = "updates")]
-        public UpdateInfo[] Person { get; set; }
+        public List<UpdateInfo> Updates { get; set; }
     }
 }
