@@ -1,0 +1,33 @@
+﻿@using emerge.Data
+
+<MudItem xs="6" sm="6" md="6" lg="6" Class="mt-4">
+    <MudGrid Spacing="1">
+        <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
+            <MudItem Class="mb-1">
+                <MudImage Src="images/transmission_tower_worker.jpeg" Fluid="true" ObjectFit="ObjectFit.ScaleDown"></MudImage>
+            </MudItem>
+            <MudItem xs="12" Class="mx-2">
+                <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
+                    <MudText Typo="Typo.h6">Department of Energy</MudText>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="12" Class="ma-2">
+                <MudText Typo="Typo.button">The home for all energy generation and distibution related news</MudText>
+            </MudItem>
+            <MudItem xs="12" Class="mx-2 my-1">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View department</MudButton>
+            </MudItem>
+        </MudPaper>
+    </MudGrid>
+</MudItem>
+
+@code {
+    private MudTheme Theme = new MudTheme();
+    private static readonly string title = "Department of Energy";
+    private static readonly string administrator = "Harrison";
+    private static readonly string description = "The home for all energy generation and distibution related news";
+    private static readonly List<AlertInfo> alerts;
+    private static readonly string imageUrl = "images/transmission_tower_worker.jpeg";
+    //Department department = new Department(title, administrator, description, alerts, imageUrl);
+}
+

@@ -7,30 +7,172 @@
         <MudButton Variant="Variant.Outlined" href="/">Followed Departments</MudButton>
         <MudButton Variant="Variant.Outlined" href="/">All Departments</MudButton>
     </div>
-    <div>
-        
-        <MudPaper Class="pa-6 ma-4" Elevation="3">
-            <MudText Typo="Typo.h5">Department 1</MudText>
-            <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
-        </MudPaper>
-        <MudPaper Class="pa-6 ma-4" Elevation="3">
-            <MudText Typo="Typo.h5">Department 2</MudText>
-            <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
-        </MudPaper>
-        <MudPaper Class="pa-6 ma-4" Elevation="3">
-            <MudText Typo="Typo.h5">Department 3</MudText>
-            <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
-        </MudPaper>
-    </div>
+    @*<div>
+
+            <MudPaper Class="pa-6 ma-4" Elevation="3">
+                <MudText Typo="Typo.h5">Department 1</MudText>
+                <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+            </MudPaper>
+            <MudPaper Class="pa-6 ma-4" Elevation="3">
+                <MudText Typo="Typo.h5">Department 2</MudText>
+                <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+            </MudPaper>
+            <MudPaper Class="pa-6 ma-4" Elevation="3">
+                <MudText Typo="Typo.h5">Department 3</MudText>
+                <MudText Typo="Typo.subtitle1">Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat. </MudText>
+            </MudPaper>
+        </div>*@
+<MudGrid Spacing="10">
+    <MudItem xs="6" sm="6" md="6" lg="6" Class="mt-4">
+        <MudGrid Spacing="1">
+            <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
+                <MudItem Class="mb-1">
+                    <MudImage Src="images/images.jpeg" Fluid="true" ObjectFit="ObjectFit.ScaleDown"></MudImage>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2">
+                    <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
+                        <MudText Typo="Typo.h6">Parks Department</MudText>
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12" Class="ma-2">
+                    <MudText Typo="Typo.button">Read News</MudText>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2 my-1">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
+                </MudItem>
+            </MudPaper>
+        </MudGrid>
+    </MudItem>
+
+    <MudItem xs="6" sm="6" md="6" lg="6" Class="mt-4">
+        <MudGrid Spacing="1">
+            <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
+                <MudItem Class="mb-1">
+                    <MudImage Src="images/pngtree-red-fire-station-house-png-image_5402814.jpg" Fluid="true" ObjectFit="ObjectFit.ScaleDown"></MudImage>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2">
+                    <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
+                        <MudText Typo="Typo.h6">Fire Department</MudText>
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12" Class="ma-2">
+                    <MudText Typo="Typo.button">Read News</MudText>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2 my-1">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
+                </MudItem>
+            </MudPaper>
+        </MudGrid>
+    </MudItem>
+
+    <MudItem xs="6" sm="6" md="6" lg="6" Class="mt-4">
+        <MudGrid Spacing="1">
+            <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
+                <MudItem Class="mb-1">
+                    <MudImage Src="images/png-transparent-police-station-police-officer-cartoon-police-cartoon-character-building-cartoon-arms.png" Fluid="true" ObjectFit="ObjectFit.ScaleDown"></MudImage>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2">
+                    <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
+                        <MudText Typo="Typo.h6">Police Department</MudText>
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12" Class="ma-2">
+                    <MudText Typo="Typo.button">Read News</MudText>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2 my-1">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
+                </MudItem>
+            </MudPaper>
+        </MudGrid>
+    </MudItem>
+
+    <MudItem xs="6" sm="6" md="6" lg="6" Class="mt-4">
+        <MudGrid Spacing="1">
+            <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
+                <MudItem Class="mb-1">
+                    <MudImage Src="images/imgbin-rail-transport-united-states-department-of-transportation-management-logistics-others-CFf3SHtBT2sAgexBg2Bp6wPST.jpg" Fluid="true" ObjectFit="ObjectFit.ScaleDown"></MudImage>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2">
+                    <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
+                        <MudText Typo="Typo.h6">Transit Department</MudText>
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12" Class="ma-2">
+                    <MudText Typo="Typo.button">Read News</MudText>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2 my-1">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
+                </MudItem>
+            </MudPaper>
+        </MudGrid>
+    </MudItem>
+
+    <MudItem xs="6" sm="6" md="6" lg="6" Class="mt-4">
+        <MudGrid Spacing="1">
+            <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
+                <MudItem Class="mb-1">
+                    <MudImage Src="https://via.placeholder.com/300x100.png" Fluid="true" ObjectFit="ObjectFit.ScaleDown"></MudImage>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2">
+                    <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
+                        <MudText Typo="Typo.h6">product_1</MudText>
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12" Class="ma-2">
+                    <MudText Typo="Typo.button">23 colors available</MudText>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2 my-1">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
+                </MudItem>
+            </MudPaper>
+        </MudGrid>
+    </MudItem>
+
+    <MudItem xs="6" sm="6" md="6" lg="6" Class="mt-4">
+        <MudGrid Spacing="1">
+            <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
+                <MudItem Class="mb-1">
+                    <MudImage Src="https://via.placeholder.com/300x100.png" Fluid="true" ObjectFit="ObjectFit.ScaleDown"></MudImage>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2">
+                    <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
+                        <MudText Typo="Typo.h6">product_1</MudText>
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12" Class="ma-2">
+                    <MudText Typo="Typo.button">23 colors available</MudText>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2 my-1">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
+                </MudItem>
+            </MudPaper>
+        </MudGrid>
+    </MudItem>
+
+    <MudItem xs="6" sm="6" md="6" lg="6" Class="mt-4">
+        <MudGrid Spacing="1">
+            <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
+                <MudItem Class="mb-1">
+                    <MudImage Src="https://via.placeholder.com/300x100.png" Fluid="true" ObjectFit="ObjectFit.ScaleDown"></MudImage>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2">
+                    <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
+                        <MudText Typo="Typo.h6">product_1</MudText>
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12" Class="ma-2">
+                    <MudText Typo="Typo.button">23 colors available</MudText>
+                </MudItem>
+                <MudItem xs="12" Class="mx-2 my-1">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
+                </MudItem>
+            </MudPaper>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
 
 </MudContainer>
 
 @code {
-    private static readonly string title = "FLASH FLOOD EVACUATION";
-    private static readonly string author = "TOWN ADMIN";
-    private static readonly DateTime dateTime = new DateTime(2019, 05, 09, 09, 15, 00);
-    private static readonly UpdateInfo[] updates = {
-        new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
-        new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
-    //AlertInfo aInfo = new AlertInfo(dateTime, title, author, updates);
+
 }
