@@ -50,14 +50,14 @@
                             <MudCardHeader>
                                 <CardHeaderContent>
                                     <MudText Typo="Typo.h6">UPDATE</MudText>
-                                    <MudText Typo="Typo.subtitle1">@update.Description</MudText>
+                                    <MudText Typo="Typo.subtitle1">@update.UpdateDescription</MudText>
                                 </CardHeaderContent>
                                 <CardHeaderActions>
                                     <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                        @update.DateTime.ToString("MM/dd/yyyy")
+                                        @update.UpdateTime.ToString("MM/dd/yyyy")
                                     </MudText>
                                     <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                        @update.DateTime.ToString("HH:mm")
+                                        @update.UpdateTime.ToString("HH:mm")
                                     </MudText>
                                 </CardHeaderActions>
                             </MudCardHeader>
@@ -80,11 +80,6 @@
 
     private MudTheme Theme = new MudTheme();
     private NewsFeedController feedController = new NewsFeedController();
-
-    private static readonly UpdateInfo[] updates = {
-        new UpdateInfo(new DateTime(2019, 05, 09, 09, 37, 07), "Integer risus nunc, mattis in ornare sit amet, aliquam quis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat."),
-        new UpdateInfo(new DateTime(2019, 05, 09, 10, 56, 41), "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut mauris massa, iaculis non augue vitae, mattis tincidunt turpis. In laoreet turpis leo, ut laoreet leo blandit feugiat.")};
-
 
 
 
