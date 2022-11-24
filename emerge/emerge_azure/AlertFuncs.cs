@@ -14,6 +14,7 @@ using MongoDB.Bson;
 using System.Diagnostics;
 using UserDatabase.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 public static class AlertFuncs
 {
@@ -62,9 +63,11 @@ public static class AlertFuncs
                 var updates = alertDoc["Updates"].AsBsonArray;
                 foreach (BsonDocument update in updates)
                 {
-                    UpdateInfo updateObj = new UpdateInfo(update["DateTime"].AsDateTime,
-                                                        update["Description"].AsString);
+                    var updateObj = new UpdateInfo();
 
+                    updateObj.UpdateTime = update["UpdateTime"].AsDateTime;
+                    updateObj.UpdatePriority = (int) update["UpdatePriority"].AsInt32;
+                    updateObj.UpdateDescription = update["Description"].AsString;
                     updateList.Add(updateObj);
                 }
                 alert.Updates = updateList;
@@ -125,5 +128,41 @@ public static class AlertFuncs
 
         return new OkObjectResult(newsAlert);
 
+    }
+
+    [FunctionName("update_newsalert")]
+    public static async Task<IActionResult> UpdateFoodItem(
+           [HttpTrigger(AuthorizationLevel.Anonymous, "patch", Route = "newsalert/{id}")] HttpRequest req,
+           ILogger log, string id)
+    {
+        log.LogInformation("Called update_newsalert with get request.");
+
+        string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
+        string databaseName = "alerts";
+        string collectionName = "alertInfo";
+
+        // Establish connection to MongoDB.
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase(databaseName);
+        var collection = db.GetCollection<NewsAlert>(collectionName);
+
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+
+        var newsAlertUpdate = JsonConvert.DeserializeObject<UpdateInfo>(requestBody);
+
+        var filterDef = Builders<NewsAlert>.Filter.Eq(f => f.Id, id);
+        var updateDef = Builders<NewsAlert>.Update
+            .Set(p => p.Priority, newsAlertUpdate.UpdatePriority)
+            .Push(p => p.Updates, newsAlertUpdate);
+
+        if (filterDef == null)
+        {
+            return new NotFoundResult();
+        }
+
+        NewsAlert newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
+        newUpdates.Priority = newsAlertUpdate.UpdatePriority;
+        newUpdates.Updates.Append(newsAlertUpdate);
+        return new OkObjectResult(newUpdates);
     }
 }
