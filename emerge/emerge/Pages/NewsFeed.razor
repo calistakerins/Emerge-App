@@ -81,14 +81,14 @@
                                     <MudCardHeader>
                                         <CardHeaderContent>
                                             <MudText Typo="Typo.h6">UPDATE</MudText>
-                                            <MudText Typo="Typo.subtitle1">@update.Description</MudText>
+                                            <MudText Typo="Typo.subtitle1">@update.UpdateDescription</MudText>
                                         </CardHeaderContent>
                                         <CardHeaderActions>
                                             <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                                @update.DateTime.ToString("MM/dd/yyyy")
+                                                @update.UpdateTime.ToString("MM/dd/yyyy")
                                             </MudText>
                                             <MudText Typo="Typo.subtitle2" Class="ms-4">
-                                                @update.DateTime.ToString("HH:mm")
+                                                @update.UpdateTime.ToString("HH:mm")
                                             </MudText>
                                         </CardHeaderActions>
                                     </MudCardHeader>
@@ -145,7 +145,7 @@
                 <MudText Typo="Typo.subtitle2">
                     @currentAlert.Time.ToString("HH:mm")
                 </MudText>
-                <MudText Typo="Typo.subtitle1">@u.Description</MudText>
+                <MudText Typo="Typo.subtitle1">@u.UpdateDescription</MudText>
             </MudPaper>
         }
     }

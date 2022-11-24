@@ -12,56 +12,47 @@
 
         <MudCard>
             <MudCardContent>
-                <MudTextField Label="Title"
-                              @bind-Value="AlertTitle" Variant="Variant.Filled" Class="pt-4 pb-4" />
-                <MudTextField T="string" Label="Description" @bind-Value="AlertDescription" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
+                <MudTextField Label="UpdateDescription" @bind-Value="UpdateDescription" Variant="Variant.Filled" Class="pt-4 pb-4" />
+                <MudNumericField Label="UpdatePriority" @bind-Value="UpdatePriority" Variant="Variant.Filled" Min="0" Max="5" Class="pt-4 pb-4" />
             </MudCardContent>
             <MudCardActions>
-                <MudButton @onclick="@AddNewsAlert" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto mb-4">Post Update</MudButton>
+                <MudButton @onclick="@AddUpdate" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto mb-4">Post Update</MudButton>
             </MudCardActions>
         </MudCard>
-        <MudText Typo="Typo.h3" Class="mt-5"><b>@success</b></MudText>
 
     </MudContainer>
 </MudMainContent>
 
 @code {
 
-    public DateTime AlertTime = new System.DateTime(2019, 05, 09, 09, 37, 07);
-    [Required]
-    public string AlertTitle { get; set; }
-    public string AlertAuthor = "Dummy";
-    [Required]
-    public int AlertPriority { get; set; }
-    [Required]
-    public string AlertDescription { get; set; }
-    public string AlertImageUrl { get; set; }
-
-    public UpdateInfo[] updateInfo = new UpdateInfo[0];
-    public bool success = false;
+    public DateTime UpdateTime { get; set; } = DateTime.Now;
+    public string UpdateDescription { get; set; }
+    public int UpdatePriority { get; set; }
+    private bool _processing = false;
 
 
-    private async Task AddNewsAlert()
+    private async Task AddUpdate()
     {
+        _processing = true;
 
-        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-app.azurewebsites.net/api/newsalert?") };
+
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/newsalert/7ea73fee62bb447a972e65b6e3444eb0?") };
 
         HttpResponseMessage response = null;
 
-        //var payload = new AlertInfo(AlertTime, AlertTitle, AlertAuthor, AlertDescription, AlertPriority, updateInfo, AlertImageUrl);
+        var payload = new UpdateInfo()
+        {
+            UpdateTime = UpdateTime,
+            UpdateDescription = UpdateDescription,
+            UpdatePriority = UpdatePriority
+        };
 
-        //var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
+        var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 
-        //response = await client.PostAsync(client.BaseAddress, payloadString);
+        response = await client.PatchAsync(client.BaseAddress, payloadString);
+           // PostAsync(client.BaseAddress, payloadString);
 
-        //if (response.IsSuccessStatusCode)
-        //{
-        //    success = true;
-        //}
-        //else
-        //{
-        //    success = false;
-        //}
+        _processing = false;
     }
 
 }

@@ -1,19 +1,16 @@
 ﻿using System;
+using Newtonsoft.Json;
+
 namespace emerge.Data
 {
     public class UpdateInfo
     {
-        private DateTime dateTime;
-        private String description;
-
-        public UpdateInfo(DateTime dateTime, string description)
-        {
-            this.dateTime = dateTime;
-            this.Description = description;
-        }
-
-        public DateTime DateTime { get => dateTime; set => dateTime = value; }
-        public string Description { get => description; set => description = value; }
+        [JsonProperty(PropertyName = "updatetime")]
+        public DateTime UpdateTime { get; set; }
+        [JsonProperty(PropertyName = "updatedescription")]
+        public string UpdateDescription { get; set; }
+        [JsonProperty(PropertyName = "updatepriority")]
+        public int UpdatePriority { get; set; }
     }
 }
 
