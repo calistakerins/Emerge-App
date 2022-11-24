@@ -38,6 +38,10 @@ public static class AlertFuncs
             {
                 alert.Time = alertDoc["Time"].AsDateTime;
             }
+            if (!alertDoc["Affected"].IsBsonNull)
+            {
+                alert.Affected = alertDoc["Affected"].AsString;
+            }
             if (!alertDoc["Title"].IsBsonNull)
             {
                 alert.Title = alertDoc["Title"].AsString;
@@ -46,7 +50,7 @@ public static class AlertFuncs
             {
                 alert.Author = alertDoc["Author"].AsString;
             }
-            if (!alertDoc["Time"].IsBsonNull)
+            if (!alertDoc["Description"].IsBsonNull)
             {
                 alert.Description = alertDoc["Description"].AsString;
             }
@@ -54,7 +58,10 @@ public static class AlertFuncs
             {
                 alert.Priority = (int) alertDoc["Priority"].AsInt32;
             }
-
+            if (!alertDoc["ImageUrl"].IsBsonNull)
+            {
+                alert.ImageUrl = alertDoc["ImageUrl"].AsString;
+            }
 
             //access updates
             if (!alertDoc["Updates"].IsBsonNull)
@@ -63,7 +70,22 @@ public static class AlertFuncs
                 var updates = alertDoc["Updates"].AsBsonArray;
                 foreach (BsonDocument update in updates)
                 {
-                    var updateObj = new UpdateInfo();
+
+                    DateTime updateTime = DateTime.Now; //change to a default time
+                    String description = "default no description";
+
+                    if (!update["Time"].IsBsonNull)
+                    {
+                         updateTime = update["Time"].AsDateTime;
+                    }
+
+                    if (!update["Description"].IsBsonNull)
+                    {
+                        description = update["Description"].AsString;
+                    }
+
+                    UpdateInfo updateObj = new UpdateInfo(updateTime,
+                                                        description);
 
                     updateObj.UpdateTime = update["UpdateTime"].AsDateTime;
                     updateObj.UpdatePriority = (int) update["UpdatePriority"].AsInt32;
@@ -75,7 +97,7 @@ public static class AlertFuncs
             }
             alertList.Add(alert);
         }
-
+        Console.Write("hello");
         return new OkObjectResult(alertList);
     }
 
