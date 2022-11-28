@@ -71,25 +71,18 @@ public static class AlertFuncs
                 foreach (BsonDocument update in updates)
                 {
 
-                    DateTime updateTime = DateTime.Now; //change to a default time
-                    String description = "default no description";
-
-                    if (!update["Time"].IsBsonNull)
+  
+                    UpdateInfo updateObj = new UpdateInfo();
+                    if (!update["UpdateTime"].IsBsonNull)
                     {
-                         updateTime = update["Time"].AsDateTime;
+                         updateObj.UpdateTime = update["UpdateTime"].AsDateTime;
                     }
 
-                    if (!update["Description"].IsBsonNull)
+                    if (!update["UpdateDescription"].IsBsonNull)
                     {
-                        description = update["Description"].AsString;
+                        updateObj.UpdateDescription = update["UpdateDescription"].AsString;
                     }
 
-                    UpdateInfo updateObj = new UpdateInfo(updateTime,
-                                                        description);
-
-                    updateObj.UpdateTime = update["UpdateTime"].AsDateTime;
-                    updateObj.UpdatePriority = (int) update["UpdatePriority"].AsInt32;
-                    updateObj.UpdateDescription = update["Description"].AsString;
                     updateList.Add(updateObj);
                 }
                 alert.Updates = updateList;
