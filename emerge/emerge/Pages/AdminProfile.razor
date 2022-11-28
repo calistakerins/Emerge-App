@@ -1,6 +1,7 @@
 ﻿@page "/adminprofile"
 @using emerge.Data
 @using emerge.Controller
+@inject Microsoft.AspNetCore.Components.NavigationManager UriHelper
 
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
@@ -62,9 +63,9 @@
                                 </CardHeaderActions>
                             </MudCardHeader>
                         }
-                        <MudCardActions>
-                            <MudButton Href="/postupdate" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Post Update</MudButton>
-                        </MudCardActions>
+                    <MudCardActions>
+                        <MudButton Href=@string.Format("/postupdate/{0}", @alertInfo.Id) Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Post Update</MudButton>
+                    </MudCardActions>
                     </MudContainer>
                 </MudCard>
             }
@@ -82,7 +83,6 @@
     private NewsFeedController feedController = new NewsFeedController();
 
 
-
     private void OnClick(NewsAlert alertInfo)
     {
         StateHasChanged();
@@ -92,7 +92,6 @@
     {
         StateHasChanged();
     }
-
 
     void SignOut()
     {
