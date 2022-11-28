@@ -7,7 +7,7 @@ namespace emerge_azure.Models
     public class NewsAlert
     {
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; } = Guid.NewGuid().ToString("n");
+        public string Id { get; set; }
         [JsonProperty(PropertyName = "time")]
         public DateTime Time { get; set; }
         [JsonProperty(PropertyName = "affected")]

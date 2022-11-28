@@ -34,6 +34,10 @@ public static class AlertFuncs
         foreach (BsonDocument alertDoc in documents)
         {
             var alert = new NewsAlert();
+            if (!alertDoc["_id"].IsBsonNull)
+            {
+                alert.Id = alertDoc["_id"].AsString;
+            }
             if (!alertDoc["Time"].IsBsonNull)
             {
                 alert.Time = alertDoc["Time"].AsDateTime;

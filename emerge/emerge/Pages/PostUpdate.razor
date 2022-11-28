@@ -1,4 +1,4 @@
-﻿@page "/postupdate"
+﻿@page "/postupdate/{alertid}"
 @using emerge.Data
 @using System.ComponentModel.DataAnnotations
 @using System.Text
@@ -29,14 +29,18 @@
     public string UpdateDescription { get; set; }
     public int UpdatePriority { get; set; }
     private bool _processing = false;
+    [Parameter]
+    public string alertid { get; set; }
 
 
     private async Task AddUpdate()
     {
         _processing = true;
 
+        string updateURI = "https://emergeproj.azurewebsites.net/api/newsalert/" + alertid + "?";
+        
+        HttpClient client = new HttpClient { BaseAddress = new Uri(updateURI) };
 
-        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/newsalert/7ea73fee62bb447a972e65b6e3444eb0?") };
 
         HttpResponseMessage response = null;
 
@@ -50,7 +54,7 @@
         var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 
         response = await client.PatchAsync(client.BaseAddress, payloadString);
-           // PostAsync(client.BaseAddress, payloadString);
+        // PostAsync(client.BaseAddress, payloadString);
 
         _processing = false;
     }
