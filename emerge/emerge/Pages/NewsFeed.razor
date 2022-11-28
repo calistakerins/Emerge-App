@@ -134,23 +134,33 @@
         </MudContainer>
     </MudCard>
     <MudText Class="ma-8" Typo="Typo.h4"><b>Updates</b></MudText>
+
     @if (currentAlert.Updates != null)
     {
-        @foreach (var u in currentAlert.Updates)
+        @foreach (var update in currentAlert.Updates) //loop through updates
         {
-            <MudPaper Class="pa-6 ma-8  rounded-xl">
-                <MudText Typo="Typo.subtitle2">
-                    @currentAlert.Time.ToString("MM/dd/yyyy")
-                </MudText>
-                <MudText Typo="Typo.subtitle2">
-                    @currentAlert.Time.ToString("HH:mm")
-                </MudText>
-                <MudText Typo="Typo.subtitle1">@u.UpdateDescription</MudText>
-            </MudPaper>
-        }
-    }
+            <MudContainer Class=" pa-4 my-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten3}; height: 15%; width: 90%")">
 
-</MudContainer>
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h6">UPDATE</MudText>
+                        <MudText Typo="Typo.subtitle1">@update.UpdateDescription</MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudText Typo="Typo.subtitle2" Class="ms-4">
+                            @update.UpdateTime.ToString("MM/dd/yyyy")
+                        </MudText>
+                        <MudText Typo="Typo.subtitle2" Class="ms-4">
+                            @update.UpdateTime.ToString("HH:mm")
+                        </MudText>
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudContainer>
+                }
+                }
+
+            </MudContainer>
+
             }
 
 
