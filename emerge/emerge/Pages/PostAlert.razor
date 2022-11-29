@@ -4,6 +4,7 @@
 @using System.Text
 @using System.Net.Mime
 
+<AdminNavBar/>
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
 
@@ -18,10 +19,13 @@
                 <MudTextField T="string" Label="Alert Description" @bind-Value="Description" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
             </MudCardContent>
 
+            <MudCardActions>
                 <MudButton Href="/profile"
                            Disabled="@_processing"
                            OnClick="AddNewsAlert"
-                           Variant="Variant.Text">
+                           Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           Class="ml-auto mr-auto mb-4">
                     @if (_processing)
                     {
                         <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
@@ -32,6 +36,7 @@
                         <MudText>Post Alert</MudText>
                     }
                 </MudButton>
+            </MudCardActions>
 
         </MudCard>
         <MudText Typo="Typo.h3" Class="mt-5"><b></b></MudText>
