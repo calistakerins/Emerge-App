@@ -36,7 +36,29 @@ namespace UserDatabase
         {
             log.LogInformation("Called get_profile_by_username with GET request");
 
-            var user = ProfileStore.users.FirstOrDefault(f => f.Username.Equals(username));
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+
+            //add user to MongoDB
+            string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
+            string databaseName = "emerge";
+            string collectionName = "users";
+
+            // Establish connection to MongoDB.
+            var client = new MongoClient(connectionString);
+            var db = client.GetDatabase(databaseName);
+            var collection = db.GetCollection<Profile>(collectionName);
+
+            //find user by username
+            var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);
+
+            if (filterDef == null)
+            {
+                return new NotFoundResult();
+            }
+
+            var user = collection.Find(filterDef);
+
+            //var user = ProfileStore.users.FirstOrDefault(f => f.Username.Equals(username));
             if (user == null)
             {
                 return new NotFoundResult();
