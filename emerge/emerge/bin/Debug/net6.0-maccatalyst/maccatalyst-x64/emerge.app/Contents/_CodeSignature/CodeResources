@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		dPD/YjrDadBDWgbxil/Qccxq4eI=
+		R/0K4O1ma0UFB3KvJhgIX/CTDUw=
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Resources/appicon.icns</key>
 		<data>
-		b662XKpGlZAnh83xLx3sOUcfUA0=
+		jGLxugzeWD+TyjHeX/hnh6qV9Fw=
 		</data>
 		<key>Resources/dotnet_bot.png</key>
 		<data>
@@ -62,11 +62,11 @@
 		</data>
 		<key>Resources/wwwroot/emerge.bundle.scp.css</key>
 		<data>
-		quA9fOKSzlydUyQ0UJPN11rmp3k=
+		L9wfaF7tIgV36FzhN6gM/MiLi9Q=
 		</data>
 		<key>Resources/wwwroot/emerge.styles.css</key>
 		<data>
-		quA9fOKSzlydUyQ0UJPN11rmp3k=
+		L9wfaF7tIgV36FzhN6gM/MiLi9Q=
 		</data>
 		<key>Resources/wwwroot/favicon.ico</key>
 		<data>
@@ -1480,14 +1480,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JYEqxIbNV73d50TohkXTjr2wvcQNmwIoODaOU1hhzZk=
+			RP8DHzjDeBsdgLl1OfqhP9slhE/L+VbXjGU3XrTt0zE=
 			</data>
 		</dict>
 		<key>MonoBundle/emerge.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uNx0Gy5DH9eGv4YeQUXC3lKwAzw8O3zkEaccju0U3Ik=
+			Tg/QQsSulF0mL0UuUijr3oJdRNvXPgk1BZy6A8E0GJI=
 			</data>
 		</dict>
 		<key>MonoBundle/icudt.dat</key>
@@ -1571,7 +1571,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8yOSGjXGRNbMRi9UIEnSS6EHM1OpWyTuJCyOP2d5mX0=
+			iyZqGQWVl4M/fcvQCcTSw8U4lEcYlSG5DPoRTS6uGd8=
 			</data>
 		</dict>
 		<key>Resources/MauiInfo.plist</key>
@@ -1599,7 +1599,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ec7nXoGJoI5Tvia6KZkz7qQzZ7+dKhFRFQ3JU8eaVlY=
+			mrDJ15X2mKhv18677i58w6LnKJZhwaN8bZReGiKRD6g=
 			</data>
 		</dict>
 		<key>Resources/dotnet_bot.png</key>
@@ -1655,14 +1655,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xfrwHiUNMKtbu345B8TLupyt8SaQOCb/OclkHl2ZqlE=
+			UMtlPhwp6Yp20+XbOYjmfrP/ckxexWpzDr2fmL2ubUg=
 			</data>
 		</dict>
 		<key>Resources/wwwroot/emerge.styles.css</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xfrwHiUNMKtbu345B8TLupyt8SaQOCb/OclkHl2ZqlE=
+			UMtlPhwp6Yp20+XbOYjmfrP/ckxexWpzDr2fmL2ubUg=
 			</data>
 		</dict>
 		<key>Resources/wwwroot/favicon.ico</key>

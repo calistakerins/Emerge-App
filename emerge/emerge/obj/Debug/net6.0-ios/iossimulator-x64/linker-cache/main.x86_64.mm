@@ -55,7 +55,7 @@ void xamarin_setup_impl ()
 	mono_marshal_ilgen_init ();
 	mono_method_builder_ilgen_init ();
 	mono_sgen_mono_ilgen_init ();
-	mono_jit_set_aot_mode (MONO_AOT_MODE_INTERP);
+	mono_jit_set_aot_mode (MONO_AOT_MODE_INTERP_ONLY);
 	xamarin_invoke_registration_methods ();
 	xamarin_libmono_native_link_mode = XamarinNativeLinkModeDynamicLibrary;
 	xamarin_runtime_libraries = xamarin_runtime_libraries_array;

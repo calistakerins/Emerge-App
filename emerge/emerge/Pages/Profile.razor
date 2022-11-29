@@ -1,5 +1,6 @@
 ﻿@page "/profile"
 
+<NavBar/>
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
         @if (loggedIn is false)
@@ -7,7 +8,7 @@
             <MudText Typo="Typo.h5" Class="red-text">Browsing Anonymously</MudText>
             <MudText Typo="Typo.h6" Class="pt-2">Sign up or log in to receive more personalized news</MudText>
 
-            <MudButton Href="/login"
+            <MudButton Href="/"
                            Variant="Variant.Filled"
                            Color="Color.Primary"
                            FullWidth="true"
@@ -22,7 +23,7 @@
             <MudText Typo="Typo.h5" Class="pt-2"><b>@county</b></MudText>
 
             <MudButton Class="mt-8 mb-8" Href="/depts" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View Followed Departments</MudButton>
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" @onclick="SignOut">Sign Out</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" @onclick="SignOut" Href="/">Sign Out</MudButton>
         }
     </MudContainer>
 </MudMainContent>
@@ -30,7 +31,7 @@
 @code {
     public string name { get; set; } = "Jane";
     public string county { get; set; } = "King County";
-    public bool loggedIn = true;
+    public bool loggedIn = false;
 
     void SignOut()
     {

@@ -5,6 +5,7 @@
 @using System.Net.Mime
 
 @*<DataAnnotationsValidator />*@
+<AdminNavBar />
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
         <MudButton Variant="Variant.Outlined" Href="/adminprofile">Back</MudButton>
@@ -16,7 +17,7 @@
                 <MudNumericField Label="UpdatePriority" @bind-Value="UpdatePriority" Variant="Variant.Filled" Min="0" Max="5" Class="pt-4 pb-4" />
             </MudCardContent>
             <MudCardActions>
-                <MudButton @onclick="@AddUpdate" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto mb-4">Post Update</MudButton>
+                <MudButton @onclick="@AddUpdate" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto mr-auto mb-4">Post Update</MudButton>
             </MudCardActions>
         </MudCard>
 

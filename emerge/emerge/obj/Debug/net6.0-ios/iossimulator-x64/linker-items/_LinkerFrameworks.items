@@ -214,6 +214,9 @@
     <_LinkerFrameworks Include="MetalPerformanceShaders">
       <IsWeak>false</IsWeak>
     </_LinkerFrameworks>
+    <_LinkerFrameworks Include="MetalPerformanceShadersGraph">
+      <IsWeak>false</IsWeak>
+    </_LinkerFrameworks>
     <_LinkerFrameworks Include="MetricKit">
       <IsWeak>false</IsWeak>
     </_LinkerFrameworks>
@@ -346,10 +349,19 @@
     <_LinkerFrameworks Include="AdServices">
       <IsWeak>true</IsWeak>
     </_LinkerFrameworks>
+    <_LinkerFrameworks Include="AVRouting">
+      <IsWeak>true</IsWeak>
+    </_LinkerFrameworks>
     <_LinkerFrameworks Include="CoreLocationUI">
       <IsWeak>true</IsWeak>
     </_LinkerFrameworks>
     <_LinkerFrameworks Include="OSLog">
+      <IsWeak>true</IsWeak>
+    </_LinkerFrameworks>
+    <_LinkerFrameworks Include="SharedWithYou">
+      <IsWeak>true</IsWeak>
+    </_LinkerFrameworks>
+    <_LinkerFrameworks Include="SharedWithYouCore">
       <IsWeak>true</IsWeak>
     </_LinkerFrameworks>
     <_LinkerFrameworks Include="GSS">

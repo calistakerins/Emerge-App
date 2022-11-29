@@ -18,8 +18,11 @@
         <MudStack Spacing=2>
             <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Elevation="1" Required="true"></MudTextField>
             <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Elevation="1" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
-            <MudButton Href="/profile"
-                       Variant="Variant.Text">Log In</MudButton>
+            <MudContainer Class="d-flex justify-center align-center pt-2">
+                <MudButton Href="/profile"
+                           Variant="Variant.Filled"
+                           Color="Color.Primary">Log In</MudButton>
+            </MudContainer>
         </MudStack>
     </MudItem>
 </MudContainer>
