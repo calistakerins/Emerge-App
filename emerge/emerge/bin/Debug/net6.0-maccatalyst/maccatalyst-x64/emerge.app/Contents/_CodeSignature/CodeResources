@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		8Y1Y/oeQcj4PQsGaIfRTZfld6Ps=
+		Q/WXNHmYZTqJGUE+vD7VvWdgqYI=
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
-		A/74dbGgxu/fUONI00Bycn7+qco=
+		taOyNoSo2BIrzowD7xOd7/IHKc8=
 		</data>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Resources/wwwroot/_content/MudBlazor.ThemeManager/MudBlazorThemeManager.css</key>
 		<data>
-		PRXyd/q26WuWoCOjC/eqrIbifP4=
+		pF3fh8GasWcPDzUF4BKYjbvYLGs=
 		</data>
 		<key>Resources/wwwroot/_content/MudBlazor/MudBlazor.min.css</key>
 		<data>
@@ -1480,22 +1480,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-<<<<<<< HEAD
-			hzAImnaSAucQWQxjHskgrrMtnNy6FskucSZaS6JRLxA=
-=======
-			PJix+/HgKng0ZTtJmmGyumiiRKg+Nv3YPMa69dU5feA=
->>>>>>> 0b55b565861046192f3da8a1fb9ef23cea3d108b
+			AZDAodG+lxn1HjHQeXuQLAlNUn7SQkhj9JJWPOemx4s=
 			</data>
 		</dict>
 		<key>MonoBundle/emerge.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-<<<<<<< HEAD
-			gv8wnxjbt1VkYsjENBf4Vvq3yQ30SS1dXFL33N2QQtc=
-=======
-			PsTlQSGk1gCqzPwgJuGLO6kWKd5t7E8uPbjStmuxU8I=
->>>>>>> 0b55b565861046192f3da8a1fb9ef23cea3d108b
+			xTbfJ+CcH9wRy7yZChiVg+EUiqwbgn+HTHBnGmsl5YE=
 			</data>
 		</dict>
 		<key>MonoBundle/icudt.dat</key>
@@ -1579,14 +1571,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			up+iWXbI71pECRRHmdg9BxBAEcWcROzwbJjUb+uUEsM=
+			OBjsSqg17lWtvYhMN71ungtNaVf2KvAnOEPgMDxF0E4=
 			</data>
 		</dict>
 		<key>Resources/MauiInfo.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UEORARmYMQB21vcObyk2tL7rhjGOSCGHQz3UGRUssW0=
+			4sJYIrDjcyKdZrWnkcITBpUlk2wBstJbyN8sH83H/SA=
 			</data>
 		</dict>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
@@ -1635,7 +1627,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hRoYtyCAXmhGOVamZkUrYeETqCSL4MhLtRFKSAU8Rg0=
+			grDnJwt+GLE8XMKoifN5vGzOEbyxz6JftZdKJRt4FCg=
 			</data>
 		</dict>
 		<key>Resources/wwwroot/_content/MudBlazor/MudBlazor.min.css</key>
