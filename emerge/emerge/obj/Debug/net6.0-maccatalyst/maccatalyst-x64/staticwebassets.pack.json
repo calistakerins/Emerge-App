@@ -1,27 +1,27 @@
 {
   "Files": [
     {
-      "Id": "/Users/dustinhealy/cleanMegan/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/bundle/emerge.styles.css",
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/bundle/emerge.styles.css",
       "PackagePath": "staticwebassets/emerge.styles.css"
     },
     {
-      "Id": "/Users/dustinhealy/cleanMegan/Project-3---308/emerge/emerge/wwwroot/.DS_Store",
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/.DS_Store",
       "PackagePath": "staticwebassets/.DS_Store"
     },
     {
-      "Id": "/Users/dustinhealy/cleanMegan/Project-3---308/emerge/emerge/wwwroot/css/app.css",
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/css/app.css",
       "PackagePath": "staticwebassets/css/app.css"
     },
     {
-      "Id": "/Users/dustinhealy/cleanMegan/Project-3---308/emerge/emerge/wwwroot/favicon.ico",
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "/Users/dustinhealy/cleanMegan/Project-3---308/emerge/emerge/wwwroot/images/profile_pic.png",
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/images/profile_pic.png",
       "PackagePath": "staticwebassets/images/profile_pic.png"
     },
     {
-      "Id": "/Users/dustinhealy/cleanMegan/Project-3---308/emerge/emerge/wwwroot/index.html",
+      "Id": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/index.html",
       "PackagePath": "staticwebassets/index.html"
     },
     {

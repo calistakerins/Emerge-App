@@ -13,12 +13,12 @@
         <MudCard>
             <MudCardContent>
                 <MudTextField Label="Title" @bind-Value="Title" Variant="Variant.Filled" Class="pt-4 pb-4" />
-                <MudTextField T="string" Label="Alert Image URL" @bind-Value="ImageUrl" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
-                <MudTextField T="string" Label="Alert Description" @bind-Value="Description" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
+                <MudTextField T="string" Label="Department Image URL" @bind-Value="ImageUrl" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
+                <MudTextField T="string" Label="Department Description" @bind-Value="Description" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
             </MudCardContent>
 
             <MudCardActions>
-                <MudButton Href="/profile"
+                <MudButton Href="/depts"
                            Disabled="@_processing"
                            OnClick="AddNewDepartment"
                            Variant="Variant.Filled"
@@ -31,7 +31,7 @@
                     }
                     else
                     {
-                        <MudText>Post Alert</MudText>
+                        <MudText>Post New Department</MudText>
                     }
                 </MudButton>
             </MudCardActions>
@@ -54,7 +54,7 @@
         {
             _processing = true;
 
-            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/newsalert?") };
+            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/department?") };
 
             HttpResponseMessage response = null;
 
@@ -63,7 +63,8 @@
                 Id = Id,
                 Title = Title,
                 Description = Description,
-                ImageUrl = ImageUrl
+                ImageUrl = ImageUrl,
+                AlertList = Alerts
             };
 
             var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);

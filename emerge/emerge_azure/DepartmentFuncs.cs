@@ -37,17 +37,21 @@ public static class DepartmenFuncs
             {
                 department.Id = dept["_id"].AsString;
             }
-            if (!dept["title"].IsBsonNull)
+            if (!dept["Title"].IsBsonNull)
             {
-                department.Title = dept["title"].AsString;
+                department.Title = dept["Title"].AsString;
             }
-            if (!dept["alertList"].IsBsonNull)
+            if (!dept["Description"].IsBsonNull)
+            {
+                department.Title = dept["Description"].AsString;
+            }
+            if (!dept["AlertList"].IsBsonNull)
             {
                 department.AlertList = new List<NewsAlert>();// dept["alertList"].AsBsonArray; // AlertList to be implemented later
             }
-            if (!dept["imageurl"].IsBsonNull)
+            if (!dept["ImageUrl"].IsBsonNull)
             {
-                department.ImageUrl = dept["imageurl"].AsString;
+                department.ImageUrl = dept["ImageUrl"].AsString;
             }
 
 
