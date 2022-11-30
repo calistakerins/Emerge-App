@@ -10,7 +10,7 @@ namespace emerge.Data
         [JsonProperty(PropertyName = "time")]
         public DateTime Time { get; set; }
         [JsonProperty(PropertyName = "affected")]
-        public string Affected { get; set; }
+        public List<string> Affected { get; set; }
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
         [JsonProperty(PropertyName = "author")]
