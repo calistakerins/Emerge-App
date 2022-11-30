@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using System.Linq;
 using MongoDB.Driver;
 using System.Diagnostics;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace UserDatabase
 {
@@ -49,6 +50,7 @@ namespace UserDatabase
             var collection = db.GetCollection<Profile>(collectionName);
 
             //find user by username
+<<<<<<< HEAD
             //var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);
             var filterDef = Builders<Profile>.Filter.Eq("username", username);
 
@@ -64,6 +66,11 @@ namespace UserDatabase
             //{
             //    return new NotFoundResult();
             //}
+=======
+            var filterDef = Builders<Profile>.Filter.Eq(p => p.Username, username);
+
+            var user = collection.Find(filterDef).FirstOrDefault();
+>>>>>>> 0b55b565861046192f3da8a1fb9ef23cea3d108b
 
             return new OkObjectResult(user);
         }

@@ -5,12 +5,12 @@
 @using System.Net.Mime
 
 @*<DataAnnotationsValidator />*@
+<MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+    <MudIconButton Icon="@Icons.Filled.ArrowBack" Href="/adminprofile" Color="Color.Inherit" Edge="Edge.Start" />
+</MudAppBar>
 <AdminNavBar />
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
-        <MudButton Variant="Variant.Outlined" Href="/adminprofile">Back</MudButton>
-        <MudText Typo="Typo.h3" Class="pb-8 pt-8" Color="Color.Primary">Post Update</MudText>
-
         <MudCard>
             <MudCardContent>
                 <MudTextField Label="UpdateDescription" @bind-Value="UpdateDescription" Variant="Variant.Filled" Class="pt-4 pb-4" />
@@ -39,7 +39,7 @@
         _processing = true;
 
         string updateURI = "https://emergeproj.azurewebsites.net/api/newsalert/" + alertid + "?";
-        
+
         HttpClient client = new HttpClient { BaseAddress = new Uri(updateURI) };
 
 

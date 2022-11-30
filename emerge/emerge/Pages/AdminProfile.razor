@@ -3,6 +3,11 @@
 @using emerge.Controller
 @inject Microsoft.AspNetCore.Components.NavigationManager UriHelper
 
+<MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+    <MudText Typo="Typo.h5">Profile</MudText>
+    <MudSpacer />
+    <MudButton Href="/profile">Switch Views</MudButton>
+</MudAppBar>
 <AdminNavBar />
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
@@ -18,8 +23,7 @@
                        FullWidth="true"
                        @onclick="Logout">Add New Department</MudButton>
             <MudButton Href="/"
-                       Variant="Variant.Filled"
-                       Color="Color.Primary"
+                       Variant="Variant.Outlined"
                        FullWidth="true"
                        @onclick="Logout">Sign Out</MudButton>
         </MudContainer>
