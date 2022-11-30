@@ -15,7 +15,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 
-public static class DeptFuncs
+public static class DepartmenFuncs
 {
     public static readonly string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
 

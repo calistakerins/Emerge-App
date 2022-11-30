@@ -20,7 +20,7 @@ namespace emerge.Controller
 
         private async void populateDepts()
         {
-            string url = "https://emerge-app.azurewebsites.net/api/depts?";
+            string url = "https://emergeproj.azurewebsites.net/api/depts?";
             using var client = new HttpClient();
             client.BaseAddress = new Uri(url);
             // Add an Accept header for JSON format.
