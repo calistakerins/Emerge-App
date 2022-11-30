@@ -113,7 +113,7 @@ public static class AlertFuncs
         //add user to MongoDB
         string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
         string databaseName = "emerge";
-        string collectionName = "departments";
+        string collectionName = "databases";
 
         // Establish connection to MongoDB.
         var client = new MongoClient(connectionString);
