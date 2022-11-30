@@ -15,6 +15,12 @@ namespace emerge.Data
         public string Email { get; set; }
         [JsonProperty(PropertyName = "admin")]
         public bool Admin { get; set; }
+        [JsonProperty(PropertyName = "zipcode")]
+        public string Zipcode { get; set; }
+        [JsonProperty(PropertyName = "alerts")]
+        public List<string> Alerts { get; set; }
+        [JsonProperty(PropertyName = "following")]
+        public List<string> Following { get; set; }
     }
 }
 
