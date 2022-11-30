@@ -65,18 +65,21 @@
 
         HttpResponseMessage response = null;
 
-        var payload = new NewsAlert()
-        {
-            Id = Id,
-            Time = Time,
-            Title = Title,
-            Affected = Affected,
-            Author = Author,
-            Description = Description,
-            Priority = Priority,
-            ImageUrl = ImageUrl,
-            Updates = Updates
-        };
+
+            var payload = new NewsAlert()
+            {
+                Id = Id,
+                Time = Time,
+                Title = Title,
+                Affected = parseToList(this.Affected),
+                Author = Author,
+                Description = Description,
+                Priority = Priority,
+                ImageUrl = ImageUrl,
+                Updates = Updates
+            };
+
+
 
         var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 
@@ -85,4 +88,14 @@
         _processing = false;
     }
 
+
+        private static List<String> parseToList(string affected)
+        {
+            List<string> result = String.Concat(affected.Where(c => !Char.IsWhiteSpace(c))).Split(new char[] { ',' }).ToList();
+            return result;
+        }
+
+        
+
 }
+
