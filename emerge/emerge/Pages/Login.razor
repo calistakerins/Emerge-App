@@ -1,73 +1,118 @@
 ﻿@page "/login"
-<MudText Typo="Typo.h2" Align="Align.Center">Log In</MudText>
+@using System;
+@using System.Net;
+@using System.Net.Http;
+@using System.Net.Http.Headers;
+@using System.Threading.Tasks;
+@using emerge.Data;
+@using Newtonsoft.Json;
+@using static MudBlazor.FilterOperator;
 
-<p>
-    <MudContainer Class="d-flex justify-center align-center"><MudImage Src="images/profile_pic.png" Alt="profile pic" /></MudContainer>
-</p>
+    <MudText Typo="Typo.h2" Align="Align.Center">Log In</MudText>
 
-
-<MudContainer Class="d-flex justify-center align-center">
-    <MudRadioGroup @bind-SelectedOption="ViewType">
-        <MudRadio Option=0 Color="Color.Primary" UnCheckedColor="Color.Default">User</MudRadio>
-        <MudRadio Option=1 Color="Color.Primary" UnCheckedColor="Color.Default">Administrator</MudRadio>
-    </MudRadioGroup>
-</MudContainer>
-
-<MudContainer Class="d-flex justify-center align-center rounded-xl">
-    <MudItem xs="12" sm="6" md="4">
-        <MudStack Spacing=2>
-            <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Elevation="1" Required="true"></MudTextField>
-            <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Elevation="1" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
-            <MudContainer Class="d-flex justify-center align-center pt-2">
-                <MudButton Href="/profile"
-                           Variant="Variant.Filled"
-                           Color="Color.Primary">Log In</MudButton>
-            </MudContainer>
-        </MudStack>
-    </MudItem>
-</MudContainer>
+    <p>
+        <MudContainer Class="d-flex justify-center align-center"><MudImage Src="images/profile_pic.png" Alt="profile pic" /></MudContainer>
+    </p>
 
 
-<p></p>
-<MudDivider DividerType="DividerType.Middle" Class="my-6" />
+    <MudContainer Class="d-flex justify-center align-center">
+        <MudRadioGroup @bind-SelectedOption="ViewType">
+            <MudRadio Option=0 Color="Color.Primary" UnCheckedColor="Color.Default">User</MudRadio>
+            <MudRadio Option=1 Color="Color.Primary" UnCheckedColor="Color.Default">Administrator</MudRadio>
+        </MudRadioGroup>
+    </MudContainer>
 
-<MudText Typo="Typo.subtitle1" Align="Align.Center">Not registered?</MudText>
+    <MudContainer Class="d-flex justify-center align-center rounded-xl">
+        <MudItem xs="12" sm="6" md="4">
+            <MudStack Spacing=2>
+                <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Elevation="1" Required="true"></MudTextField>
+                <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Elevation="1" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
+                <MudContainer Class="d-flex justify-center align-center pt-2">
+                    <MudButton Href="/profile"
+                               Variant="Variant.Filled"
+                               Color="Color.Primary"
+                               @onclick="checkLogin">Log In</MudButton>
+                </MudContainer>
+            </MudStack>
+        </MudItem>
+    </MudContainer>
 
-<MudContainer Class="d-flex justify-center align-center pt-1">
-    <MudButton Href="/createAccount"
-               Variant="Variant.Text">Create new account</MudButton>
-</MudContainer>
 
-<MudText Typo="Typo.subtitle1" Align="Align.Center">or</MudText>
+    <p></p>
+    <MudDivider DividerType="DividerType.Middle" Class="my-6" />
 
-<MudContainer Class="d-flex justify-center align-center">
-    <MudButton Href="/alert"
-               Variant="Variant.Text">Browse Anonymously</MudButton>
-</MudContainer>
+    <MudText Typo="Typo.subtitle1" Align="Align.Center">Not registered?</MudText>
 
-@code {
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public int ViewType { get; set; }
+    <MudContainer Class="d-flex justify-center align-center pt-1">
+        <MudButton Href="/createAccount"
+                   Variant="Variant.Text">Create new account</MudButton>
+    </MudContainer>
 
-    bool isShow;
-    InputType PasswordInput = InputType.Password;
-    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+    <MudText Typo="Typo.subtitle1" Align="Align.Center">or</MudText>
 
-    void ButtonTestclick()
-    {
-        @if (isShow)
+    <MudContainer Class="d-flex justify-center align-center">
+        <MudButton Href="/alert"
+                   Variant="Variant.Text">Browse Anonymously</MudButton>
+    </MudContainer>
+
+    @code {
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public int ViewType { get; set; }
+        public bool successfulLogin = false;
+        public string hstring = "/login";
+
+        bool isShow;
+        InputType PasswordInput = InputType.Password;
+        string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+
+        void ButtonTestclick()
         {
-            isShow = false;
-            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
-            PasswordInput = InputType.Password;
+            @if (isShow)
+            {
+                isShow = false;
+                PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+                PasswordInput = InputType.Password;
+            }
+            else
+            {
+                isShow = true;
+                PasswordInputIcon = Icons.Material.Filled.Visibility;
+                PasswordInput = InputType.Text;
+            }
         }
-        else
+
+        async void checkLogin()
         {
-            isShow = true;
-            PasswordInputIcon = Icons.Material.Filled.Visibility;
-            PasswordInput = InputType.Text;
+            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-app.azurewebsites.net/api/profile/" + Username) };
+
+            HttpResponseMessage response = null;
+
+            var user = new UserProfile();
+
+            // Add an Accept header for JSON format.
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+            // Get data response
+            response = client.GetAsync("profile").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var responseAsString = await response.Content.ReadAsStringAsync();
+                user = JsonConvert.DeserializeObject<UserProfile>(responseAsString);
+                Console.Write("responseAsString"); //unserialized json string
+
+                if (user.Password.Equals(Password)) successfulLogin = true;
+                else successfulLogin = false;
+            }
+            else
+            {
+                Console.WriteLine("{0} ({1})", (int)response.StatusCode,
+                              response.ReasonPhrase);
+                successfulLogin = false;
+            }
+
+            if (successfulLogin) hstring = "/profile";
+            else hstring = "/login";
         }
     }
-}
 
