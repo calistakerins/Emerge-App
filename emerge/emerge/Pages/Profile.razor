@@ -1,5 +1,10 @@
 ﻿@page "/profile"
 
+<MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+    <MudText Typo="Typo.h5">Profile</MudText>
+    <MudSpacer />
+    <MudButton Href="/adminprofile">Switch Views</MudButton>
+</MudAppBar>
 <NavBar />
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
@@ -9,7 +14,7 @@
             <MudText Typo="Typo.h6" Class="pt-2">Sign up or log in to receive more personalized news</MudText>
 
             <MudButton Href="/"
-                           Variant="Variant.Filled"
+                           Variant="Variant.Outlined"
                            Color="Color.Primary"
                            FullWidth="true"
                            Class="mt-8"
@@ -20,17 +25,17 @@
         @if (loggedIn is not false)
         {
             <MudText Typo="Typo.h2" Color="Color.Primary">Hi, @name</MudText>
-            <MudText Typo="Typo.h5" Class="pt-2"><b>@county</b></MudText>
+            <MudText Typo="Typo.h5" Class="pt-2">Location: <b>@zip</b></MudText>
 
-            <MudButton Class="mt-8 mb-8" Href="/depts" Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View Followed Departments</MudButton>
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" @onclick="SignOut" Href="/">Sign Out</MudButton>
+            <MudButton Class="mt-8 mb-8" Href="/depts" Variant="Variant.Outlined" FullWidth="true">View Followed Departments</MudButton>
+            <MudButton Variant="Variant.Outlined"  FullWidth="true" @onclick="SignOut" Href="/">Sign Out</MudButton>
         }
     </MudContainer>
 </MudMainContent>
 
 @code {
     public string name { get; set; } = "Jane";
-    public string county { get; set; } = "King County";
+    public string zip { get; set; } = "98006";
     public bool loggedIn = true;
 
     void SignOut()
