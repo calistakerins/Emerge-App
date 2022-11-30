@@ -11,7 +11,7 @@ namespace emerge_azure.Models
         [JsonProperty(PropertyName = "time")]
         public DateTime Time { get; set; }
         [JsonProperty(PropertyName = "affected")]
-        public string Affected { get; set; }
+        public List<String> Affected { get; set; }
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
         [JsonProperty(PropertyName = "author")]

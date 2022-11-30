@@ -15,6 +15,8 @@ using System.Diagnostics;
 using UserDatabase.Models;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Net.WebRequestMethods;
+using System.Text.Json;
 
 public static class AlertFuncs
 {
@@ -44,7 +46,13 @@ public static class AlertFuncs
             }
             if (!alertDoc["Affected"].IsBsonNull)
             {
-                alert.Affected = alertDoc["Affected"].AsString;
+                List<string> affectedList = new List<string>();
+                var affectedArr = alertDoc["Affected"].AsBsonArray;
+                foreach (string zipcode in affectedArr)
+                {
+                    affectedList.Add(zipcode);
+                }
+                alert.Affected = affectedList;
             }
             if (!alertDoc["Title"].IsBsonNull)
             {
@@ -119,69 +127,69 @@ public static class AlertFuncs
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "newsalert")] HttpRequest req,
             ILogger log)
     {
+
         log.LogInformation("Called add_newsalert with POST request");
-
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();        
         var newsAlert = JsonConvert.DeserializeObject<NewsAlert>(requestBody);
 
+       
         NewsAlertFeed.newsalerts.Add(newsAlert);
 
         //add user to MongoDB
         string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
-        string databaseName = "alerts";
-        string collectionName = "alertInfo";
+            string databaseName = "alerts";
+            string collectionName = "alertInfo";
 
-        // Establish connection to MongoDB.
-        var client = new MongoClient(connectionString);
-        var db = client.GetDatabase(databaseName);
-        var collection = db.GetCollection<NewsAlert>(collectionName);
+            // Establish connection to MongoDB.
+            var client = new MongoClient(connectionString);
+            var db = client.GetDatabase(databaseName);
+            var collection = db.GetCollection<NewsAlert>(collectionName);
 
-        // Insert UserModel object into MongoDB.
-        await collection.InsertOneAsync(newsAlert);
+            // Insert UserModel object into MongoDB.
+            await collection.InsertOneAsync(newsAlert);
 
 
-        // Locate document with Username field equal to "emerge"
-        //var results = await collection.FindAsync(document => document.Username == "emerge");
-        //Debug.WriteLine(results);
+            // Locate document with Username field equal to "emerge"
+            //var results = await collection.FindAsync(document => document.Username == "emerge");
+            //Debug.WriteLine(results);
 
-        return new OkObjectResult(newsAlert);
+            return new OkObjectResult(newsAlert);
 
-    }
-
-    [FunctionName("update_newsalert")]
-    public static async Task<IActionResult> UpdateFoodItem(
-           [HttpTrigger(AuthorizationLevel.Anonymous, "patch", Route = "newsalert/{id}")] HttpRequest req,
-           ILogger log, string id)
-    {
-        log.LogInformation("Called update_newsalert with get request.");
-
-        string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
-        string databaseName = "alerts";
-        string collectionName = "alertInfo";
-
-        // Establish connection to MongoDB.
-        var client = new MongoClient(connectionString);
-        var db = client.GetDatabase(databaseName);
-        var collection = db.GetCollection<NewsAlert>(collectionName);
-
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-
-        var newsAlertUpdate = JsonConvert.DeserializeObject<UpdateInfo>(requestBody);
-
-        var filterDef = Builders<NewsAlert>.Filter.Eq(f => f.Id, id);
-        var updateDef = Builders<NewsAlert>.Update
-            .Set(p => p.Priority, newsAlertUpdate.UpdatePriority)
-            .Push(p => p.Updates, newsAlertUpdate);
-
-        if (filterDef == null)
-        {
-            return new NotFoundResult();
         }
 
-        NewsAlert newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
-        newUpdates.Priority = newsAlertUpdate.UpdatePriority;
-        newUpdates.Updates.Append(newsAlertUpdate);
-        return new OkObjectResult(newUpdates);
+        [FunctionName("update_newsalert")]
+        public static async Task<IActionResult> UpdateFoodItem(
+               [HttpTrigger(AuthorizationLevel.Anonymous, "patch", Route = "newsalert/{id}")] HttpRequest req,
+               ILogger log, string id)
+        {
+            log.LogInformation("Called update_newsalert with get request.");
+
+            string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
+            string databaseName = "alerts";
+            string collectionName = "alertInfo";
+
+            // Establish connection to MongoDB.
+            var client = new MongoClient(connectionString);
+            var db = client.GetDatabase(databaseName);
+            var collection = db.GetCollection<NewsAlert>(collectionName);
+
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+
+            var newsAlertUpdate = JsonConvert.DeserializeObject<UpdateInfo>(requestBody);
+
+            var filterDef = Builders<NewsAlert>.Filter.Eq(f => f.Id, id);
+            var updateDef = Builders<NewsAlert>.Update
+                .Set(p => p.Priority, newsAlertUpdate.UpdatePriority)
+                .Push(p => p.Updates, newsAlertUpdate);
+
+            if (filterDef == null)
+            {
+                return new NotFoundResult();
+            }
+
+            NewsAlert newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
+            newUpdates.Priority = newsAlertUpdate.UpdatePriority;
+            newUpdates.Updates.Append(newsAlertUpdate);
+            return new OkObjectResult(newUpdates);
+        }
     }
-}

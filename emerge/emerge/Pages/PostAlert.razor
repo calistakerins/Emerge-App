@@ -70,7 +70,7 @@
                 Id = Id,
                 Time = Time,
                 Title = Title,
-                Affected = Affected,
+                Affected = parseToList(this.Affected),
                 Author = Author,
                 Description = Description,
                 Priority = Priority,
@@ -83,6 +83,12 @@
             response = await client.PostAsync(client.BaseAddress, payloadString);
 
             _processing = false;
+        }
+
+        private static List<String> parseToList(string affected)
+        {
+            List<string> result = String.Concat(affected.Where(c => !Char.IsWhiteSpace(c))).Split(new char[] { ',' }).ToList();
+            return result;
         }
 
         }
