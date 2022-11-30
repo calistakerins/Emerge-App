@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace UserDatabase.Models
+namespace emerge_azure.Models
 {
     [BsonIgnoreExtraElements]
     public class Profile

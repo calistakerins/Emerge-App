@@ -12,7 +12,6 @@ using MongoDB.Driver;
 using System;
 using MongoDB.Bson;
 using System.Diagnostics;
-using UserDatabase.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -98,24 +97,37 @@ public static class AlertFuncs
         return new OkObjectResult(alertList);
     }
 
-    //[FunctionName("get_newsalert_byID")]
-    //public static async Task<IActionResult> GetNewsAlertsById(
-    //        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "fooditem/{id}")] HttpRequest req,
-    //        ILogger log, string id)
-    //{
-    //    log.LogInformation("Called get_newsalert_byID with GET request");
+    [FunctionName("add_department")]
+    public static async Task<IActionResult> AddNewsAlert(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "department")] HttpRequest req,
+            ILogger log)
+    {
+        log.LogInformation("Called add_newsalert with POST request");
 
-    //    var newsItem = NewsAlertFeed.newsalerts.FirstOrDefault(f => f.Id.Equals(id));
-    //    if (newsItem == null)
-    //    {
-    //        return new NotFoundResult();
-    //    }
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
-    //    return new OkObjectResult(newsItem);
-    //}
+        var department = JsonConvert.DeserializeObject<Department>(requestBody);
+
+        DepartmentStore.dpts.Add(department);
+
+        //add user to MongoDB
+        string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
+        string databaseName = "emerge";
+        string collectionName = "departments";
+
+        // Establish connection to MongoDB.
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase(databaseName);
+        var collection = db.GetCollection<Department>(collectionName);
+
+        // Insert UserModel object into MongoDB.
+        await collection.InsertOneAsync(department);
+
+        return new OkObjectResult(department);
+    }
 
     [FunctionName("add_newsalert")]
-    public static async Task<IActionResult> AddNewsAlert(
+    public static async Task<IActionResult> AddDepartment(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "newsalert")] HttpRequest req,
             ILogger log)
     {
@@ -140,13 +152,7 @@ public static class AlertFuncs
         // Insert UserModel object into MongoDB.
         await collection.InsertOneAsync(newsAlert);
 
-
-        // Locate document with Username field equal to "emerge"
-        //var results = await collection.FindAsync(document => document.Username == "emerge");
-        //Debug.WriteLine(results);
-
         return new OkObjectResult(newsAlert);
-
     }
 
     [FunctionName("update_newsalert")]
@@ -184,4 +190,6 @@ public static class AlertFuncs
         newUpdates.Updates.Append(newsAlertUpdate);
         return new OkObjectResult(newUpdates);
     }
+
+
 }

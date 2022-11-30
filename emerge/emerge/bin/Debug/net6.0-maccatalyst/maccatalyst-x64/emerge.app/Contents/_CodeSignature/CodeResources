@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		R/0K4O1ma0UFB3KvJhgIX/CTDUw=
+		8Y1Y/oeQcj4PQsGaIfRTZfld6Ps=
 		</data>
 		<key>Resources/MauiInfo.plist</key>
 		<data>
-		taOyNoSo2BIrzowD7xOd7/IHKc8=
+		A/74dbGgxu/fUONI00Bycn7+qco=
 		</data>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Resources/appicon.icns</key>
 		<data>
-		jGLxugzeWD+TyjHeX/hnh6qV9Fw=
+		b662XKpGlZAnh83xLx3sOUcfUA0=
 		</data>
 		<key>Resources/dotnet_bot.png</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Resources/wwwroot/_content/MudBlazor.ThemeManager/MudBlazorThemeManager.css</key>
 		<data>
-		pF3fh8GasWcPDzUF4BKYjbvYLGs=
+		PRXyd/q26WuWoCOjC/eqrIbifP4=
 		</data>
 		<key>Resources/wwwroot/_content/MudBlazor/MudBlazor.min.css</key>
 		<data>
@@ -1480,14 +1480,22 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< HEAD
+			hzAImnaSAucQWQxjHskgrrMtnNy6FskucSZaS6JRLxA=
+=======
 			PJix+/HgKng0ZTtJmmGyumiiRKg+Nv3YPMa69dU5feA=
+>>>>>>> 0b55b565861046192f3da8a1fb9ef23cea3d108b
 			</data>
 		</dict>
 		<key>MonoBundle/emerge.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
+<<<<<<< HEAD
+			gv8wnxjbt1VkYsjENBf4Vvq3yQ30SS1dXFL33N2QQtc=
+=======
 			PsTlQSGk1gCqzPwgJuGLO6kWKd5t7E8uPbjStmuxU8I=
+>>>>>>> 0b55b565861046192f3da8a1fb9ef23cea3d108b
 			</data>
 		</dict>
 		<key>MonoBundle/icudt.dat</key>
@@ -1571,14 +1579,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iyZqGQWVl4M/fcvQCcTSw8U4lEcYlSG5DPoRTS6uGd8=
+			up+iWXbI71pECRRHmdg9BxBAEcWcROzwbJjUb+uUEsM=
 			</data>
 		</dict>
 		<key>Resources/MauiInfo.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4sJYIrDjcyKdZrWnkcITBpUlk2wBstJbyN8sH83H/SA=
+			UEORARmYMQB21vcObyk2tL7rhjGOSCGHQz3UGRUssW0=
 			</data>
 		</dict>
 		<key>Resources/MonoTouchDebugConfiguration.txt</key>
@@ -1599,7 +1607,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mrDJ15X2mKhv18677i58w6LnKJZhwaN8bZReGiKRD6g=
+			ec7nXoGJoI5Tvia6KZkz7qQzZ7+dKhFRFQ3JU8eaVlY=
 			</data>
 		</dict>
 		<key>Resources/dotnet_bot.png</key>
@@ -1627,7 +1635,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			grDnJwt+GLE8XMKoifN5vGzOEbyxz6JftZdKJRt4FCg=
+			hRoYtyCAXmhGOVamZkUrYeETqCSL4MhLtRFKSAU8Rg0=
 			</data>
 		</dict>
 		<key>Resources/wwwroot/_content/MudBlazor/MudBlazor.min.css</key>

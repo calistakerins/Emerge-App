@@ -16,6 +16,12 @@
         <MudText Typo="Typo.h5" Class="red-text pt-2"><b>Logged In As Town Admin</b></MudText>
 
         <MudContainer Class="pa-4 mt-8 mb-8">
+            <MudButton Class="mb-4"
+                       Href="/postdepartment"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       FullWidth="true"
+                       @onclick="Logout">Add New Department</MudButton>
             <MudButton Href="/"
                        Variant="Variant.Outlined"
                        FullWidth="true"
@@ -33,10 +39,10 @@
                         <MudCardHeader>
                             <CardHeaderContent>
                                 <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
-                                <MudText Typo="Typo.h6">Priority: 5</MudText>
+                                <MudText Typo="Typo.h6">Priority: @alertInfo.Priority</MudText>
                                 <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
                                 <MudText Typo="Typo.body1">
-                                    description...
+                                    @alertInfo.Description
                                 </MudText>
                             </CardHeaderContent>
                             <CardHeaderActions>
@@ -80,8 +86,6 @@
 </MudMainContent>
 
 @code {
-    public string name { get; set; } = "Jane Doe";
-    public string county { get; set; } = "King County";
     public bool loggedIn = false;
 
     private MudTheme Theme = new MudTheme();

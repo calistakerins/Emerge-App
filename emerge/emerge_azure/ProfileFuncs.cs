@@ -6,7 +6,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using UserDatabase.Models;
+using emerge_azure.Models;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Linq;
@@ -50,9 +50,27 @@ namespace UserDatabase
             var collection = db.GetCollection<Profile>(collectionName);
 
             //find user by username
+<<<<<<< HEAD
+            //var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);
+            var filterDef = Builders<Profile>.Filter.Eq("username", username);
+
+            //if (filterDef == null)
+            //{
+            //    return new NotFoundResult();
+            //}
+
+            var user = collection.Find(filterDef).ToList();
+
+            //var user = ProfileStore.users.FirstOrDefault(f => f.Username.Equals(username));
+            //if (user == null)
+            //{
+            //    return new NotFoundResult();
+            //}
+=======
             var filterDef = Builders<Profile>.Filter.Eq(p => p.Username, username);
 
             var user = collection.Find(filterDef).FirstOrDefault();
+>>>>>>> 0b55b565861046192f3da8a1fb9ef23cea3d108b
 
             return new OkObjectResult(user);
         }
