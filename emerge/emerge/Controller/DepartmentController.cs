@@ -15,6 +15,7 @@ namespace emerge.Controller
         private List<Department> deptList;
         public DepartmentController()
         {
+            deptList = new List<Department>();
             populateDepts();
         }
 
@@ -27,7 +28,7 @@ namespace emerge.Controller
             client.DefaultRequestHeaders.Accept.Add(
                new MediaTypeWithQualityHeaderValue("application/json"));
             // Get data response
-            var response = client.GetAsync("deptData").Result; // need to ask group about this one
+            var response = client.GetAsync("depts").Result; // need to ask group about this one
             if (response.IsSuccessStatusCode)
             {
                 var responseAsString = await response.Content.ReadAsStringAsync();
