@@ -1,58 +1,72 @@
-﻿<Properties StartupConfiguration="{88B0AB92-350E-472A-BAC4-51DA874E3357}|Default">
+﻿<Properties StartupConfiguration="{07A8190E-D4E5-485B-A340-E2E75087D5A0}|Default">
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.emerge__azure PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="emerge/Pages/NewsFeed.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="emerge_azure/AlertFuncs.cs">
     <Files>
-      <File FileName="emerge_azure/AlertFuncs.cs" />
-      <File FileName="emerge/Main.razor" Line="1" Column="1" />
-      <File FileName="emerge/Pages/CreateAccount.razor" Line="36" Column="63" />
+      <File FileName="../../../Downloads/C#CalculationTestApp/CalculationTestApp/CalculationTestApp/BasicCalculations.cs" />
+      <File FileName="../../../Downloads/C#CalculationTestApp/CalculationTestApp/CalculationTestAppTests/TestBasicCalculationsLarge.cs" />
+      <File FileName="emerge/Main.razor" />
+      <File FileName="emerge/Pages/CreateAccount.razor" />
       <File FileName="emerge/Controller/NewsFeedController.cs" />
-      <File FileName="emerge/Pages/PostAlert.razor" Line="26" Column="22" />
+      <File FileName="emerge/Pages/PostAlert.razor" />
       <File FileName="emerge_azure/host.json" />
-      <File FileName="emerge_azure/ProfileFuncs.cs" />
       <File FileName="emerge_azure/Models/ProfileStore.cs" />
       <File FileName="emerge_azure/Models/NewsAlertFeed.cs" />
       <File FileName="emerge_azure/Models/UpdateInfo.cs" />
       <File FileName="emerge_azure/Models/Profile.cs" />
       <File FileName="emerge/Data/UserProfile.cs" />
       <File FileName="emerge/Data/UpdateInfo.cs" />
-      <File FileName="emerge/Pages/Departments.razor" Line="4" Column="1" />
-      <File FileName="emerge/Pages/Index.razor" Line="22" Column="13" />
-      <File FileName="emerge/Pages/Login.razor" Line="5" Column="16" />
-      <File FileName="emerge/Pages/Profile.razor" Line="23" Column="1" />
-      <File FileName="emerge/Pages/AdminProfile.razor" Line="17" Column="36" />
-      <File FileName="emerge/Pages/PostUpdate.razor" Line="19" Column="81" />
-      <File FileName="emerge/Pages/NewsFeed.razor" Line="7" Column="2" />
+      <File FileName="emerge/Pages/Departments.razor" />
+      <File FileName="emerge/Pages/Index.razor" />
+      <File FileName="emerge/Pages/Login.razor" />
+      <File FileName="emerge/Pages/Profile.razor" />
+      <File FileName="emerge/Pages/AdminProfile.razor" />
+      <File FileName="emerge/Pages/PostUpdate.razor" />
+      <File FileName="emerge/Pages/NewsFeed.razor" />
       <File FileName="emerge_azure/Models/NewsAlert.cs" />
-      <File FileName="emerge/Shared/NavBar.razor" Line="1" Column="1" />
-      <File FileName="emerge/Shared/AdminNavBar.razor" Line="1" Column="1" />
+      <File FileName="emerge/Shared/NavBar.razor" />
+      <File FileName="emerge/Shared/AdminNavBar.razor" />
       <File FileName="emerge_azure/.gitignore" />
-      <File FileName="emerge/Shared/MainLayout.razor" Line="16" Column="11" />
+      <File FileName="emerge/Shared/MainLayout.razor" />
       <File FileName="emerge/Data/Department.cs" />
-      <File FileName="emerge/Pages/DepartmentComponent.razor" Line="1" Column="1" />
+      <File FileName="emerge/Pages/DepartmentComponent.razor" />
       <File FileName="emerge/Controller/DepartmentController.cs" />
       <File FileName="emerge/Data/NewsAlert.cs" />
-      <File FileName="emerge/MainPage.xaml" Line="1" Column="1" />
-      <File FileName="emerge/MauiProgram.cs" Line="1" Column="1" />
-      <File FileName="emerge/Properties/launchSettings.json" Line="1" Column="1" />
-      <File FileName="emerge/App.xaml" Line="1" Column="1" />
-      <File FileName="emerge/MainPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="emerge/App.xaml.cs" Line="1" Column="1" />
-      <File FileName="emerge/Shared/MainLayout.razor.css" Line="9" Column="1" />
+      <File FileName="emerge/MainPage.xaml" />
+      <File FileName="emerge_azure/ProfileFuncs.cs" />
+      <File FileName="emerge_azure/AlertFuncs.cs" Line="116" Column="43" />
+      <File FileName="emerge_azure/Models/Department.cs" />
+      <File FileName="../../../.nuget/packages/microsoft.net.sdk.functions/4.1.1/build/Microsoft.NET.Sdk.Functions.Build.targets" />
+      <File FileName="emerge_azure/Models/DepartmentStore.cs" />
+      <File FileName="emerge_azure/DepartmentFuncs.cs" />
+      <File FileName="emerge_azure/Properties/launchSettings.json" />
+      <File FileName="emerge/Pages/PostDepartment.razor" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="emerge" expanded="True" />
+          <Node name="emerge" expanded="True">
+            <Node name="emerge" expanded="True">
+              <Node name="Controller" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Pages" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Shared" expanded="True" />
+            </Node>
+            <Node name="emerge_azure" expanded="True" selected="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.emerge__azure PreferredExecutionTarget="MonoDevelop.Default" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.emerge PreferredExecutionTarget="MyAppleMacCatalystID" />
 </Properties>

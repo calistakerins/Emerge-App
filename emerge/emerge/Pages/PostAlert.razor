@@ -4,12 +4,12 @@
 @using System.Text
 @using System.Net.Mime
 
-<AdminNavBar/>
+<MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+    <MudText Typo="Typo.h5">Post Alert</MudText>
+</MudAppBar>
+<AdminNavBar />
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
-
-        <MudText Typo="Typo.h3" Class="pb-8" Color="Color.Primary">Post Alert</MudText>
-
         <MudCard>
             <MudCardContent>
                 <MudTextField Label="Title" @bind-Value="Title" Variant="Variant.Filled" Class="pt-4 pb-4" />
@@ -41,29 +41,30 @@
         </MudCard>
         <MudText Typo="Typo.h3" Class="mt-5"><b></b></MudText>
 
-        </MudContainer>
-    </MudMainContent>
+    </MudContainer>
+</MudMainContent>
 
-    @code {
+@code {
 
-        public DateTime Time { get; set; } = DateTime.Now;
-        public string Id { get; set; } = Guid.NewGuid().ToString("n");
-        public string Title { get; set; }
-        public string Affected { get; set; }
-        public string Author { get; set; }
-        public string Description { get; set; }
-        public int Priority { get; set; }
-        public string ImageUrl { get; set; }
-        public List<UpdateInfo> Updates { get; set; } = new List<UpdateInfo>();
-        private bool _processing = false;
+    public DateTime Time { get; set; } = DateTime.Now;
+    public string Id { get; set; } = Guid.NewGuid().ToString("n");
+    public string Title { get; set; }
+    public string Affected { get; set; }
+    public string Author { get; set; }
+    public string Description { get; set; }
+    public int Priority { get; set; }
+    public string ImageUrl { get; set; }
+    public List<UpdateInfo> Updates { get; set; } = new List<UpdateInfo>();
+    private bool _processing = false;
 
-        private async Task AddNewsAlert()
-        {
-            _processing = true;
+    private async Task AddNewsAlert()
+    {
+        _processing = true;
 
-            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/newsalert?") };
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/newsalert?") };
 
-            HttpResponseMessage response = null;
+        HttpResponseMessage response = null;
+
 
             var payload = new NewsAlert()
             {
@@ -78,12 +79,15 @@
                 Updates = Updates
             };
 
-            var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 
-            response = await client.PostAsync(client.BaseAddress, payloadString);
 
-            _processing = false;
-        }
+        var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
+
+        response = await client.PostAsync(client.BaseAddress, payloadString);
+
+        _processing = false;
+    }
+
 
         private static List<String> parseToList(string affected)
         {
@@ -91,4 +95,7 @@
             return result;
         }
 
-        }
+        
+
+}
+

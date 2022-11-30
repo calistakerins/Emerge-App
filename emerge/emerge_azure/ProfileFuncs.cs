@@ -6,12 +6,13 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using UserDatabase.Models;
+using emerge_azure.Models;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Linq;
 using MongoDB.Driver;
 using System.Diagnostics;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace UserDatabase
 {
@@ -49,23 +50,13 @@ namespace UserDatabase
             var collection = db.GetCollection<Profile>(collectionName);
 
             //find user by username
-            var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);
+            var filterDef = Builders<Profile>.Filter.Eq(p => p.Username, username);
 
-            if (filterDef == null)
-            {
-                return new NotFoundResult();
-            }
-
-            var user = collection.Find(filterDef);
-
-            //var user = ProfileStore.users.FirstOrDefault(f => f.Username.Equals(username));
-            if (user == null)
-            {
-                return new NotFoundResult();
-            }
+            var user = collection.Find(filterDef).FirstOrDefault();
 
             return new OkObjectResult(user);
         }
+
 
         //function to get add profile to the database
         [FunctionName("add_user")]

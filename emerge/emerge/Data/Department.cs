@@ -1,37 +1,20 @@
 ﻿using System;
 using Newtonsoft.Json;
-
+using System.Collections.Generic;
 
 namespace emerge.Data
 {
     public class Department
     {
-        private String title;
-        private String administrator;
-        private String description;
-        private List<NewsAlert> alertList;
-        private String imageUrl;
-
-        public Department(string title, string administrator, string description, List<NewsAlert> alertList, string imageUrl)
-        {
-            this.Title = title;
-            this.Administrator = administrator;
-            this.Description = description;
-            this.AlertList = alertList;
-            this.imageUrl = imageUrl;
-        }
-        public string ID { get; set; } = Guid.NewGuid().ToString("n");
-
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
         [JsonProperty(PropertyName = "title")]
-        public string Title { get => title; set => title = value; }
-        [JsonProperty(PropertyName = "administrator")]
-        public string Administrator { get => administrator; set => administrator = value; }
+        public string Title { get; set; }
         [JsonProperty(PropertyName = "description")]
-        public string Description { get => description; set => description = value; }
+        public string Description { get; set; }
         [JsonProperty(PropertyName = "alertList")]
-        public List<NewsAlert> AlertList { get => alertList; set => alertList = value; }
-        [JsonProperty(PropertyName = "imageUrl")]
-        public string ImageUrl { get => imageUrl; set => imageUrl = value; }
+        public List<NewsAlert> AlertList { get; set; }
+        [JsonProperty(PropertyName = "imageurl")]
+        public string ImageUrl { get; set; }
     }
 }
-

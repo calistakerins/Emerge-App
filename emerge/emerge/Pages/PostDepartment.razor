@@ -1,0 +1,77 @@
+﻿@page "/postdepartment"
+@using emerge.Data
+@using System.ComponentModel.DataAnnotations
+@using System.Text
+@using System.Net.Mime
+
+<AdminNavBar/>
+<MudMainContent>
+    <MudContainer MaxWidth="MaxWidth.Medium">
+
+        <MudText Typo="Typo.h3" Class="pb-8" Color="Color.Primary">Post Department</MudText>
+
+        <MudCard>
+            <MudCardContent>
+                <MudTextField Label="Title" @bind-Value="Title" Variant="Variant.Filled" Class="pt-4 pb-4" />
+                <MudTextField T="string" Label="Department Image URL" @bind-Value="ImageUrl" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
+                <MudTextField T="string" Label="Department Description" @bind-Value="Description" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
+            </MudCardContent>
+
+            <MudCardActions>
+                <MudButton Href="/depts"
+                           Disabled="@_processing"
+                           OnClick="AddNewDepartment"
+                           Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           Class="ml-auto mr-auto mb-4">
+                    @if (_processing)
+                    {
+                        <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                        <MudText Class="ms-2">Processing</MudText>
+                    }
+                    else
+                    {
+                        <MudText>Post New Department</MudText>
+                    }
+                </MudButton>
+            </MudCardActions>
+
+        </MudCard>
+        <MudText Typo="Typo.h3" Class="mt-5"><b></b></MudText>
+
+        </MudContainer>
+    </MudMainContent>
+
+    @code {
+        public string Id { get; set; } = Guid.NewGuid().ToString("n");
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+        public List<NewsAlert> Alerts { get; set; } = new List<NewsAlert>();
+        private bool _processing = false;
+
+        private async Task AddNewDepartment()
+        {
+            _processing = true;
+
+            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/department?") };
+
+            HttpResponseMessage response = null;
+
+            var payload = new Department()
+            {
+                Id = Id,
+                Title = Title,
+                Description = Description,
+                ImageUrl = ImageUrl,
+                AlertList = Alerts
+            };
+
+            var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
+
+            response = await client.PostAsync(client.BaseAddress, payloadString);
+
+            _processing = false;
+        }
+
+        }
