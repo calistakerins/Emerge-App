@@ -168,9 +168,6 @@ public static class AlertFuncs
 
             return new OkObjectResult(newsAlert);
 
-        }
-
-        return new OkObjectResult(newsAlert);
     }
 
 
@@ -209,13 +206,8 @@ public static class AlertFuncs
             newUpdates.Updates.Append(newsAlertUpdate);
             return new OkObjectResult(newUpdates);
         }
-    }
+    
 
-        NewsAlert newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
-        newUpdates.Priority = newsAlertUpdate.UpdatePriority;
-        newUpdates.Updates.Append(newsAlertUpdate);
-        return new OkObjectResult(newUpdates);
-    }
 
 
 }
