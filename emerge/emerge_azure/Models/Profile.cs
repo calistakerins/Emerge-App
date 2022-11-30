@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
-namespace UserDatabase.Models
+namespace emerge_azure.Models
 {
 	public class Profile
 	{

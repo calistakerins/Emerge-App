@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UserDatabase.Models
+namespace emerge_azure.Models
 {
 	public class ProfileStore
 	{
