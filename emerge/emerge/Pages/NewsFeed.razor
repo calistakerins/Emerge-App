@@ -46,6 +46,15 @@
                                         <MudText Typo="Typo.h6">No Author</MudText>
                                     }
 
+                                    @if (alertInfo.Affected != null)
+                                    {
+                                        <MudText Typo="Typo.h6" Class="mt-2">Area Affected: @alertInfo.Affected</MudText>
+                                    }
+                                    else
+                                    {
+                                        <MudText Typo="Typo.h6">No Areas Affected</MudText>
+                                    }
+
                                     @if (alertInfo.Description != null)
                                     {
                                         <MudText Typo="Typo.body1">
@@ -57,7 +66,7 @@
                                         <MudText Typo="Typo.body1">No Description</MudText>
                                     }
 
-                                    
+
                                 </CardHeaderContent>
                                 <CardHeaderActions>
                                     @if (alertInfo.Time != null)
