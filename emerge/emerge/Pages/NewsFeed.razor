@@ -6,15 +6,16 @@
 @if (feedView)
 {
     //Newsfeed
+    <MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+        <MudText Typo="Typo.h5">Active Alerts</MudText>
+    </MudAppBar>
+
     <NavBar />
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.Medium">
-
-            <MudText Typo="Typo.h3" Class="pa-4" Color="Color.Primary">Active Alerts</MudText>
-
             @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
             {
-                
+
                 <MudCard Class="mt-8 pt-4 rounded-xl" Outlined="true"
                          @onclick="() => OnClick(alertInfo)">
                     <MudCardMedia Image=@alertInfo.ImageUrl Height="300" />
@@ -102,89 +103,93 @@
                 </MudCard>
             }
         </MudContainer>
-        </MudMainContent>
-            }
-            else
-            {
-            //View Alert
-<MudContainer Class="mt-8">
-    <MudButton Variant="Variant.Outlined" @onclick="returnToFeed">Back</MudButton>
-    <MudCard Class="ma-8 rounded-xl" Outlined="true">
-        <MudCardMedia Image=@currentAlert.ImageUrl Height="300" />
-        <MudContainer Class="pa-4 ml-4 mr-4">
-            @if (currentAlert.Title != null)
-            {
-                <MudText Typo="Typo.h3" Style="font-weight:bold">@currentAlert.Title</MudText>
-            }
-            @if (currentAlert.Priority != null)
-            {
-                <MudText Typo="Typo.h5" Style="font-weight:bold">@currentAlert.Priority</MudText>
-            }
-            @if (currentAlert.Author != null)
-            {
-                <MudText Typo="Typo.body1" Style="font-weight:bold">@currentAlert.Author</MudText>
-            }
-            @if (currentAlert.Time != null)
-            {
-                <MudText Typo="Typo.body1">@currentAlert.Time.ToString("MM/dd/yyyy HH:mm")</MudText>
-            }
-            @if (currentAlert.Description != null)
-            {
-                <MudText Typo="Typo.body1">@currentAlert.Description</MudText>
-            }
+    </MudMainContent>
+}
+else
+{
+    //View Alert
+    <MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+        <MudIconButton Icon="@Icons.Filled.ArrowBack" @onclick="returnToFeed" Color="Color.Inherit" Edge="Edge.Start" />
+    </MudAppBar>
+    <NavBar />
 
-        </MudContainer>
-    </MudCard>
-    <MudText Class="ma-8" Typo="Typo.h4"><b>Updates</b></MudText>
+    <MudContainer Class="mt-8">
+        <MudCard Class="ma-8 rounded-xl" Outlined="true">
+            <MudCardMedia Image=@currentAlert.ImageUrl Height="300" />
+            <MudContainer Class="pa-4 ml-4 mr-4">
+                @if (currentAlert.Title != null)
+                {
+                    <MudText Typo="Typo.h3" Style="font-weight:bold">@currentAlert.Title</MudText>
+                }
+                @if (currentAlert.Priority != null)
+                {
+                    <MudText Typo="Typo.h5" Style="font-weight:bold">@currentAlert.Priority</MudText>
+                }
+                @if (currentAlert.Author != null)
+                {
+                    <MudText Typo="Typo.body1" Style="font-weight:bold">@currentAlert.Author</MudText>
+                }
+                @if (currentAlert.Time != null)
+                {
+                    <MudText Typo="Typo.body1">@currentAlert.Time.ToString("MM/dd/yyyy HH:mm")</MudText>
+                }
+                @if (currentAlert.Description != null)
+                {
+                    <MudText Typo="Typo.body1">@currentAlert.Description</MudText>
+                }
 
-    @if (currentAlert.Updates != null)
-    {
-        @foreach (var update in currentAlert.Updates) //loop through updates
+            </MudContainer>
+        </MudCard>
+        <MudText Class="ma-8" Typo="Typo.h4"><b>Updates</b></MudText>
+
+        @if (currentAlert.Updates != null)
         {
-            <MudContainer Class=" pa-4 my-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten3}; height: 15%; width: 90%")">
+            @foreach (var update in currentAlert.Updates) //loop through updates
+            {
+                <MudContainer Class=" pa-4 my-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten3}; height: 15%; width: 90%")">
 
-                <MudCardHeader>
-                    <CardHeaderContent>
-                        <MudText Typo="Typo.h6">UPDATE</MudText>
-                        <MudText Typo="Typo.subtitle1">@update.UpdateDescription</MudText>
-                    </CardHeaderContent>
-                    <CardHeaderActions>
-                        <MudText Typo="Typo.subtitle2" Class="ms-4">
-                            @update.UpdateTime.ToString("MM/dd/yyyy")
-                        </MudText>
-                        <MudText Typo="Typo.subtitle2" Class="ms-4">
-                            @update.UpdateTime.ToString("HH:mm")
-                        </MudText>
-                    </CardHeaderActions>
-                </MudCardHeader>
-            </MudContainer>
-                }
-                }
-
-            </MudContainer>
-
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">UPDATE</MudText>
+                            <MudText Typo="Typo.subtitle1">@update.UpdateDescription</MudText>
+                        </CardHeaderContent>
+                        <CardHeaderActions>
+                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                @update.UpdateTime.ToString("MM/dd/yyyy")
+                            </MudText>
+                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                @update.UpdateTime.ToString("HH:mm")
+                            </MudText>
+                        </CardHeaderActions>
+                    </MudCardHeader>
+                </MudContainer>
             }
+        }
+
+    </MudContainer>
+
+}
 
 
-            @code {
+@code {
 
-                public static NewsAlert currentAlert;
-                private MudTheme Theme = new MudTheme();
-                private NewsFeedController feedController = new NewsFeedController();
-                private bool feedView = true;
+    public static NewsAlert currentAlert;
+    private MudTheme Theme = new MudTheme();
+    private NewsFeedController feedController = new NewsFeedController();
+    private bool feedView = true;
 
-                private void OnClick(NewsAlert alertInfo)
-                {
-                    feedView = false;
-                    currentAlert = alertInfo;
-                    StateHasChanged();
-                }
+    private void OnClick(NewsAlert alertInfo)
+    {
+        feedView = false;
+        currentAlert = alertInfo;
+        StateHasChanged();
+    }
 
-                private void returnToFeed()
-                {
-                    feedView = true;
-                    StateHasChanged();
-                }
+    private void returnToFeed()
+    {
+        feedView = true;
+        StateHasChanged();
+    }
 
 
-            }
+}
