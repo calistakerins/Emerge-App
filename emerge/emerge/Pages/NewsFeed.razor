@@ -42,7 +42,12 @@
 
                                 @if (alertInfo.Affected != null)
                                 {
-                                    <MudText Typo="Typo.h6">Affected Area: @alertInfo.Affected</MudText>
+                                    <MudText Typo="Typo.h6">Affected Area: </MudText>
+                                    @foreach (string zip in alertInfo.Affected)
+                                    {
+                                        <MudText Typo="Typo.h6">zip</MudText>
+                                    }
+
                                 }
                                 else
                                 {
