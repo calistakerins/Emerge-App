@@ -22,7 +22,7 @@ namespace emerge.Controller
         //populates alert list with recent alerts by calling api endpoint
         private async void populateFeed()
         {
-            string url = "https://emergeproj.azurewebsites.net/api/newsalert?";
+            string url = "https://emerge-azure.azurewebsites.net/api/newsalert";
             using var client = new HttpClient();
             client.BaseAddress = new Uri(url);
             // Add an Accept header for JSON format.
