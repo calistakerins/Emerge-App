@@ -84,7 +84,7 @@
 
     async void checkLogin()
     {
-        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-app.azurewebsites.net/api/profile/" + Username) };
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/profile/" + Username) };
 
         HttpResponseMessage response = null;
 
