@@ -10,7 +10,7 @@
         <MudText Typo="Typo.h5">Active Alerts</MudText>
     </MudAppBar>
 
-    <NavBar />
+
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.Medium">
             @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
@@ -118,6 +118,7 @@
             }
         </MudContainer>
     </MudMainContent>
+    <NavBar/>
 }
 else
 {
@@ -125,7 +126,7 @@ else
     <MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
         <MudIconButton Icon="@Icons.Filled.ArrowBack" @onclick="returnToFeed" Color="Color.Inherit" Edge="Edge.Start" />
     </MudAppBar>
-    <NavBar />
+
 
     <MudContainer Class="mt-8">
         <MudCard Class="ma-8 rounded-xl" Outlined="true">

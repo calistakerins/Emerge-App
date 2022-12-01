@@ -38,7 +38,7 @@
     {
         _processing = true;
 
-        string updateURI = "https://emergeproj.azurewebsites.net/api/newsalert/" + alertid + "?";
+        string updateURI = "https://emerge-azure.azurewebsites.net/api/newsalert/" + alertid + "?";
 
         HttpClient client = new HttpClient { BaseAddress = new Uri(updateURI) };
 

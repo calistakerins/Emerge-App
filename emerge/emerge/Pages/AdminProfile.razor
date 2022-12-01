@@ -30,8 +30,8 @@
         <MudDivider></MudDivider>
         <div>
             <MudText Typo="Typo.h5" Class="mt-8"><b>Alert History</b></MudText>
-
-            @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
+            @*need to null check*@
+            @*@foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
             {
                 <MudCard Class="ma-8 pt-4 mb-0 rounded-xl" Outlined="true"
                          @onclick="() => OnClick(alertInfo)">
@@ -79,7 +79,7 @@
                     </MudCardActions>
                     </MudContainer>
                 </MudCard>
-            }
+            }*@
         </div>
 
     </MudContainer>
