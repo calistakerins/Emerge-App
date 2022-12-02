@@ -12,6 +12,9 @@
 
 
     <MudMainContent>
+        <MudToggleIconButton Icon="@Icons.Material.Filled.Business" Color="@Color.Error"
+                             ToggledIcon="@Icons.Filled.Article" ToggledColor="@Color.Success" Size="Size.Large"
+                                class="align-items: center;"/>
         <MudContainer MaxWidth="MaxWidth.Medium">
             @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
             {
