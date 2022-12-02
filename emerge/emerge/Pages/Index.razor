@@ -4,7 +4,9 @@
 @using System.Net.Http;
 @using System.Net.Http.Headers;
 @using System.Threading.Tasks;
+@inject NavigationManager navigation;
 @using emerge.Data;
+@using emerge.Controller;
 @using Newtonsoft.Json;
 @using static MudBlazor.FilterOperator;
 
@@ -28,7 +30,7 @@
             <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Elevation="1" Required="true"></MudTextField>
             <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Elevation="1" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
             <MudContainer Class="d-flex justify-center align-center pt-2">
-                <MudButton Href="/profile"
+                <MudButton Href="/"
                            Variant="Variant.Filled"
                            Color="Color.Primary"
                            @onclick="checkLogin">Log In</MudButton>
@@ -84,35 +86,27 @@
 
     async void checkLogin()
     {
-        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/profile/" + Username) };
-
+        // Initialize HTTP Client
+        HttpClient client = new HttpClient();
+        var end = new Uri("https://emergeproj.azurewebsites.net/api/profile/" + Username);
         HttpResponseMessage response = null;
 
-        var user = new UserProfile();
-
-        // Add an Accept header for JSON format.
-        client.DefaultRequestHeaders.Accept.Add(
-            new MediaTypeWithQualityHeaderValue("application/json"));
         // Get data response
-        response = client.GetAsync("profile").Result;
-        if (response.IsSuccessStatusCode)
-        {
-            var responseAsString = await response.Content.ReadAsStringAsync();
-            user = JsonConvert.DeserializeObject<UserProfile>(responseAsString);
-            Console.Write("responseAsString"); //unserialized json string
+        response = await client.GetAsync(end);
+        var responseAsString = response.Content.ReadAsStringAsync().Result;
+        var user = JsonConvert.DeserializeObject<UserProfile>(responseAsString);
 
-            if (user.Password.Equals(Password)) successfulLogin = true;
-            else successfulLogin = false;
+        // Check password
+        if (user != null && user.Password.Equals(Password))
+        {
+            CurrentProfile.currentUser = user;
+            CurrentProfile.loggedIn = true;
+            navigation.NavigateTo("/profile");
         }
         else
         {
-            Console.WriteLine("{0} ({1})", (int)response.StatusCode,
-                          response.ReasonPhrase);
-            successfulLogin = false;
+            //successfulLogin = false;
+            navigation.NavigateTo("/");
         }
-
-        if (successfulLogin) hstring = "/profile";
-        else hstring = "/login";
     }
 }
-
