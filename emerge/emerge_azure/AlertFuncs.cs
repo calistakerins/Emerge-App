@@ -144,29 +144,21 @@ public static class AlertFuncs
         string requestBody = await new StreamReader(req.Body).ReadToEndAsync();        
         var newsAlert = JsonConvert.DeserializeObject<NewsAlert>(requestBody);
 
-       
         NewsAlertFeed.newsalerts.Add(newsAlert);
 
         //add user to MongoDB
         string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
-            string databaseName = "alerts";
-            string collectionName = "alertInfo";
+        string databaseName = "alerts";
+        string collectionName = "alertInfo";
 
-            // Establish connection to MongoDB.
-            var client = new MongoClient(connectionString);
-            var db = client.GetDatabase(databaseName);
-            var collection = db.GetCollection<NewsAlert>(collectionName);
+        // Establish connection to MongoDB.
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase(databaseName);
+        var collection = db.GetCollection<NewsAlert>(collectionName);
 
-            // Insert UserModel object into MongoDB.
-            await collection.InsertOneAsync(newsAlert);
-
-
-
-            // Locate document with Username field equal to "emerge"
-            //var results = await collection.FindAsync(document => document.Username == "emerge");
-            //Debug.WriteLine(results);
-
-            return new OkObjectResult(newsAlert);
+        // Insert UserModel object into MongoDB.
+        await collection.InsertOneAsync(newsAlert);
+        return new OkObjectResult(newsAlert);
 
     }
 
@@ -200,7 +192,6 @@ public static class AlertFuncs
             {
                 return new NotFoundResult();
             }
-
             NewsAlert newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
             newUpdates.Priority = newsAlertUpdate.UpdatePriority;
             newUpdates.Updates.Append(newsAlertUpdate);

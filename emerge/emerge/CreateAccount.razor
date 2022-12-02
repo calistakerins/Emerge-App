@@ -29,6 +29,8 @@
             <MudSpacer />
             <MudTextField @bind-Value="Password" FullWidth="true" Label="Password" Variant="Variant.Outlined" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
             <MudSpacer />
+            <MudTextField @bind-Value="Zipcode" FullWidth="true" Label="Zipcode" Variant="Variant.Outlined" Required="true"></MudTextField>
+            <MudSpacer />
         </MudStack>
     </MudItem>
 </MudContainer>
@@ -52,14 +54,22 @@
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Zipcode { get; set; }
         public bool Administrator { get; set; } = true;
+        public List<NewsAlert> NewsPosted = new List<NewsAlert>();
+        public List<Department> Following = new List<Department>();
         private bool _processing = false;
 
         private async Task AddProfile()
         {
             _processing = true;
 
-            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/profile") };
+            //harrisons azure
+            // HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/profile") };
+
+            //megans azure
+            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/profile?") };
+            //HttpClient client = new HttpClient { BaseAddress = new Uri("http://localhost:7071/api/profile") };
 
             HttpResponseMessage response = null;
 
@@ -69,7 +79,10 @@
                 Username = Username,
                 Password = Password,
                 Email = Email,
-                Admin = Administrator
+                Zipcode = Zipcode,
+                Admin = Administrator,
+                Alerts = NewsPosted,
+                Following = Following
             };
 
             if (payload.Username != null && payload.Password != null && payload.Name != null && payload.Email != null)
