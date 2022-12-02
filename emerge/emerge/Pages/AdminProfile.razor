@@ -30,7 +30,7 @@
         <MudDivider></MudDivider>
         <div>
             <MudText Typo="Typo.h5" Class="mt-8"><b>Alert History</b></MudText>
-            @foreach (var alertInfo in feedController.getAlertList()) //loop through alert list
+            @foreach (var alertInfo in currentUser.Alerts) //loop through alert list
             {
                 <MudCard Class="ma-8 pt-4 mb-0 rounded-xl" Outlined="true"
                          @onclick="() => OnClick(alertInfo)">
@@ -39,7 +39,7 @@
                             <CardHeaderContent>
                                 <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
                                 <MudText Typo="Typo.h6">Priority: @alertInfo.Priority</MudText>
-                                <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
+                                <MudText Typo="Typo.h6" Class="mt-4">@currentUser.Name</MudText>
                                 <MudText Typo="Typo.body1">
                                     @alertInfo.Description
                                 </MudText>
@@ -88,7 +88,6 @@
     public bool loggedIn = false;
     public UserProfile currentUser = CurrentProfile.currentUser;
     private MudTheme Theme = new MudTheme();
-    private NewsFeedController feedController = new NewsFeedController();
 
 
     private void OnClick(NewsAlert alertInfo)

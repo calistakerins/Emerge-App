@@ -16,6 +16,8 @@ namespace emerge_azure.Models
         public string Title { get; set; }
         [JsonProperty(PropertyName = "author")]
         public string Author { get; set; }
+        [JsonProperty(PropertyName = "department")]
+        public Department Department { get; set; }
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
         [JsonProperty(PropertyName = "priority")]

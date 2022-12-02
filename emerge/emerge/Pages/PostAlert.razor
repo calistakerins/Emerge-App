@@ -16,6 +16,14 @@
                 <MudTextField Label="Title" @bind-Value="Title" Variant="Variant.Filled" Class="pt-4 pb-4" />
                 <MudNumericField Label="Priority" @bind-Value="Priority" Variant="Variant.Filled" Min="0" Max="5" Class="pt-4 pb-4" />
                 <MudTextField T="string" Label="Affected" @bind-Value="Affected" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
+
+                <MudSelect T="Department" Label="Department" @bind-Value="Department" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+                    @foreach (var selectItem in dController.getDeptList())
+                        {
+                        <MudSelectItem Value="@selectItem">@selectItem.Title</MudSelectItem>
+                        }
+                </MudSelect>
+
                 <MudTextField T="string" Label="Alert Image URL" @bind-Value="ImageUrl" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
                 <MudTextField T="string" Label="Alert Description" @bind-Value="Description" Variant="Variant.Filled" Lines="5" Class="pt-4 pb-4" />
             </MudCardContent>
@@ -52,20 +60,27 @@
     public string Title { get; set; }
     public string Affected { get; set; }
     public string Author { get; set; }
+    public Department Department { get; set; }
     public string Description { get; set; }
     public int Priority { get; set; }
     public string ImageUrl { get; set; }
     public List<UpdateInfo> Updates { get; set; } = new List<UpdateInfo>();
     private bool _processing = false;
     public UserProfile currentUser = CurrentProfile.currentUser;
+    private DepartmentController dController = new DepartmentController();
+
 
 
     private async Task AddNewsAlert()
     {
         _processing = true;
 
-        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/newsalert?") };
-        HttpClient client2 = new HttpClient { BaseAddress = new Uri("http://localhost:7071/api/newpost/" + currentUser.Username) };
+        //harrison azure
+        //HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/newsalert?") };
+
+        //megan azure
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/newsalert?") };
+        HttpClient client2 = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/newpost/" + currentUser.Username + "?") };
 
         HttpResponseMessage response = null;
         HttpResponseMessage response2 = null;
@@ -78,6 +93,7 @@
             Title = Title,
             Affected = parseToList(this.Affected),
             Author = Author,
+            Department = Department,
             Description = Description,
             Priority = Priority,
             ImageUrl = ImageUrl,

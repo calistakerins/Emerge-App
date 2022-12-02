@@ -53,7 +53,7 @@
 <MudText Typo="Typo.subtitle1" Align="Align.Center">or</MudText>
 
 <MudContainer Class="d-flex justify-center align-center">
-    <MudButton Href="/alert"
+    <MudButton Href="/news"
                Variant="Variant.Text">Browse Anonymously</MudButton>
 </MudContainer>
 
@@ -88,7 +88,8 @@
     {
         // Initialize HTTP Client
         HttpClient client = new HttpClient();
-        var end = new Uri("https://emerge-azure.azurewebsites.net/api/profile/" + Username);
+        var end = new Uri("https://emergeproj.azurewebsites.net/api/profile/" + Username + "?");
+        Console.WriteLine(Username);
         HttpResponseMessage response = null;
 
         // Get data response
