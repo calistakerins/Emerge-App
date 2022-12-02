@@ -11,7 +11,7 @@
 <AdminNavBar />
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
-        <MudText Typo="Typo.h2" Color="Color.Primary">Hi, Jane</MudText>
+        <MudText Typo="Typo.h2" Color="Color.Primary">Hi, @currentUser.Name</MudText>
         <MudText Typo="Typo.h5" Class="pt-2">Department of Agriculture</MudText>
         <MudText Typo="Typo.h5" Class="red-text pt-2"><b>Logged In As Town Admin</b></MudText>
 
@@ -86,7 +86,7 @@
 
 @code {
     public bool loggedIn = false;
-
+    public UserProfile currentUser = CurrentProfile.currentUser;
     private MudTheme Theme = new MudTheme();
     private NewsFeedController feedController = new NewsFeedController();
 

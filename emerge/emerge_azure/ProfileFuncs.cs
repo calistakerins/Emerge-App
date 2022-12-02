@@ -96,6 +96,39 @@ namespace UserDatabase
             return new OkObjectResult(user);
         }
 
+        [FunctionName("admin_post_alert")]
+        public static async Task<IActionResult> UpdateFoodItem(
+               [HttpTrigger(AuthorizationLevel.Anonymous, "patch", Route = "newpost/{username}")] HttpRequest req,
+               ILogger log, string username)
+        {
+            log.LogInformation("Called admin_post_alert with patch request.");
+
+            string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
+            string databaseName = "emerge";
+            string collectionName = "users";
+
+            // Establish connection to MongoDB.
+            var client = new MongoClient(connectionString);
+            var db = client.GetDatabase(databaseName);
+            var collection = db.GetCollection<Profile>(collectionName);
+
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+
+            var newsAlertUpdate = JsonConvert.DeserializeObject<NewsAlert>(requestBody);
+
+            var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);
+            var updateDef = Builders<Profile>.Update
+                .Push(p => p.Alerts, newsAlertUpdate);
+
+            if (filterDef == null)
+            {
+                return new NotFoundResult();
+            }
+
+            Profile newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
+            newUpdates.Alerts.Append(newsAlertUpdate);
+            return new OkObjectResult(newUpdates);
+        }
 
 
     }

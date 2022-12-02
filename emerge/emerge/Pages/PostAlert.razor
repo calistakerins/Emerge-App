@@ -3,6 +3,7 @@
 @using System.ComponentModel.DataAnnotations
 @using System.Text
 @using System.Net.Mime
+@using emerge.Controller
 
 <MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
     <MudText Typo="Typo.h5">Post Alert</MudText>
@@ -56,46 +57,49 @@
     public string ImageUrl { get; set; }
     public List<UpdateInfo> Updates { get; set; } = new List<UpdateInfo>();
     private bool _processing = false;
+    public UserProfile currentUser = CurrentProfile.currentUser;
+
 
     private async Task AddNewsAlert()
     {
         _processing = true;
 
         HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/newsalert?") };
+        HttpClient client2 = new HttpClient { BaseAddress = new Uri("http://localhost:7071/api/newpost/" + currentUser.Username) };
 
         HttpResponseMessage response = null;
+        HttpResponseMessage response2 = null;
 
 
-            var payload = new NewsAlert()
-            {
-                Id = Id,
-                Time = Time,
-                Title = Title,
-                Affected = parseToList(this.Affected),
-                Author = Author,
-                Description = Description,
-                Priority = Priority,
-                ImageUrl = ImageUrl,
-                Updates = Updates
-            };
-
-
+        var payload = new NewsAlert()
+        {
+            Id = Id,
+            Time = Time,
+            Title = Title,
+            Affected = parseToList(this.Affected),
+            Author = Author,
+            Description = Description,
+            Priority = Priority,
+            ImageUrl = ImageUrl,
+            Updates = Updates
+        };
 
         var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
-
+        var payloadString2 = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
         response = await client.PostAsync(client.BaseAddress, payloadString);
+        response2 = await client2.PatchAsync(client2.BaseAddress, payloadString2);
 
         _processing = false;
     }
 
 
-        private static List<String> parseToList(string affected)
-        {
-            List<string> result = String.Concat(affected.Where(c => !Char.IsWhiteSpace(c))).Split(new char[] { ',' }).ToList();
-            return result;
-        }
+    private static List<String> parseToList(string affected)
+    {
+        List<string> result = String.Concat(affected.Where(c => !Char.IsWhiteSpace(c))).Split(new char[] { ',' }).ToList();
+        return result;
+    }
 
-        
+
 
 }
 

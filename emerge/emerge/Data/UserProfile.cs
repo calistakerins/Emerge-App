@@ -18,9 +18,9 @@ namespace emerge.Data
         [JsonProperty(PropertyName = "zipcode")]
         public string Zipcode { get; set; }
         [JsonProperty(PropertyName = "alerts")]
-        public List<string> Alerts { get; set; }
+        public List<NewsAlert> Alerts { get; set; }
         [JsonProperty(PropertyName = "following")]
-        public List<string> Following { get; set; }
+        public List<Department> Following { get; set; }
     }
 }
 
