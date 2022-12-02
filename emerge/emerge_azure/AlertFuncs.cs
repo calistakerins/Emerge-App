@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using static System.Net.WebRequestMethods;
 using System.Text.Json;
+using MongoDB.Bson.Serialization;
 
 public static class AlertFuncs
 {
@@ -60,6 +61,10 @@ public static class AlertFuncs
             if (!alertDoc["Author"].IsBsonNull)
             {
                 alert.Author = alertDoc["Author"].AsString;
+            }
+            if (!alertDoc["Department"].IsBsonNull)
+            {
+                alert.Department = BsonSerializer.Deserialize<Department>(alertDoc["Department"].ToJson());
             }
             if (!alertDoc["Description"].IsBsonNull)
             {

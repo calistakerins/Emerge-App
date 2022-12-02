@@ -140,9 +140,9 @@ else
                 {
                     <MudText Typo="Typo.h5" Style="font-weight:bold">@currentAlert.Priority</MudText>
                 }
-                @if (currentAlert.Author != null)
+                @if (currentAlert.Department != null)
                 {
-                    <MudText Typo="Typo.body1" Style="font-weight:bold">@currentAlert.Author</MudText>
+                    <MudText Typo="Typo.body1" Style="font-weight:bold">@currentAlert.Department.Title</MudText>
                 }
                 @if (currentAlert.Time != null)
                 {
