@@ -12,6 +12,7 @@ namespace emerge.Controller
     public class NewsFeedController
 	{
 		private List<NewsAlert> alertList;
+        private List<NewsAlert> followingList;
 
         public NewsFeedController()
 		{
@@ -19,7 +20,7 @@ namespace emerge.Controller
             populateFeed();
         }
 
-        //populates alert list with recent alerts by calling api endpoint
+        //populates alert list and following list with recent alerts by calling endpoint
         private async void populateFeed()
         {
             string url = "https://emerge-azure.azurewebsites.net/api/newsalert";
@@ -34,8 +35,15 @@ namespace emerge.Controller
             {
                 var responseAsString = await response.Content.ReadAsStringAsync();
                 alertList = JsonConvert.DeserializeObject<List<NewsAlert>>(responseAsString);
-                sortAlertList();        //sorts alert list based date times
-                Console.Write("responesAsString"); //unserialized json string
+                sortAlertList();        
+                //populates following alert list
+                foreach(NewsAlert alert in alertList)
+                {
+                    if(CurrentProfile.currentUser.sameDepartment(alert.Department))
+                    {
+                        followingList.Add(alert);
+                    }
+                }
             }
             else
             {
@@ -47,6 +55,11 @@ namespace emerge.Controller
         public List<NewsAlert> getAlertList()
         {
             return alertList;
+        }
+
+        public List<NewsAlert> getFollowingList()
+        {
+            return followingList;
         }
 
         //sorts list of alerts according to alert's date/time

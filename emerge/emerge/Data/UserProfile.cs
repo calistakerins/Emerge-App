@@ -21,6 +21,19 @@ namespace emerge.Data
         public List<NewsAlert> Alerts { get; set; }
         [JsonProperty(PropertyName = "following")]
         public List<Department> Following { get; set; }
+
+        //returns true if the parameter department is followed 
+        public Boolean sameDepartment(Department department)
+        {
+            foreach(Department userDepartment in Following)
+            {
+                if(department.Id.Equals(userDepartment.Id))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
 
