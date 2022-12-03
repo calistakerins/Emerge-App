@@ -10,8 +10,11 @@
 @using Newtonsoft.Json;
 @using static MudBlazor.FilterOperator;
 
-<MudText Typo="Typo.h2" Align="Align.Center">Log In</MudText>
 
+<MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+    <MudText Typo="Typo.h5">Log In</MudText>
+    <MudSpacer />
+</MudAppBar>
 <p>
     <MudContainer Class="d-flex justify-center align-center"><MudImage Src="images/profile_pic.png" Alt="profile pic" /></MudContainer>
 </p>
@@ -61,8 +64,6 @@
     public string Username { get; set; }
     public string Password { get; set; }
     public int ViewType { get; set; }
-    public bool successfulLogin = false;
-    public string hstring = "/login";
 
     bool isShow;
     InputType PasswordInput = InputType.Password;
@@ -88,8 +89,7 @@
     {
         // Initialize HTTP Client
         HttpClient client = new HttpClient();
-        var end = new Uri("https://emergeproj.azurewebsites.net/api/profile/" + Username + "?");
-        Console.WriteLine(Username);
+        var end = new Uri("https://emerge-azure.azurewebsites.net/api/profile/" + Username);
         HttpResponseMessage response = null;
 
         // Get data response
@@ -102,11 +102,11 @@
         {
             CurrentProfile.currentUser = user;
             CurrentProfile.loggedIn = true;
-            navigation.NavigateTo("/profile");
+            if (CurrentProfile.currentUser.Admin) navigation.NavigateTo("/adminprofile");
+            else navigation.NavigateTo("/profile");
         }
         else
         {
-            //successfulLogin = false;
             navigation.NavigateTo("/");
         }
     }

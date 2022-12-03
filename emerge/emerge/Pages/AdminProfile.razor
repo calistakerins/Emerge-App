@@ -22,6 +22,12 @@
                        Color="Color.Primary"
                        FullWidth="true"
                        @onclick="Logout">Add New Department</MudButton>
+            <MudButton Class="mb-4"
+                       Href="/createAccount"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       FullWidth="true"
+                       @onclick="Logout">Register New Administrator</MudButton>
             <MudButton Href="/"
                        Variant="Variant.Outlined"
                        FullWidth="true"
@@ -103,10 +109,16 @@
     void SignOut()
     {
         // TODO: Sign out action
+        CurrentProfile.currentUser = new UserProfile();
+        CurrentProfile.loggedIn = false;
+        loggedIn = false;
     }
 
     void Logout()
     {
         // TODO: Login action
+        CurrentProfile.currentUser = new UserProfile();
+        CurrentProfile.loggedIn = false;
+        loggedIn = false;
     }
 }
