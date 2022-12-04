@@ -25,5 +25,24 @@ namespace emerge.Data
         public string ImageUrl { get; set; }
         [JsonProperty(PropertyName = "updates")]
         public List<UpdateInfo> Updates { get; set; }
+
+        public string generateZipString()
+        {
+            string zipString = "";
+            foreach(string zipcode in Affected)
+            {
+                zipString += zipcode;
+                zipString += ", ";
+                
+            }
+            if(zipString.Length >= 2)
+            {
+                return zipString.Substring(0, zipString.Length - 2);
+            } else {
+                return zipString;
+            }
+
+
+        }
     }
 }
