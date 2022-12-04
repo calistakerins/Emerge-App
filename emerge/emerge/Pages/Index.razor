@@ -49,7 +49,8 @@
 
 <MudContainer Class="d-flex justify-center align-center pt-1">
     <MudButton Href="/createAccount"
-               Variant="Variant.Text">Create new account</MudButton>
+               Variant="Variant.Text"
+               @onclick="createAccount">Create new account</MudButton>
 </MudContainer>
 
 <MudText Typo="Typo.subtitle1" Align="Align.Center">or</MudText>
@@ -105,8 +106,7 @@
     {
         // Initialize HTTP Client
         HttpClient client = new HttpClient();
-        var end = new Uri("https://emergeproj.azurewebsites.net/api/profile/" + Username + "?");
-        // var end = new Uri("https://emerge-azure.azurewebsites.net/api/profile/" + Username);
+        var end = new Uri("https://emerge-azure.azurewebsites.net/api/profile/" + Username);
         HttpResponseMessage response = null;
 
         // Get data response
@@ -143,5 +143,12 @@
         {
             showSuccessAlert = false;
         }
+    }
+
+    //Make sure current account info is cleared for create account functions
+    private void createAccount()
+    {
+        CurrentProfile.currentUser = new UserProfile();
+        CurrentProfile.loggedIn = false;
     }
 }
