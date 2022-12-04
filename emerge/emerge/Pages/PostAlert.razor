@@ -29,7 +29,7 @@
             </MudCardContent>
 
             <MudCardActions>
-                <MudButton Href="/profile"
+                <MudButton Href="/adminprofile"
                            Disabled="@_processing"
                            OnClick="AddNewsAlert"
                            Variant="Variant.Filled"
@@ -106,6 +106,7 @@
         response2 = await client2.PatchAsync(client2.BaseAddress, payloadString2);
 
         _processing = false;
+        StateHasChanged();
     }
 
 
