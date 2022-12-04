@@ -3,6 +3,8 @@
 @using System.Net.Mime
 @using System.Text.Json
 @using emerge.Data
+@inject NavigationManager navigation;
+@using emerge.Controller
 
 <MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
     <MudIconButton Icon="@Icons.Filled.ArrowBack" Href="/" Color="Color.Inherit" Edge="Edge.Start" />
@@ -29,6 +31,13 @@
             <MudSpacer />
             <MudTextField @bind-Value="Email" FullWidth="true" Label="Email" Variant="Variant.Outlined" Required="true"></MudTextField>
             <MudSpacer />
+            <MudSelect T="Department" MultiSelectionTextFunc="@(new Func<List<string>, string>(GetMultiSelectionText))" Label="Departments" MultiSelection="true" @bind-Value="partValue" @bind-SelectedValues="options" Variant="Variant.Outlined">
+                @foreach (var dept in dptController.getDeptList())
+                {
+                    <MudSelectItem T="Department" Value="@dept">@dept.Title</MudSelectItem>
+                }
+            </MudSelect>
+            <MudSpacer />
             <MudTextField @bind-Value="Password" FullWidth="true" Label="Password" Variant="Variant.Outlined" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
             <MudSpacer />
             <MudTextField @bind-Value="Zipcode" FullWidth="true" Label="Zipcode" Variant="Variant.Outlined" Required="true"></MudTextField>
@@ -38,7 +47,7 @@
 </MudContainer>
 
 <MudContainer Class="d-flex justify-center align-center pt-2">
-    <MudButton Href="/profile"
+    <MudButton Href="/"
                Disabled="@_processing"
                OnClick="AddProfile"
                Variant="Variant.Filled"
@@ -47,70 +56,87 @@
 
 
 
-    @code {
-        public string Name { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Zipcode { get; set; }
-        public bool Administrator { get; set; } = true;
-        public List<NewsAlert> NewsPosted = new List<NewsAlert>();
-        public List<Department> Following = new List<Department>();
-        private bool _processing = false;
+@code {
+    public string Name { get; set; }
+    public string Username { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public string Zipcode { get; set; }
+    public bool Administrator { get; set; } = true;
+    public List<NewsAlert> NewsPosted = new List<NewsAlert>();
+    private static DepartmentController dptController = new DepartmentController();
+    private Department partValue { get; set; } = new Department();
+    private IEnumerable<Department> options { get; set; } = new HashSet<Department>();
+    private bool multiselectionTextChoice;
 
-        private async Task AddProfile()
+
+    private bool _processing = false;
+
+    private async Task AddProfile()
+    {
+        _processing = true;
+
+        //harrisons azure
+        // HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/profile") };
+
+        //megans azure
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/profile?") };
+        //HttpClient client = new HttpClient { BaseAddress = new Uri("http://localhost:7071/api/profile") };
+
+        HttpResponseMessage response = null;
+
+        var payload = new UserProfile()
         {
-            _processing = true;
+            Name = Name,
+            Username = Username,
+            Password = Password,
+            Email = Email,
+            Zipcode = Zipcode,
+            Admin = Administrator,
+            Alerts = NewsPosted,
+            Following = options.ToList()
+        };
 
-            //harrisons azure
-            // HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/profile") };
+        if (payload.Username != null && payload.Password != null && payload.Name != null && payload.Email != null)
+        {
+            var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 
-            //megans azure
-            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emergeproj.azurewebsites.net/api/profile?") };
-            //HttpClient client = new HttpClient { BaseAddress = new Uri("http://localhost:7071/api/profile") };
-
-            HttpResponseMessage response = null;
-
-            var payload = new UserProfile()
-            {
-                Name = Name,
-                Username = Username,
-                Password = Password,
-                Email = Email,
-                Zipcode = Zipcode,
-                Admin = Administrator,
-                Alerts = NewsPosted,
-                Following = Following
-            };
-
-            if (payload.Username != null && payload.Password != null && payload.Name != null && payload.Email != null)
-            {
-                var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
-
-                response = await client.PostAsync(client.BaseAddress, payloadString);
-            }
-
-            _processing = false;
+            response = await client.PostAsync(client.BaseAddress, payloadString);
         }
 
-        bool isShow;
-        InputType PasswordInput = InputType.Password;
-        string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+        _processing = false;
 
-        void ButtonTestclick()
+        CurrentProfile.currentUser = (UserProfile)payload;
+        CurrentProfile.loggedIn = true;
+        Console.Write(CurrentProfile.currentUser.Name);
+        if (CurrentProfile.currentUser.Admin) navigation.NavigateTo("/adminprofile");
+        else navigation.NavigateTo("/profile");
+    }
+
+    bool isShow;
+    InputType PasswordInput = InputType.Password;
+    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+
+    void ButtonTestclick()
+    {
+        @if (isShow)
         {
-            @if (isShow)
-            {
-                isShow = false;
-                PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
-                PasswordInput = InputType.Password;
-            }
-            else
-            {
-                isShow = true;
-                PasswordInputIcon = Icons.Material.Filled.Visibility;
-                PasswordInput = InputType.Text;
-            }
+            isShow = false;
+            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+            PasswordInput = InputType.Password;
         }
+        else
+        {
+            isShow = true;
+            PasswordInputIcon = Icons.Material.Filled.Visibility;
+            PasswordInput = InputType.Text;
+        }
+    }
+
+    private string GetMultiSelectionText(List<string> selectedValues)
+    {
+        return $"{selectedValues.Count} department{(selectedValues.Count > 1 ? "s have" : " has")} been selected";
+    }
+}
     }
 
