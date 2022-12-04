@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kfo4ZO8PJj3iVbCPsvr40F6Ps0DEfX0zUbCrgTlqPvY=",
+  "Hash": "1stJCrg2mFOEljP2Z8R+dx4f96Zsnv/Kp61f2rW7x1M=",
   "Source": "emerge",
   "BasePath": "/",
   "Mode": "Root",
@@ -10,17 +10,17 @@
     {
       "Name": "emerge/wwwroot",
       "Source": "emerge",
-      "ContentRoot": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/Users/trieu/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/MudBlazorThemeManager.css",
+      "Identity": "/Users/dustinhealy/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/MudBlazorThemeManager.css",
       "SourceId": "MudBlazor.ThemeManager",
       "SourceType": "Package",
-      "ContentRoot": "/Users/trieu/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/",
+      "ContentRoot": "/Users/dustinhealy/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/",
       "BasePath": "_content/MudBlazor.ThemeManager",
       "RelativePath": "MudBlazorThemeManager.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/trieu/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/MudBlazorThemeManager.css"
+      "OriginalItemSpec": "/Users/dustinhealy/.nuget/packages/mudblazor.thememanager/1.0.7/staticwebassets/MudBlazorThemeManager.css"
     },
     {
-      "Identity": "/Users/trieu/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.css",
+      "Identity": "/Users/dustinhealy/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.css",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/trieu/.nuget/packages/mudblazor/6.0.17/staticwebassets/",
+      "ContentRoot": "/Users/dustinhealy/.nuget/packages/mudblazor/6.0.17/staticwebassets/",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/trieu/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.css"
+      "OriginalItemSpec": "/Users/dustinhealy/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.css"
     },
     {
-      "Identity": "/Users/trieu/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.js",
+      "Identity": "/Users/dustinhealy/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.js",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "/Users/trieu/.nuget/packages/mudblazor/6.0.17/staticwebassets/",
+      "ContentRoot": "/Users/dustinhealy/.nuget/packages/mudblazor/6.0.17/staticwebassets/",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.js",
       "AssetKind": "All",
@@ -65,13 +65,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/trieu/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.js"
+      "OriginalItemSpec": "/Users/dustinhealy/.nuget/packages/mudblazor/6.0.17/staticwebassets/MudBlazor.min.js"
     },
     {
-      "Identity": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/bundle/emerge.styles.css",
+      "Identity": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/bundle/emerge.styles.css",
       "SourceId": "emerge",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/bundle/",
+      "ContentRoot": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/bundle/",
       "BasePath": "/",
       "RelativePath": "emerge.styles.css",
       "AssetKind": "All",
@@ -82,13 +82,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/bundle/emerge.styles.css"
+      "OriginalItemSpec": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/bundle/emerge.styles.css"
     },
     {
-      "Identity": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/projectbundle/emerge.bundle.scp.css",
+      "Identity": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/projectbundle/emerge.bundle.scp.css",
       "SourceId": "emerge",
       "SourceType": "Computed",
-      "ContentRoot": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/projectbundle/",
+      "ContentRoot": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/projectbundle/",
       "BasePath": "/",
       "RelativePath": "emerge.bundle.scp.css",
       "AssetKind": "All",
@@ -99,13 +99,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/Users/trieu/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/projectbundle/emerge.bundle.scp.css"
+      "OriginalItemSpec": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/obj/Debug/net6.0-maccatalyst/maccatalyst-x64/scopedcss/projectbundle/emerge.bundle.scp.css"
     },
     {
-      "Identity": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/.DS_Store",
+      "Identity": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/.DS_Store",
       "SourceId": "emerge",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "RelativePath": ".DS_Store",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot/.DS_Store"
     },
     {
-      "Identity": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/css/app.css",
+      "Identity": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/css/app.css",
       "SourceId": "emerge",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "RelativePath": "css/app.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot/css/app.css"
     },
     {
-      "Identity": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/favicon.ico",
+      "Identity": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/favicon.ico",
       "SourceId": "emerge",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
-      "Identity": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/images/profile_pic.png",
+      "Identity": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/images/profile_pic.png",
       "SourceId": "emerge",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "RelativePath": "images/profile_pic.png",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot/images/profile_pic.png"
     },
     {
-      "Identity": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/index.html",
+      "Identity": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/index.html",
       "SourceId": "emerge",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/trieu/Projects/Project-3---308/emerge/emerge/wwwroot/",
+      "ContentRoot": "/Users/dustinhealy/Projects/Project-3---308/emerge/emerge/wwwroot/",
       "BasePath": "/",
       "RelativePath": "index.html",
       "AssetKind": "All",
