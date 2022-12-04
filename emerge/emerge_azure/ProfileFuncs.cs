@@ -131,6 +131,42 @@ namespace UserDatabase
         }
 
 
+
+        [FunctionName("follow_dept")]
+        public static async Task<IActionResult> FollowDept(
+               [HttpTrigger(AuthorizationLevel.Anonymous, "patch", Route = "followdept/{username}")] HttpRequest req,
+               ILogger log, string username)
+        {
+            log.LogInformation("Called follow_dept with patch request.");
+
+            string connectionString = "mongodb+srv://emerge:project3@cluster0.ztzvtkd.mongodb.net/?retryWrites=true&w=majority";
+            string databaseName = "emerge";
+            string collectionName = "users";
+
+            // Establish connection to MongoDB.
+            var client = new MongoClient(connectionString);
+            var db = client.GetDatabase(databaseName);
+            var collection = db.GetCollection<Profile>(collectionName);
+
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+
+            var following = JsonConvert.DeserializeObject<Department>(requestBody);
+
+            var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);
+            var updateDef = Builders<Profile>.Update
+                .Push(p => p.Following, following);
+
+            if (filterDef == null)
+            {
+                return new NotFoundResult();
+            }
+
+            Profile newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
+            newUpdates.Following.Append(following);
+            return new OkObjectResult(newUpdates);
+        }
+
+
     }
 }
 
