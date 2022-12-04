@@ -33,8 +33,7 @@
             <MudTextField @bind-Value="Username" Label="Username" Variant="Variant.Outlined" Elevation="1" Required="true"></MudTextField>
             <MudTextField @bind-Value="Password" Label="Password" Variant="Variant.Outlined" Elevation="1" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
             <MudContainer Class="d-flex justify-center align-center pt-2">
-                <MudButton Href="/"
-                           Variant="Variant.Filled"
+                <MudButton Variant="Variant.Filled"
                            Color="Color.Primary"
                            @onclick="checkLogin">Log In</MudButton>
             </MudContainer>
@@ -60,15 +59,31 @@
                Variant="Variant.Text">Browse Anonymously</MudButton>
 </MudContainer>
 
+@if (showSuccessAlert)
+{
+    <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(false))">You have successfully logged in.</MudAlert>
+}
+@if (showErrorAlert)
+{
+    <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(true))">Incorrect username or password. Please try again or create new account.</MudAlert>
+}
+
 @code {
+    // UserProfile fields
     public string Username { get; set; }
     public string Password { get; set; }
     public int ViewType { get; set; }
 
+    // Password visibility
     bool isShow;
     InputType PasswordInput = InputType.Password;
     string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
 
+    // Alert bools
+    public bool showSuccessAlert = false;
+    public bool showErrorAlert = false;
+
+    // Password visibility
     void ButtonTestclick()
     {
         @if (isShow)
@@ -85,6 +100,7 @@
         }
     }
 
+    // Function to validate username and password
     async void checkLogin()
     {
         // Initialize HTTP Client
@@ -100,14 +116,31 @@
         // Check password
         if (user != null && user.Password.Equals(Password))
         {
+            // Set current user to logged in user
             CurrentProfile.currentUser = user;
             CurrentProfile.loggedIn = true;
             if (CurrentProfile.currentUser.Admin) navigation.NavigateTo("/adminprofile");
             else navigation.NavigateTo("/profile");
+            showSuccessAlert = true;
         }
         else
         {
+            // Return to login page and display error message
             navigation.NavigateTo("/");
+            showErrorAlert = true;
+        }
+    }
+
+    // Alert function to close alerts
+    private void CloseMe(bool value)
+    {
+        if (value)
+        {
+            showErrorAlert = false;
+        }
+        else
+        {
+            showSuccessAlert = false;
         }
     }
 }
