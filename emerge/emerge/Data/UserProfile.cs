@@ -45,6 +45,24 @@ namespace emerge.Data
            
         }
 
+        public Boolean sameZip(List<string> affected)
+        {
+            if(affected == null)
+            {
+                return false;
+            } else
+            {
+                foreach(String zip in affected)
+                {
+                    if(Zipcode.Equals(zip))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
 
     }
 }

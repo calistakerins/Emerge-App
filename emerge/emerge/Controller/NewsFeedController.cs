@@ -35,11 +35,13 @@ namespace emerge.Controller
             {
                 var responseAsString = await response.Content.ReadAsStringAsync();
                 alertList = JsonConvert.DeserializeObject<List<NewsAlert>>(responseAsString);
-                sortAlertList();        
+                sortAlertList();
                 //populates following alert list
+                followingList = new List<NewsAlert>();
                 foreach(NewsAlert alert in alertList)
                 {
-                    if(CurrentProfile.currentUser.sameDepartment(alert.Department))
+                    if(CurrentProfile.currentUser.sameDepartment(alert.Department) ||
+                        CurrentProfile.currentUser.sameZip(alert.Affected))
                     {
                         followingList.Add(alert);
                     }
