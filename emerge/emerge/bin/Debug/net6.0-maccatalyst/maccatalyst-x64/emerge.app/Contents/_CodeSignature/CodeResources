@@ -42,7 +42,7 @@
 		</data>
 		<key>Resources/wwwroot/.DS_Store</key>
 		<data>
-		Sx/1CeoyUvqxgOTwDXNl+FjvuYg=
+		DYIyvKoFt2c33R0un5CEJk7AsM0=
 		</data>
 		<key>Resources/wwwroot/_content/MudBlazor.ThemeManager/MudBlazorThemeManager.css</key>
 		<data>
@@ -71,6 +71,10 @@
 		<key>Resources/wwwroot/favicon.ico</key>
 		<data>
 		J2CNhOKPkmt0ADglIkD3Fe650r0=
+		</data>
+		<key>Resources/wwwroot/images/Emerge.png</key>
+		<data>
+		7okNoe9g0yXCOD1K0Vc+aRf4afw=
 		</data>
 		<key>Resources/wwwroot/images/profile_pic.png</key>
 		<data>
@@ -1480,14 +1484,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WWkEBYdBClJNwuxmjofCzDSn7pH8t98SbeyFLJAiWLY=
+			7ZqXOPrUb/oHlfmpUFmeoYMbvB5MW2pMUvAA+8cQaq0=
 			</data>
 		</dict>
 		<key>MonoBundle/emerge.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RNuaRknsovbE8UiQF/f25rTzloWOzmFWIAsplzUWwvo=
+			21elKbOhRH7YuPmk/xZiJCpzrJO9nsir1h4ZvoOBA8w=
 			</data>
 		</dict>
 		<key>MonoBundle/icudt.dat</key>
@@ -1670,6 +1674,13 @@
 			<key>hash2</key>
 			<data>
 			Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=
+			</data>
+		</dict>
+		<key>Resources/wwwroot/images/Emerge.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4DrQxxhK/riOie9Qwxqhh7hK4JCuRi5Sc4Y5N0j3MlY=
 			</data>
 		</dict>
 		<key>Resources/wwwroot/images/profile_pic.png</key>

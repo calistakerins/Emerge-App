@@ -60,4 +60,10 @@
       <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.7" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
+    <ItemGroup>
+      <Content Remove="wwwroot\images\Emerge.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="wwwroot\images\Emerge.png" />
+    </ItemGroup>
 </Project>
