@@ -187,17 +187,17 @@ namespace UserDatabase
 
             var following = JsonConvert.DeserializeObject<Department>(requestBody);
 
-            var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);
+            var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);  //finds the user by username
             var updateDef = Builders<Profile>.Update
-                .Push(p => p.Following, following);
+                .Pull(p => p.Following, following); //pulls the department from the following list
 
             if (filterDef == null)
             {
                 return new NotFoundResult();
             }
 
-            Profile newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
-            newUpdates.Following.Remove(following);
+            Profile newUpdates = collection.FindOneAndUpdate(filterDef, updateDef); //updates the user
+            newUpdates.Following.Remove(following);  //removes the department from the following list
             return new OkObjectResult(newUpdates);
         }
 
