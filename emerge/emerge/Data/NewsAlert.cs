@@ -41,8 +41,6 @@ namespace emerge.Data
             } else {
                 return zipString;
             }
-
-
         }
     }
 }

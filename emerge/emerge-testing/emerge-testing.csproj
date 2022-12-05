@@ -20,9 +20,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="NUnit" Version="3.13.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\emerge\emerge.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="NUnit" />
   </ItemGroup>
 </Project>
