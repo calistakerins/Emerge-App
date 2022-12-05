@@ -7,10 +7,11 @@
     <MudText Typo="Typo.h5">Profile</MudText>
     <MudSpacer />
 </MudAppBar>
-<AdminNavBar />
+
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
         <MudText Typo="Typo.h2" Color="Color.Primary">Hi, @currentUser.Name</MudText>
+        <MudText Typo="Typo.h5" Class="pt-2">Location: <b>@currentUser.Zipcode</b></MudText>
         @foreach (var followedDpt in currentUser.Following)
         {
             <MudText Typo="Typo.h5" Class="pt-2">@followedDpt.Title</MudText>
@@ -22,8 +23,7 @@
                        Href="/postdepartment"
                        Variant="Variant.Filled"
                        Color="Color.Primary"
-                       FullWidth="true"
-                       @onclick="Logout">Add New Department</MudButton>
+                       FullWidth="true">Add New Department</MudButton>
             <MudButton Class="mb-4"
                        Href="/createAccount"
                        Variant="Variant.Filled"
