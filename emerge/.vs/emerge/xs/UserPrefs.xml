@@ -1,53 +1,47 @@
 ﻿<Properties StartupConfiguration="{88B0AB92-350E-472A-BAC4-51DA874E3357}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.emerge__azure PreferredExecutionTarget="MonoDevelop.Default" />
   <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.emerge PreferredExecutionTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="emerge/Pages/Profile.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="emerge/Pages/AdminProfile.razor">
     <Files>
       <File FileName="../../../Downloads/C#CalculationTestApp/CalculationTestApp/CalculationTestApp/BasicCalculations.cs" />
       <File FileName="../../../Downloads/C#CalculationTestApp/CalculationTestApp/CalculationTestAppTests/TestBasicCalculationsLarge.cs" />
-      <File FileName="emerge/Main.razor" />
-      <File FileName="emerge/Controller/NewsFeedController.cs" />
-      <File FileName="emerge/Pages/PostAlert.razor" />
+      <File FileName="emerge/Main.razor" Line="1" Column="1" />
+      <File FileName="emerge/Controller/NewsFeedController.cs" Line="18" Column="4" />
+      <File FileName="emerge/Pages/PostAlert.razor" Line="28" Column="75" />
       <File FileName="emerge_azure/host.json" />
       <File FileName="emerge_azure/Models/ProfileStore.cs" />
-      <File FileName="emerge_azure/Models/NewsAlertFeed.cs" />
+      <File FileName="emerge_azure/Models/NewsAlertFeed.cs" Line="1" Column="1" />
       <File FileName="emerge_azure/Models/UpdateInfo.cs" />
       <File FileName="emerge_azure/Models/Profile.cs" />
-      <File FileName="emerge/Data/UserProfile.cs" />
+      <File FileName="emerge/Data/UserProfile.cs" Line="1" Column="1" />
       <File FileName="emerge/Data/UpdateInfo.cs" />
-      <File FileName="emerge/Pages/Departments.razor" />
-      <File FileName="emerge/Pages/Index.razor" />
-      <File FileName="emerge/Pages/Login.razor" Line="57" Column="28" />
-      <File FileName="emerge/Pages/Profile.razor" Line="1" Column="1" />
-      <File FileName="emerge/Pages/AdminProfile.razor" Line="1" Column="1" />
+      <File FileName="emerge/Pages/Departments.razor" Line="20" Column="2" />
+      <File FileName="emerge/Pages/Index.razor" Line="68" Column="15" />
+      <File FileName="emerge/Pages/Login.razor" Line="25" Column="105" />
+      <File FileName="emerge/Pages/Profile.razor" Line="5" Column="1" />
+      <File FileName="emerge/Pages/AdminProfile.razor" Line="96" Column="23" />
       <File FileName="emerge/Pages/PostUpdate.razor" Line="1" Column="1" />
-      <File FileName="emerge/Pages/NewsFeed.razor" />
-      <File FileName="emerge_azure/Models/NewsAlert.cs" />
-      <File FileName="emerge/Shared/NavBar.razor" />
-      <File FileName="emerge/Shared/AdminNavBar.razor" />
+      <File FileName="emerge/Pages/NewsFeed.razor" Line="140" Column="5" />
+      <File FileName="emerge_azure/Models/NewsAlert.cs" Line="21" Column="1" />
+      <File FileName="emerge/Shared/NavBar.razor" Line="3" Column="9" />
+      <File FileName="emerge/Shared/AdminNavBar.razor" Line="4" Column="22" />
       <File FileName="emerge_azure/.gitignore" />
-      <File FileName="emerge/Shared/MainLayout.razor" />
-      <File FileName="emerge/Data/Department.cs" />
-      <File FileName="emerge/Pages/DepartmentComponent.razor" />
-      <File FileName="emerge/Controller/DepartmentController.cs" />
-      <File FileName="emerge/Data/NewsAlert.cs" />
+      <File FileName="emerge/Shared/MainLayout.razor" Line="3" Column="19" />
+      <File FileName="emerge/Data/Department.cs" Line="1" Column="1" />
+      <File FileName="emerge/Pages/DepartmentComponent.razor" Line="20" Column="20" />
+      <File FileName="emerge/Controller/DepartmentController.cs" Line="1" Column="1" />
+      <File FileName="emerge/Data/NewsAlert.cs" Line="17" Column="43" />
       <File FileName="emerge/MainPage.xaml" />
-      <File FileName="emerge_azure/ProfileFuncs.cs" />
-      <File FileName="emerge_azure/AlertFuncs.cs" Line="1" Column="33" />
-      <File FileName="emerge_azure/Models/Department.cs" />
+      <File FileName="emerge_azure/ProfileFuncs.cs" Line="1" Column="1" />
+      <File FileName="emerge_azure/AlertFuncs.cs" Line="69" Column="1" />
+      <File FileName="emerge_azure/Models/Department.cs" Line="1" Column="1" />
       <File FileName="../../../.nuget/packages/microsoft.net.sdk.functions/4.1.1/build/Microsoft.NET.Sdk.Functions.Build.targets" />
-      <File FileName="emerge_azure/Models/DepartmentStore.cs" />
-      <File FileName="emerge_azure/DepartmentFuncs.cs" />
+      <File FileName="emerge_azure/Models/DepartmentStore.cs" Line="1" Column="1" />
+      <File FileName="emerge_azure/DepartmentFuncs.cs" Line="1" Column="1" />
       <File FileName="emerge_azure/Properties/launchSettings.json" />
-      <File FileName="emerge/Pages/PostDepartment.razor" />
-      <File FileName="emerge/CreateAccount.razor" Line="1" Column="1" />
+      <File FileName="emerge/Pages/CreateAccount.razor" Line="142" Column="10" />
+      <File FileName="emerge/Controller/CurrentProfile.cs" Line="1" Column="1" />
+      <File FileName="emerge/Pages/PostDepartment.razor" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -57,7 +51,7 @@
               <Node name="Controller" expanded="True" />
               <Node name="Data" expanded="True" />
               <Node name="Pages" expanded="True">
-                <Node name="Profile.razor" selected="True" />
+                <Node name="AdminProfile.razor" selected="True" />
               </Node>
               <Node name="Properties" expanded="True" />
               <Node name="Shared" expanded="True" />
@@ -71,4 +65,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.emerge PreferredExecutionTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.emerge__azure PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

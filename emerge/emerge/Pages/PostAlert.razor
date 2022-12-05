@@ -18,10 +18,10 @@
                 <MudTextField T="string" Label="Affected" @bind-Value="Affected" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />
 
                 <MudSelect T="Department" Label="Department" @bind-Value="Department" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
-                    @foreach (var selectItem in dController.getDeptList())
-                        {
+                    @foreach (var selectItem in CurrentProfile.currentUser.Following)
+                    {
                         <MudSelectItem Value="@selectItem">@selectItem.Title</MudSelectItem>
-                        }
+                    }
                 </MudSelect>
 
                 <MudTextField T="string" Label="Alert Image URL" @bind-Value="ImageUrl" Variant="Variant.Filled" Lines="2" Class="pt-4 pb-4" />

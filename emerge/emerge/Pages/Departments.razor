@@ -5,7 +5,19 @@
 @using System.Text
 @using System.Net.Mime
 
+<MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+    <MudText Typo="Typo.h5">Departments</MudText>
+    <MudSpacer />
+</MudAppBar>
+@if (CurrentProfile.currentUser.Admin)
+{
+    <AdminNavBar />
+}
+else
+{
+    <NavBar />
 
+}
 <MudContainer Class="mt-16">
     <MudText Typo="Typo.h3" Class="mt-5"><b>Departments</b></MudText>
     <div>
