@@ -18,6 +18,7 @@
           "/Users/trieu/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
+          "net6.0",
           "net6.0-android",
           "net6.0-ios",
           "net6.0-maccatalyst"
@@ -27,6 +28,10 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          },
           "net6.0-android31.0": {
             "targetAlias": "net6.0-android",
             "projectReferences": {}
@@ -47,6 +52,93 @@
         }
       },
       "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebView.Maui": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.540, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Maui.Dependencies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.540, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Maui.Extensions": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.540, )",
+              "autoReferenced": true
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[6.0.17, )"
+            },
+            "MudBlazor.ThemeManager": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Maui.Controls.Ref.any",
+              "version": "[6.0.540, 6.0.540]"
+            },
+            {
+              "name": "Microsoft.Maui.Controls.Runtime.any",
+              "version": "[6.0.540, 6.0.540]"
+            },
+            {
+              "name": "Microsoft.Maui.Core.Ref.any",
+              "version": "[6.0.540, 6.0.540]"
+            },
+            {
+              "name": "Microsoft.Maui.Core.Runtime.any",
+              "version": "[6.0.540, 6.0.540]"
+            },
+            {
+              "name": "Microsoft.Maui.Essentials.Ref.any",
+              "version": "[6.0.540, 6.0.540]"
+            },
+            {
+              "name": "Microsoft.Maui.Essentials.Runtime.any",
+              "version": "[6.0.540, 6.0.540]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.Maui.Controls": {
+              "privateAssets": "all"
+            },
+            "Microsoft.Maui.Core": {
+              "privateAssets": "all"
+            },
+            "Microsoft.Maui.Essentials": {
+              "privateAssets": "all"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100-rc.2.22477.23/RuntimeIdentifierGraph.json"
+        },
         "net6.0-android31.0": {
           "targetAlias": "net6.0-android",
           "dependencies": {
