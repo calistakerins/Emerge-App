@@ -37,6 +37,13 @@
                 <MudSpacer />
                 <MudTextField @bind-Value="Password" FullWidth="true" Label="Password" Variant="Variant.Outlined" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Required="true"></MudTextField>
                 <MudSpacer />
+                <MudSelect T="Department" MultiSelectionTextFunc="@(new Func<List<string>, string>(GetMultiSelectionText))" Label="Departments" MultiSelection="true" @bind-Value="partValue" @bind-SelectedValues="options" Variant="Variant.Outlined">
+                    @foreach (var dept in dptController.getDeptList())
+                    {
+                        <MudSelectItem T="Department" Value="@dept">@dept.Title</MudSelectItem>
+                    }
+                </MudSelect>
+                <MudSpacer />
                 <MudTextField @bind-Value="Zipcode" FullWidth="true" Label="Zipcode" Variant="Variant.Outlined" Required="true"></MudTextField>
                 <MudSpacer />
             </MudStack>
@@ -59,8 +66,11 @@
         public string Zipcode { get; set; }
         public bool Administrator { get; set; } = true;
         public List<NewsAlert> NewsPosted = new List<NewsAlert>();
-        public List<Department> Following = new List<Department>();
         private bool _processing = false;
+        private static DepartmentController dptController = new DepartmentController();
+        private Department partValue { get; set; } = new Department();
+        private IEnumerable<Department> options { get; set; } = new HashSet<Department>();
+        private bool multiselectionTextChoice;
 
         private async Task AddProfile()
         {
@@ -87,7 +97,7 @@
                 Zipcode = Zipcode,
                 Admin = Administrator,
                 Alerts = NewsPosted,
-                Following = Following
+                Following = options.ToList()
             };
 
             if (payload.Username != null && payload.Password != null && payload.Name != null && payload.Email != null)
@@ -124,6 +134,11 @@
                 PasswordInputIcon = Icons.Material.Filled.Visibility;
                 PasswordInput = InputType.Text;
             }
+        }
+
+        private string GetMultiSelectionText(List<string> selectedValues)
+        {
+            return $"{selectedValues.Count} department{(selectedValues.Count > 1 ? "s have" : " has")} been selected";
         }
 
     }
