@@ -22,18 +22,30 @@ namespace emerge.Data
         [JsonProperty(PropertyName = "following")]
         public List<Department> Following { get; set; }
 
+
+
         //returns true if the parameter department is followed 
         public Boolean sameDepartment(Department department)
         {
-            foreach(Department userDepartment in Following)
+            if(department == null)
             {
-                if(department.Id.Equals(userDepartment.Id))
+                return false;
+            } else
+            {
+                foreach (Department userDepartment in Following)
                 {
-                    return true;
+                    if (department.Id.Equals(userDepartment.Id))
+                    {
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            
+           
         }
+
+
     }
 }
 
