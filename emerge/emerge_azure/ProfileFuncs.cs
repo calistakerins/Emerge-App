@@ -161,7 +161,7 @@ namespace UserDatabase
                 return new NotFoundResult();
             }
 
-            Profile newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
+            Profile newUpdates = collection.FindOneAndDelete(filterDef);
             newUpdates.Following.Append(following);
             return new OkObjectResult(newUpdates);
         }
@@ -189,7 +189,7 @@ namespace UserDatabase
 
             var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);
             var updateDef = Builders<Profile>.Update
-                .Push(p => p.Following, following);
+                .Pull(p => p.Following, following);
 
             if (filterDef == null)
             {
@@ -200,8 +200,6 @@ namespace UserDatabase
             newUpdates.Following.Remove(following);
             return new OkObjectResult(newUpdates);
         }
-
-
     }
 }
 
