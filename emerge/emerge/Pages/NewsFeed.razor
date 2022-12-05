@@ -71,13 +71,13 @@
                                         <MudText Typo="Typo.h6">No Areas Affected</MudText>
                                     }
 
-                                    @if (alertInfo.Author != null)
+                                    @if (alertInfo.Department != null)
                                     {
-                                        <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Author</MudText>
+                                        <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Department.Title</MudText>
                                     }
                                     else
                                     {
-                                        <MudText Typo="Typo.h6">No Author</MudText>
+                                        <MudText Typo="Typo.h6">No Department</MudText>
                                     }
 
                                     @if (alertInfo.Description != null)

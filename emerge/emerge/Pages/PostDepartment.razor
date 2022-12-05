@@ -3,8 +3,21 @@
 @using System.ComponentModel.DataAnnotations
 @using System.Text
 @using System.Net.Mime
+@using emerge.Controller
 
-<AdminNavBar/>
+@if (CurrentProfile.currentUser.Admin)
+{
+    <AdminNavBar />
+}
+else
+{
+    <NavBar />
+}
+<MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+    <MudIconButton Icon="@Icons.Filled.ArrowBack" Href="/adminprofile" Color="Color.Inherit" Edge="Edge.Start" />
+    <MudText Typo="Typo.h5">Admin Profile</MudText>
+    <MudSpacer />
+</MudAppBar>
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.Medium">
 
@@ -35,43 +48,41 @@
                     }
                 </MudButton>
             </MudCardActions>
-
         </MudCard>
-        <MudText Typo="Typo.h3" Class="mt-5"><b></b></MudText>
 
-        </MudContainer>
-    </MudMainContent>
+    </MudContainer>
+</MudMainContent>
 
-    @code {
-        public string Id { get; set; } = Guid.NewGuid().ToString("n");
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
-        public List<NewsAlert> Alerts { get; set; } = new List<NewsAlert>();
-        private bool _processing = false;
+@code {
+    public string Id { get; set; } = Guid.NewGuid().ToString("n");
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public string ImageUrl { get; set; }
+    public List<NewsAlert> Alerts { get; set; } = new List<NewsAlert>();
+    private bool _processing = false;
 
-        private async Task AddNewDepartment()
+    private async Task AddNewDepartment()
+    {
+        _processing = true;
+
+        HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/department?") };
+
+        HttpResponseMessage response = null;
+
+        var payload = new Department()
         {
-            _processing = true;
+            Id = Id,
+            Title = Title,
+            Description = Description,
+            ImageUrl = ImageUrl,
+            AlertList = Alerts
+        };
 
-            HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/department?") };
+        var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
 
-            HttpResponseMessage response = null;
+        response = await client.PostAsync(client.BaseAddress, payloadString);
 
-            var payload = new Department()
-            {
-                Id = Id,
-                Title = Title,
-                Description = Description,
-                ImageUrl = ImageUrl,
-                AlertList = Alerts
-            };
+        _processing = false;
+    }
 
-            var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
-
-            response = await client.PostAsync(client.BaseAddress, payloadString);
-
-            _processing = false;
-        }
-
-        }
+}
