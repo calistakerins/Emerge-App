@@ -37,7 +37,7 @@
                                 <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
                             </MudItem>
                             <MudItem xs="12" Class="mx-2 my-1 pb-3">
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => HandleFollow(depts)" FullWidth="true">@displayCorrectFollowButton(depts.Id)</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => HandleButtonPress(depts)" FullWidth="true">@displayCorrectFollowButton(depts.Id)</MudButton>
                             </MudItem>
                         </MudPaper>
                     </MudContainer>
@@ -67,7 +67,7 @@
                                 <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
                             </MudItem>
                             <MudItem xs="12" Class="mx-2 my-1 pb-3">
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => HandleFollow(depts)" FullWidth="true">@displayCorrectFollowButton(depts.Id);</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => HandleButtonPress(depts)" FullWidth="true">@displayCorrectFollowButton(depts.Id)</MudButton>
                             </MudItem>
                         </MudPaper>
                     </MudContainer>
@@ -95,15 +95,21 @@
         return "Follow";
     }
 
-    private async Task HandleFollow(Department dept)
+    private async Task HandleButtonPress(Department dept)
     {
         // To Do: Get user followed status for given department
 
         // if (currently following)
-        if (String.Compare(displayCorrectFollowButton(dept.Id), "Follow") == 0)
+        foreach (var followed in CurrentProfile.currentUser.Following)
         {
-            FollowDepartment(dept);
+            if (String.Compare(followed.Id, dept.Id) == 0) // id's are same
+            {
+                await updateFollowing(dept, false); // unfollow
+                return;
+            }
         }
+        await updateFollowing(dept); // follow
+        return;
         // send unfollow api request to azure
         // show "follow" text on button
         // else (not currently following)
@@ -133,10 +139,17 @@
     }
 
 
-    private async Task FollowDepartment(Department dept)
+    private async Task updateFollowing(Department dept, bool follow = true)
     {
-
-        string updateURI = "https://emerge-azure.azurewebsites.net/api/followdept/" + CurrentProfile.currentUser.Username + "?";
+        string updateURI;
+        if (follow)
+        {
+            updateURI = "https://emerge-azure.azurewebsites.net/api/followdept/" + CurrentProfile.currentUser.Username + "?";
+        }
+        else
+        {
+            updateURI = "https://emerge-azure.azurewebsites.net/api/unfollowdept/" + CurrentProfile.currentUser.Username + "?";
+        }
 
         HttpClient client = new HttpClient { BaseAddress = new Uri(updateURI) };
 
