@@ -10,4 +10,9 @@ Frontend: emerge
 ---
 Backend: emerge_azure
 
-    no nuget packages needed. uses azure functions + mongoDB
+    nuget packages needed: MongoDB.Driver, NewtonSoft.Json
+---
+    
+Testing: emerge-testing
+
+    nuget packages needed: Nunit
