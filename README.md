@@ -8,6 +8,6 @@ Frontend: emerge
     nuget packages needed: Mudblazor, Mudblazor.ThemeMangager
 
 ---
-Backend: emerge + mongoDB
+Backend: emerge_azure
 
-    no nuget packages needed
+    no nuget packages needed. uses azure functions + mongoDB
