@@ -28,58 +28,59 @@ else
     <MudGrid Spacing="10" Class="pa-4 pr-7">
         @if (showAllDepartments)
         {
-            @foreach (var depts in deptController.getDeptList()) //loop through dept list
+            @foreach (Department dept in deptController.getDeptList()) //loop through dept list
             {
 
                 <MudItem xs="6" sm="6" md="6" lg="6" Class="width mt-4 pa-6" Style="width: 300px">
                     <MudContainer MaxWidth="MaxWidth.ExtraSmall" Style="width: 348px">
                         <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
                             <MudItem Class="mb-1">
-                                <MudImage Src=@depts.ImageUrl Width="300" Height="200"></MudImage>
+                                <MudImage Src=@dept.ImageUrl Width="300" Height="200"></MudImage>
                             </MudItem>
                             <MudItem xs="12" Class="mx-2">
                                 <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
-                                    <MudText Typo="Typo.h6">@depts.Title</MudText>
+                                    <MudText Typo="Typo.h6">@dept.Title</MudText>
                                 </MudPaper>
                             </MudItem>
                             <MudItem xs="12" Class="ma-2">
-                                <MudText Typo="Typo.button">@depts.Description</MudText>
+                                <MudText Typo="Typo.button">@dept.Description</MudText>
                             </MudItem>
                             <MudItem xs="12" Class="mx-2 my-1">
                                 <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
                             </MudItem>
                             <MudItem xs="12" Class="mx-2 my-1 pb-3">
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => HandleButtonPress(depts)" FullWidth="true">@displayCorrectFollowButton(depts.Id)</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => HandleButtonPress(dept)" FullWidth="true">@displayCorrectFollowButton(dept.Id) </MudButton>
                             </MudItem>
                         </MudPaper>
                     </MudContainer>
                 </MudItem>
             }
-        }
-        else
-        {
-            @foreach (var depts in CurrentProfile.currentUser.Following) //loop through dept list
+            }
+            else
+            {
+                var x = CurrentProfile.currentUser.Following;
+                @foreach (var dept in CurrentProfile.currentUser.Following) //loop through dept list
             {
 
                 <MudItem xs="6" sm="6" md="6" lg="6" Class="width mt-4 pa-6" Style="width: 300px">
                     <MudContainer MaxWidth="MaxWidth.ExtraSmall" Style="width: 348px">
                         <MudPaper Class="product-item" Elevation="3" Style="cursor:pointer;">
                             <MudItem Class="mb-1">
-                                <MudImage Src=@depts.ImageUrl Width="300" Height="200"></MudImage>
+                                <MudImage Src=@dept.ImageUrl Width="300" Height="200"></MudImage>
                             </MudItem>
                             <MudItem xs="12" Class="mx-2">
                                 <MudPaper Elevation="0" Class="d-flex flex-wrap justify-space-between">
-                                    <MudText Typo="Typo.h6">@depts.Title</MudText>
+                                    <MudText Typo="Typo.h6">@dept.Title</MudText>
                                 </MudPaper>
                             </MudItem>
                             <MudItem xs="12" Class="ma-2">
-                                <MudText Typo="Typo.button">@depts.Description</MudText>
+                                <MudText Typo="Typo.button">@dept.Description</MudText>
                             </MudItem>
                             <MudItem xs="12" Class="mx-2 my-1">
                                 <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true">View more</MudButton>
                             </MudItem>
                             <MudItem xs="12" Class="mx-2 my-1 pb-3">
-                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => HandleButtonPress(depts)" FullWidth="true">@displayCorrectFollowButton(depts.Id)</MudButton>
+                                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="() => HandleButtonPress(dept)" FullWidth="true">@displayCorrectFollowButton(dept.Id)</MudButton>
                             </MudItem>
                         </MudPaper>
                     </MudContainer>
@@ -117,37 +118,25 @@ else
             if (String.Compare(followed.Id, dept.Id) == 0) // id's are same
             {
                 await updateFollowing(dept, false); // unfollow
+                StateHasChanged();
                 return;
             }
         }
         await updateFollowing(dept); // follow
+        StateHasChanged();
         return;
-        // send unfollow api request to azure
-        // show "follow" text on button
-        // else (not currently following)
-        // send follow api request to azure
-        // show "unfollow" text on button
     }
 
-    //private async Task FollowDepartment()
-    //{
-    //    HttpClient client = new HttpClient { BaseAddress = new Uri("https://emerge-azure.azurewebsites.net/api/followdept?") };
-
-    //    HttpResponseMessage response = null;
-
-    //    var username = CurrentProfile.currentUser;
-    //    var payloadString = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, MediaTypeNames.Application.Json);
-
-    //    response = await client.PostAsync(client.BaseAddress, payloadString);
-    //}
 
     void showAll()
     {
         showAllDepartments = true;
+        StateHasChanged();
     }
     void showFollowed()
     {
         showAllDepartments = false;
+        StateHasChanged();
     }
 
 
@@ -156,10 +145,12 @@ else
         string updateURI;
         if (follow)
         {
+            CurrentProfile.currentUser.Following.Add(dept);
             updateURI = "https://emerge-azure.azurewebsites.net/api/followdept/" + CurrentProfile.currentUser.Username + "?";
         }
         else
         {
+            CurrentProfile.currentUser.Following.Remove(dept);
             updateURI = "https://emerge-azure.azurewebsites.net/api/unfollowdept/" + CurrentProfile.currentUser.Username + "?";
         }
 
