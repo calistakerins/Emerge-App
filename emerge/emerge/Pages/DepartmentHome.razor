@@ -1,0 +1,262 @@
+﻿@page "/depthome"
+@inherits LayoutComponentBase
+@using emerge.Data
+@using emerge.Controller
+
+@if (feedView)
+{
+    //Newsfeed
+    <MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+        <MudText Typo="Typo.h5">Active Alerts</MudText>
+    </MudAppBar>
+
+
+    <MudMainContent Class="pb-10">
+        <MudContainer MaxWidth="MaxWidth.Medium">
+            @if (true) // :( this is the only way it works. ik its awful
+            {
+                alertList = feedController.getAlertList();
+            }
+            @if (alertList == null)
+            {
+                <MudText Typo="Typo.h6" Style="font-weight:bold" Color="Color.Primary" Class="pt-10">There are no alerts from this department!</MudText>
+            }
+            else
+            {
+                @foreach (var alertInfo in alertList) //loop through alert list
+                {
+                    if(alertInfo.Department != null && String.Compare(DepartmentController.currentDept.Id, alertInfo.Department.Id) == 0)
+                    {
+                        <MudCard Class="mt-8 rounded-xl" Outlined="true"
+                                 @onclick="() => viewAlert(alertInfo)">
+                            <MudCardMedia Image=@alertInfo.ImageUrl Height="300" />
+                            <MudContainer Class="pa-4">
+                                <MudCardHeader>
+                                    <CardHeaderContent>
+                                        @if (alertInfo.Title != null)
+                                        {
+                                            <MudText Typo="Typo.h4" Style="font-weight:bold">@alertInfo.Title</MudText>
+                                        }
+                                        else
+                                        {
+                                            <MudText Typo="Typo.h4" Style="font-weight:bold">No Title</MudText>
+                                        }
+
+                                        @if (alertInfo.Priority != null)
+                                        {
+                                            <MudText Typo="Typo.h6">Priority: @alertInfo.Priority</MudText>
+                                        }
+                                        else
+                                        {
+                                            <MudText Typo="Typo.h6">Priority: 1</MudText>//defaults to 1
+                                        }
+
+                                        @if (alertInfo.Affected != null)
+                                        {
+                                            <MudText Typo="Typo.h6">Affected Area: @alertInfo.generateZipString()</MudText>
+
+
+                                        }
+                                        else
+                                        {
+                                            <MudText Typo="Typo.h6">No Areas Affected</MudText>
+                                        }
+
+                                        @if (alertInfo.Department != null)
+                                        {
+                                            <MudText Typo="Typo.h6" Class="mt-4">@alertInfo.Department.Title</MudText>
+                                        }
+                                        else
+                                        {
+                                            <MudText Typo="Typo.h6">No Department</MudText>
+                                        }
+
+                                        @if (alertInfo.Description != null)
+                                        {
+                                            <MudText Typo="Typo.body1">
+                                                @alertInfo.Description
+                                            </MudText>
+                                        }
+                                        else
+                                        {
+                                            <MudText Typo="Typo.body1">No Description</MudText>
+                                        }
+
+
+                                    </CardHeaderContent>
+                                    <CardHeaderActions>
+                                        @if (alertInfo.Time != null)
+                                        {
+                                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                                @alertInfo.Time.ToString("MM/dd/yyyy")
+                                            </MudText>
+                                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                                @alertInfo.Time.ToString("HH:mm")
+                                            </MudText>
+                                        }
+
+                                    </CardHeaderActions>
+                                </MudCardHeader>
+                            </MudContainer>
+
+                            <MudContainer Class=" pa-4 rounded-b-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten3}; height: 15%; width: 100%")">
+                                @if (alertInfo.Updates != null)
+                                {
+                                    @foreach (var update in alertInfo.Updates) //loop through updates
+                                    {
+                                        <MudCardHeader>
+                                            <CardHeaderContent>
+                                                <MudText Typo="Typo.h6">UPDATE</MudText>
+                                                <MudText Typo="Typo.subtitle1">@update.UpdateDescription</MudText>
+                                            </CardHeaderContent>
+                                            <CardHeaderActions>
+                                                <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                                    @update.UpdateTime.ToString("MM/dd/yyyy")
+                                                </MudText>
+                                                <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                                    @update.UpdateTime.ToString("HH:mm")
+                                                </MudText>
+                                            </CardHeaderActions>
+                                        </MudCardHeader>
+                                    }
+                                }
+
+                            </MudContainer>
+                        </MudCard>
+                        }
+                    }
+
+            }
+        </MudContainer>
+    </MudMainContent>
+    @if (CurrentProfile.currentUser.Admin)
+    {
+        <AdminNavBar />
+    }
+    else
+    {
+        <NavBar />
+
+    }
+}
+
+else
+{
+    //View Alert
+    <MudAppBar Class="pb-2 pt-2" Fixed="false" Elevation="0">
+        <MudIconButton Icon="@Icons.Filled.ArrowBack" @onclick="returnToFeed" Color="Color.Inherit" Edge="Edge.Start" />
+    </MudAppBar>
+
+
+    <MudContainer Class="mt-8">
+        <MudCard Class="ma-8 rounded-xl" Outlined="true">
+            <MudCardMedia Image=@currentAlert.ImageUrl Height="300" />
+            <MudContainer Class="pa-4 ml-4 mr-4">
+                @if (currentAlert.Title != null)
+                {
+                    <MudText Typo="Typo.h3" Style="font-weight:bold">@currentAlert.Title</MudText>
+                }
+                @if (currentAlert.Priority != null)
+                {
+                    <MudText Typo="Typo.h5" Style="font-weight:bold">@currentAlert.Priority</MudText>
+                }
+                @if (currentAlert.Department != null)
+                {
+                    <MudText Typo="Typo.body1" Style="font-weight:bold">@currentAlert.Department.Title</MudText>
+                }
+                @if (currentAlert.Time != null)
+                {
+                    <MudText Typo="Typo.body1">@currentAlert.Time.ToString("MM/dd/yyyy HH:mm")</MudText>
+                }
+                @if (currentAlert.Description != null)
+                {
+                    <MudText Typo="Typo.body1">@currentAlert.Description</MudText>
+                }
+
+            </MudContainer>
+        </MudCard>
+        <MudText Class="ma-8" Typo="Typo.h4"><b>Updates</b></MudText>
+
+        @if (currentAlert.Updates != null)
+        {
+            @foreach (var update in currentAlert.Updates) //loop through updates
+            {
+                <MudContainer Class=" pa-4 my-4 rounded-xl" Style="@($"color:{Colors.Shades.Black}; background:{Colors.Grey.Lighten3}; height: 15%; width: 90%")">
+
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.h6">UPDATE</MudText>
+                            <MudText Typo="Typo.subtitle1">@update.UpdateDescription</MudText>
+                        </CardHeaderContent>
+                        <CardHeaderActions>
+                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                @update.UpdateTime.ToString("MM/dd/yyyy")
+                            </MudText>
+                            <MudText Typo="Typo.subtitle2" Class="ms-4">
+                                @update.UpdateTime.ToString("HH:mm")
+                            </MudText>
+                        </CardHeaderActions>
+                    </MudCardHeader>
+                </MudContainer>
+            }
+        }
+
+    </MudContainer>
+
+}
+
+
+@code {
+    private MudTheme Theme = new MudTheme();
+    public static NewsAlert currentAlert;
+
+    //initalizes a populated NewsFeed
+    private NewsFeedController feedController = new NewsFeedController();
+
+    //if true, 'newsfeed' view; else, 'view alert' view
+    private bool feedView = true;
+
+    //if true, only display followed departments and alert in zipcode;
+    //else, display all alerts
+    private bool viewFollowing = true;
+
+    //list of newsalerts to display
+    private List<NewsAlert> alertList;
+
+
+
+
+    //switches to 'view alert' view
+    private void viewAlert(NewsAlert alertInfo)
+    {
+        feedView = false;
+        currentAlert = alertInfo;
+        StateHasChanged();
+    }
+
+    //switches to 'newsfeed' view
+    private void returnToFeed()
+    {
+        feedView = true;
+        StateHasChanged();
+    }
+
+    //switches between displaying 'all feed' and 'following feed'
+    private void switchFeed()
+    {
+        if (viewFollowing == true)
+        {
+            viewFollowing = false;
+        }
+        else
+        {
+            viewFollowing = true;
+        }
+        StateHasChanged();
+
+    }
+
+
+
+
+}
