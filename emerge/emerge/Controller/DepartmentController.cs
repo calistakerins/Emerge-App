@@ -13,6 +13,7 @@ namespace emerge.Controller
     {
 
         private List<Department> deptList;
+        public static Department currentDept;
         public DepartmentController()
         {
             deptList = new List<Department>();
