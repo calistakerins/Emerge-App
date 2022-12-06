@@ -13,6 +13,7 @@ using System.Linq;
 using MongoDB.Driver;
 using System.Diagnostics;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 
 namespace UserDatabase
 {
@@ -185,23 +186,40 @@ namespace UserDatabase
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
-            var following = JsonConvert.DeserializeObject<Department>(requestBody);
+            Department following = JsonConvert.DeserializeObject<Department>(requestBody);
 
-            var filterDef = Builders<Profile>.Filter.Eq(f => f.Username, username);  //finds the user by username
+            log.LogInformation(following.Id + " " + username);
+
+            var filterDef = Builders<Profile>.Filter.Eq("Username", username);  //finds the user by username
+                                                                                // & Builders<Profile>.Filter.Eq("Following.id", following.Id); //finds the department by id
+
             var updateDef = Builders<Profile>.Update
-                .Pull(p => p.Following, following); //pulls the department from the following list
+               .Pull(p => p.Following, following);
 
-            if (filterDef == null)
-            {
-                return new NotFoundResult();
-            }
+            return new OkObjectResult(collection.UpdateOne(filterDef, updateDef));
 
-            Profile newUpdates = collection.FindOneAndUpdate(filterDef, updateDef); //updates the user
-            newUpdates.Following.Remove(following);  //removes the department from the following list
-            return new OkObjectResult(newUpdates);
+
+            //            var updateDef = Builders<Profile>.Update
+            //                .Pull(p => p.Following, following); //pulls the department from the following list
+            //            var arrayUpdate = Builders<Profile>.Update.Set("Following.$.score", 84.92381029342834);
+            //            // THE ISSUE IS I CANT FILTER A NESTED ARRAY (p.Following is an array, following is a department, so
+            //            // of course pull doesnt delete anything, there is no array that looks like a Department
+            //            // need to find a way to get in to p.Following to pull following with its match.
+
+            //            var deleteLowExamFilter = Builders<BsonDocument>.Filter.ElemMatch<BsonValue>("Following",
+            //     new BsonDocument { { "type", "exam" }, {"score", new BsonDocument { { "$lt", 60 }}}
+            //});
+            //            var arrayFilter = Builders<BsonDocument>.Filter.Eq("f", 10000)
+            //                & 
+            //            if (filterDef == null)
+            //            {
+            //                return new NotFoundResult();
+            //            }
+
+            //            Profile newUpdates = collection.FindOneAndUpdate(filterDef, updateDef);
+            //            newUpdates.Following.Remove(following);
+            //            return new OkObjectResult(newUpdates);
         }
-
-
     }
 }
 
