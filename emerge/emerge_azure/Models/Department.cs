@@ -6,7 +6,7 @@ namespace emerge_azure.Models
 {
     public class Department
     {
-        [JsonProperty(PropertyName = "id")]
+        [JsonProperty(PropertyName = "_id")]
         public string Id { get; set; }
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
