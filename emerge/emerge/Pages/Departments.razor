@@ -21,8 +21,18 @@ else
 <MudContainer Class="mt-16 pb-10" >
     <MudText Typo="Typo.h3" Class="mt-5"><b>Departments</b></MudText>
     <div>
-        <MudButton Variant="Variant.Outlined" OnClick="showFollowed">Followed Departments</MudButton>
-        <MudButton Variant="Variant.Outlined" OnClick="showAll">All Departments</MudButton>
+          <MudContainer Class="d-flex flex-grow-1 gap-4 pa-4">
+            @if (showAllDepartments)
+            {
+                <MudButton Variant="Variant.Filled" OnClick="showFollowed">Followed Departments</MudButton>
+                <MudButton Variant="Variant.Outlined" OnClick="showAll">All Departments</MudButton>
+            }
+            else
+            {
+                <MudButton Variant="Variant.Outlined" OnClick="showFollowed">Followed Departments</MudButton>
+                <MudButton Variant="Variant.Filled" OnClick="showAll">All Departments</MudButton>
+            }
+        </MudContainer>
     </div>
 
     <MudGrid Spacing="10" Class="pa-4 pr-7">
